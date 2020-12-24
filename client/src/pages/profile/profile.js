@@ -7,12 +7,12 @@ import Box1 from "./MainBody/Box1"
 import Box2 from "./MainBody/Box2"
 import Box3 from "./MainBody/Box3"
 import LoadingAnimation from '../../shared/loading'
+import axios from "axios"
 
 
 class Profile extends React.Component {
     constructor(props){
       super(props);
-      this.enableMessage = this.enableMessage.bind(this);
       this.state = {
         id: 0,
         name: "",
@@ -30,40 +30,35 @@ class Profile extends React.Component {
         reviewRating: 0,
         SkillliesEarned: 0,
         badgesReceived: [],
-
         isLoading: true
       };
-
-      this.timer = setTimeout(this.enableMessage,4000);
-
     }
 
-    componentWillUnmount() {
-      clearTimeout(this.timer);
+    componentDidMount() {
+      var username = "Khaleesi";
+      axios.get(`api/users/${username}`).then(res => {
+        console.log("This is profile data read : ", res.data);
+        this.setState({
+          isLoading: false,
+          id: res.data.UserData[0]._id,
+          name: res.data.UserData[0].name,
+          nickName: res.data.UserData[0].username,
+          profileImage: res.data.UserData[0].displayPicture,
+          coverImage: res.data.UserData[0].coverImage,
+          city: res.data.UserData[0].city,
+          country: res.data.UserData[0].country,
+          email: res.data.UserData[0].email,
+          facebookId: res.data.UserData[0].facebookId,
+          twitterId: res.data.UserData[0].twitterId,
+          linkedinId: res.data.UserData[0].linkedinId,
+          aboutMe: res.data.UserData[0].bio,
+          aiRating: res.data.UserData[0].aiRating,
+          reviewRating: res.data.UserData[0].reviewRating,
+          SkillliesEarned: res.data.UserData[0].skilliesEarned,
+          badgesReceived: res.data.UserData[0].badgesReceived
+        })
+      })
     }
-  
-    enableMessage() {
-      this.setState({
-        isLoading: false,
-        id: UserData[0].id,
-        name: UserData[0].name,
-        nickName: UserData[0].nickName,
-        profileImage: UserData[0].profileImage,
-        coverImage: UserData[0].coverImage,
-        city: UserData[0].city,
-        country: UserData[0].country,
-        email: UserData[0].email,
-        facebookId: UserData[0].facebookId,
-        twitterId: UserData[0].twitterId,
-        linkedinId: UserData[0].linkedinId,
-        aboutMe: UserData[0].aboutMe,
-        aiRating: UserData[0].aiRating,
-        reviewRating: UserData[0].reviewRating,
-        SkillliesEarned: UserData[0].SkillliesEarned,
-        badgesReceived: UserData[0].badgesReceived
-      });
-    }
-
 
     render(){
       const pageIsLoading = <LoadingAnimation />

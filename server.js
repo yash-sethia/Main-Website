@@ -24,8 +24,9 @@ connection.once('open', () => {
 const taskRouter = require('./routes/tasks');
 const usersRouter = require('./routes/users');
 
-app.use('/tasks', taskRouter);
-app.use('/users', usersRouter);
+//Backend routes to begin with api
+app.use('/api/tasks', taskRouter);
+app.use('/api/users', usersRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

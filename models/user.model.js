@@ -53,6 +53,7 @@ const userSchema = new Schema({
     },
     skilliesEarned: {
         type: Number
+        // We can set a default value of 0
     },
     badgesReceived: {
         type: Array,
