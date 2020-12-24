@@ -8,6 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  const userID = req.body.userID;
   const username = req.body.username;
   const name = req.body.name;
   const displayPicture = req.body.displayPicture;
@@ -25,6 +26,7 @@ router.route('/add').post((req, res) => {
   const badgesReceived = req.body.badgesReceived;
 
   const newUser = new User({
+      userID,
       username,
       name,
       displayPicture,
