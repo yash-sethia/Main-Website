@@ -1,0 +1,40 @@
+#topnav{
+  background-color: #FFFFFF;
+  top: 0px;
+  display: inline-block;
+  width: 97.4vw;
+  margin-left: 40px;
+  height: 5vh;
+  box-sizing: border-box;
+  color: #707070;
+  position: fixed;
+  z-index: 4;
+}
+
+#logo{
+  padding: 12px 0px;
+}
+/* Icons that are to be moved to the right */
+#name, #profile, #notifications, #search{
+  float: right;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 30px;
+}
+/* small profile image */
+#profile-image{
+  height: 30px;
+  border-radius: 50%;
+}
+/* id for the a tag of profile image */
+#profile{
+  padding: 5px 0px;
+  margin-left: 50px;
+}
+/* Name of the user  */
+#name{
+  padding: 8px 0px;
+  font-size: 20px;
+  padding-right: 40px;
+  margin-left: 15px;
+}

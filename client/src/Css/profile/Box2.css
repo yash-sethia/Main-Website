@@ -1,0 +1,32 @@
+.Box-2{
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 8px 8px #C2C2C2;
+  padding-top: 4vh;
+  padding-left: 1vw;
+  padding-bottom: 5px;
+  padding-right: 1vw;
+}
+.Skilllies-Earned{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px black solid;
+}
+.Skilllies-Heading{
+  font-size: 23px;
+  padding-bottom: 4vh;
+}
+#Skilllies-Earned{
+  font-size: 34px;
+  margin-left: 3.2vw;
+  margin-top: -1.1vh;
+}
+.Bagdes-Recieved{
+  font-size: 24px;
+  padding-top: 4vh;
+}
+.Badges-List{
+  list-style-type: none;
+  padding-left: 0;
+  opacity: 90%;
+}

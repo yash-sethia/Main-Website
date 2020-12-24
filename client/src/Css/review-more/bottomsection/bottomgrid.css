@@ -1,0 +1,296 @@
+/******************Bottom Grid*******************/
+
+.bottom-grid-article {
+    display: flex;
+  }
+  
+  
+  /*********************** Bottom Grid - Right Grid (Trending on Skilly) ******************/
+  
+  .right-grid {
+    margin-top: 7vh;
+    border-left: 1px solid black;
+  }
+  
+  .grid-head{
+    font-size: 1.6rem;
+    padding: 3%;
+    padding-left: 8%;
+  }
+  
+  
+  .right-grid-tile {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+  
+  .trending-articles {
+    margin-top: 2%;
+    display: flex;
+  }
+
+  .rank {
+    font-size: 2rem;
+    align-self: center;
+    margin: 0 4%;
+  }
+  
+  
+  .trending-articles-image{
+    width: 24vh;
+    height: 18vh;
+  }
+  
+  .trending-article-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 3%;
+  }
+  
+  
+  .trending-article-content-heading{
+    font-size: 1rem;
+  }
+  .trending-article-content-text{
+    font-size: 0.6rem;
+  }
+  .trending-article-content-details{
+    display: flex;
+    font-size: 0.5rem;
+    margin-top: 1vh;
+  }
+  .trending-article-content-date{
+    flex: 1;
+  }
+  .trending-article-content-length{
+    flex: 1;
+    text-align: right;
+  }
+  
+  /******************Bottom Grid : Left Sub Grid ********************/
+  
+  
+  .leftgrid{
+    display: flex;
+    flex-direction: column;
+    padding-right: 4vw;
+  }
+  
+  .left-grid-tile {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .genre {
+    border-bottom: 1px solid black;
+  }
+  
+  .genre-articles {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 4vh;
+  }
+  
+  .left-grid-content {
+    margin-top: -6px;
+  }
+
+  .genre-heading{
+    font-size: 24px;
+    text-align: center;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+  
+  .genre-article-image{
+    width: 13vw;
+    height: 20vh;
+    margin-bottom: 1rem;
+  }
+  
+  .genre-article-heading{
+    font-size: 1.2rem;
+  }
+  .genre-article-text{
+    font-size: 0.8rem;
+  }
+
+  .genre-article-details {
+    display: flex;
+    font-size: 0.6rem;
+    padding: 1vh 0;
+    /* margin-top: 10vh; */
+    bottom: 0;
+  }
+
+  .genre-article-date{
+    flex: 1;
+  }
+
+  .genre-article-read-time{
+    flex: 1;
+    text-align: right;
+    margin-right: 0.5vw;
+    right: 0%;
+  }
+  
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*************************** Media Queries ******************************************/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////*/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .genre-article-image {
+    width: 90%;
+    height: 8rem;
+    margin-left: 5%;
+  }
+
+  .genre-articles {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 4vh; 
+  }
+
+  .genre-article-details {
+    bottom: 0;
+  }
+
+  /************* Right Sub Grid *****************/
+
+  .grid-container-2 {
+    margin-left: 4%; 
+  }
+
+  .grid-head {
+    margin-left: 20%;
+  }
+
+  .right-grid {
+    border: 0px;
+  }
+
+  .trending-articles-image {
+    height: 24vh;
+    width: 32vh;
+  }
+
+  .trending-article-content-details{
+    display: flex;
+    font-size: 0.5rem;
+    margin-top: 10vh;
+  }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .genre-article-image {
+    width: 90%;
+    height: 8rem;
+    margin-left: 5%;
+  }
+
+  .genre-articles {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 4vh; 
+  }
+
+  /************* Right Sub Grid *****************/
+  
+  .grid-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+  }
+
+  .grid-container-2 {
+    margin-left: -2.5%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .right-grid {
+    padding-bottom: 2rem;
+    border-left: 0px;
+    border-bottom: 1px black solid;
+  }
+
+  .rank {
+    font-size: 2.rem;
+    align-self: center;
+    margin: 0 4%;
+  }
+  
+  
+  .trending-articles-image{
+    width: 32vh;
+    height: 24vh;
+  }
+  
+  .trending-article-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 3%;
+  }
+  
+  
+  .trending-article-content-heading{
+    font-size: 1.3rem;
+  }
+  .trending-article-content-text{
+    font-size: 1rem;
+  }
+  .trending-article-content-details{
+    display: flex;
+    font-size: 0.5rem;
+    margin-top: 1vh;
+  }
+  .trending-article-content-date{
+    flex: 1;
+  }
+  .trending-article-content-length{
+    flex: 1;
+    text-align: right;
+  }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  .left-grid-tile {
+    width: 95%;
+    margin-left: 7%;
+  }
+  .genre-article-image {
+    width: 90%;
+    height: 8.5rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+
+  .genre-article-details {
+    width: 95%;
+    margin-top: 2vh;
+  }
+}
+
+  

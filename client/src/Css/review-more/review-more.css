@@ -1,0 +1,19 @@
+#main-body{
+  width: 95%;
+  box-sizing: border-box;
+  padding-left: 7vw;
+  padding-top: 10vh;
+  margin-bottom: 30px;
+}
+
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  #main-body {
+    padding-left: 10vh;
+  }
+}
+
+
+

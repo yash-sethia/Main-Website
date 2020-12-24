@@ -1,0 +1,67 @@
+.buttons {
+	flex: 1;
+	margin-top: 4vh;
+	display: flex;
+}
+
+.not-now-button {
+	flex: 1;
+	align-self: center;
+	height: auto;
+	margin-right: 3%;
+	margin-left: 30%;
+	border-radius: 2em;
+	border: 1px solid black;
+	font-size: 120%;
+	padding: 0.3rem;
+}
+
+.to-editor-button {
+	flex: 1;
+	align-self: center;
+	height: auto;
+	margin-right: 30%;
+	margin-left: 3%;
+	border-radius: 2em;
+	border: 1px solid black;
+	background: #D5EDFF;
+	font-size: 120%;
+	padding: 0.3rem;
+}
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+	.to-editor-button {
+		font-size: 0.6rem;
+	}
+	.not-now-button {
+		font-size: 0.6rem;
+	}
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.to-editor-button {
+		font-size: 0.8rem;
+	}
+	.not-now-button {
+		font-size: 0.8rem;
+	}
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.to-editor-button {
+		font-size: 1rem;
+	}
+	.not-now-button {
+		font-size: 1rem;
+	}
+}
+
+/* Extra Large devices (Laptops and desktops 1400px and up) */
+@media only screen and (min-width: 1400px) {
+	.buttons {
+		margin-top: 1vh;
+	}	
+}
+

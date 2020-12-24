@@ -1,0 +1,17 @@
+.Box-3{
+  padding-left: 10px;
+  padding-top: 25px;
+  padding-right: 40px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 8px 8px #C2C2C2;
+}
+.About-Me-Heading{
+  font-size: 30px;
+  padding: 10px;
+}
+.About-Me-Details{
+  font-size: 20px;
+  padding: 10px 10px 30px 10px;
+  opacity: 90%;
+}

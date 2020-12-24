@@ -1,0 +1,17 @@
+
+.article-heading-reviewpage{
+    font-size: 42px;
+    font-weight: bold;
+  }
+
+  .article-sub-heading{
+    font-size: 26px;
+    opacity: 60%;
+  }
+  .img{
+    width: auto;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 50vw;
+  }

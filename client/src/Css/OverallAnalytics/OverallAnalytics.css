@@ -1,0 +1,201 @@
+
+.total-grid-oa {
+  padding-left: 40px;
+  padding-top: 40px;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1.5fr 2.7fr 2.3fr 1fr;
+  grid-template-areas:
+	  "main-body main-body main-body"
+	  "overview overview overview"
+	  "content1 content1 content2"
+	  "content3 content3 content4"
+	  "footer footer footer";
+
+}
+
+
+#task-nav a{
+  text-decoration: None;
+  color: #BDBDBD;
+}
+
+.active{
+  color: #060606!important;
+}
+
+
+
+.page-title{
+	grid-area: main-body;
+	padding: inherit;
+	color: black;
+}
+
+
+.overview {
+	padding: 2% 0 0;
+	margin: 0;
+	background: #F2FAFF;
+	grid-area: overview;
+	width: 100%;
+	display: flex;
+}
+
+.overview-box {
+	box-sizing: border-box;
+	height: 75%;
+	padding: 1%;
+	/* CHECK IF WIDTH should not be 100% */
+	width: 94%;
+	background: white;
+	margin: auto auto 2% 4%;
+	border-radius: .8em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0 0.2rem 9px rgba(0, 0, 0, 0.1);
+}
+
+.individual-box{
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+}
+
+.stat{
+	width: 50%;
+	display: block;
+}
+
+.stat-heading{
+	color: #a6a6a6;
+	font-weight: 200;
+	font-size: 1rem;
+}
+
+.stat-value {
+	font-weight: 480;
+	font-size: 170%;
+}
+
+.stat-value span {
+	font-weight: 200;
+	font-size: 50%;
+	color: #009933;
+}
+
+
+.stat-graph img{
+	width: 80%;
+	align-self: right;
+	justify-content: center;
+/*	You guys might want to change that*/
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+
+.content1 {
+	grid-area: content1;
+	padding-top: 1%;
+	padding-bottom: 2%;
+	padding-left: 6%;
+	padding-right: 3%;
+}
+
+
+.content2 {
+	padding-top: 1%;
+	padding-bottom: 2%;
+	padding-right: 6%;
+	padding-left: 3%;
+}
+
+
+.content-box {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	background: white;
+	border-radius: .8em;
+	box-shadow: 0 0.2rem 9px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	display: flex;
+	flex-direction: column;;
+}
+
+
+.entry{
+	border: solid 1px #e6e6e6;
+	padding: 1% 2.5%;
+	margin: 0.7% 2%;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+
+}
+
+
+
+.task-and-status{
+	margin-top: 2%;
+	line-height: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.task-status{
+	color: #a6a6a6;
+	font-size: 0.6rem;
+}
+
+.task-title{
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+
+.transaction-stat{
+	font-weight: 400;
+	color: #009933;
+	align-self: center;
+	width: 50%;
+	text-align: right;
+}
+
+
+
+.content3{
+	grid-area: content3;
+	height: 100%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 6%;
+	padding-right: 3%;
+	margin-bottom: 2%;
+}
+
+
+.content4{
+	grid-area: content4;
+	margin-bottom: 2%;
+	height: 100%;
+	padding-top: 2%;
+	padding-bottom: 1%;
+	padding-right: 6%;
+	padding-left: 3%;
+}
+
+
+
+
+.footer {
+	background: #d9d9d9;
+	grid-area: footer;
+	height: 90%;
+	align-self: flex-end;
+}

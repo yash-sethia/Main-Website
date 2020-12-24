@@ -1,0 +1,163 @@
+.total-grid-read-review {
+    padding-left: 2.5rem;
+    padding-top: 2.5rem;
+    display: grid;
+    height: 23.8vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  2.5fr;
+    grid-template-areas: 
+        "main-body main-body";     
+  }
+  
+  
+  .headings{
+      background: auto;
+      width: 80%;
+      padding-left: 1.5rem;
+      grid-area: main-body;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    
+  }
+  
+  #task-nav-read-review{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+  }
+
+  #task-nav-read-review a{
+    text-decoration: None;
+    color: #BDBDBD;
+  }
+
+  .active{
+    color: #060606!important;
+  }
+  
+  
+  .read-reviews {
+      padding-left: 5.5rem;
+      padding-top: 1.5rem;	
+  }
+
+  
+  .content-box-review-box {
+      box-sizing: border-box;
+      width: 94%;
+      height: auto;
+      background: white;
+      border-radius: .8em;
+      box-shadow: 0 0.2rem 9px rgba(0, 0, 0, 0.13);
+  }
+  
+  .individual-review-box {
+      padding: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .individual-review-box h2 {
+      font-weight: 400;
+      font-size: 170%;
+      margin: 0;
+  }
+  
+  .review-box-heading {
+      padding: 0;
+      margin: 0;
+      border-bottom-style: solid;
+      border-bottom-color: #BDBDBD; 
+      border-bottom-width: thin;
+  }
+  
+  .review-block {
+      padding-top: 1em;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .question-read-review {
+      font-size: 130%;
+      padding-bottom: 0.4em;
+  }
+
+  .review-image-given img {
+      height: 10rem;
+      width: 10rem;
+      float: right;
+      margin: 1.5rem 1rem 0.5rem 1.5rem;
+  }
+
+  .review-text {
+    color: #4d4d4d;
+  }
+  
+  .footer {
+      background: gray;
+      width: 100;
+      bottom: 0;
+      height: 3rem;
+  }  
+
+
+  /* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    #task-nav-read-review {
+      font-size: 0.8rem;
+      width: 70%;
+    }
+
+    .individual-review-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .question-read-review {
+        font-size: 1.1rem;
+    }
+
+    .review-text {
+        font-size: 0.8rem;
+    }
+
+    .review-image-given img {
+        height: 8rem;
+        width: 8rem;
+    }
+
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    #task-nav-read-review {
+      font-size: 0.8rem;
+      width: 60%;
+    }
+
+    .individual-review-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .question-read-review {
+        font-size: 1.2rem;
+    }
+
+    .review-text {
+        font-size: 0.9rem;
+    }
+
+    .review-image-given img {
+        height: 9rem;
+        width: 9rem;
+    }
+  }
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {  
+    #task-nav-read-review {
+      font-size: 0.9rem;
+      width: 50%;
+    }
+  }
+  

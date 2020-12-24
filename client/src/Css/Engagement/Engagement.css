@@ -1,0 +1,198 @@
+
+
+.total-grid-engagementpage {
+	padding-left: 40px;
+	padding-top: 40px;
+	display: grid;
+	/* height: 100vh; */
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows:  1fr 1.5fr 1.7fr 0.5fr;
+	grid-template-areas:
+		"main-body main-body main-body main-body main-body"
+		"engagementoverview engagementoverview engagementoverview engagementoverview engagementoverview"
+		"engagementpage-box engagementpage-box engagementpage-box engagementpage-box engagementpage-box"
+		"footer footer footer footer footer";
+
+  }
+
+
+  .headings{
+      background: auto;
+      width: 80%;
+      padding-left: 20px;
+      grid-area: main-body;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+  }
+
+  #task-nav-engagementpage{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+  }
+
+
+  #task-nav-engagementpage a{
+    text-decoration: None;
+    color: #BDBDBD;
+  }
+
+
+  .active{
+    color: #060606!important;
+  }
+
+.engagementpage {
+	padding: 2% 0 2% 0;
+	margin: 0;
+	grid-area: engagementoverview;
+	width: 100%;
+	display: flex;
+}
+
+.engagementpage-box {
+	box-sizing: border-box;
+	height: 75%;
+	padding: 1%;
+	/* CHECK IF WIDTH should not be 100% */
+	width: 94%;
+	background: white;
+	margin: 0 auto 2% 4%;
+	border-radius: .8em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0 0.2rem 9px rgba(0, 0, 0, 0.1);
+}
+
+.individual-box-engagementpage{
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.box-heading-engagementpage{
+	font-size: 1.3rem;
+	font-weight: 400;
+	padding: 2%;
+}
+
+	.box-heading-engagementpage h3{
+		margin: 0;;
+	}
+
+.box-value{
+	font-weight: 400;
+	font-size: 1.3rem;
+	align-self: center;
+}
+
+
+.engagementpage-gif-box{
+	grid-area: engagementpage-box;
+	display: flex;
+	flex-direction: row;
+	width: 94%;
+	height: 100%;
+	margin: auto auto 4% 4%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* MIGHT WANT TO REMOVE THIS ONCE WE INCLUDE IMAGES */
+
+.engagementpage-content{
+	height: 100%;
+}
+
+
+.content-box {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	/* background: white; */
+	border-radius: .8em;
+	box-shadow: 0 0.2rem 9px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 1%;
+}
+
+.gif {
+	background-color: grey;
+	height: 100%;
+	width: 100%;
+}
+
+.reaction-count{
+	justify-content: flex-end;
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+	.article-topic-engagement h1 {
+	  font-size: 1.6rem;
+	}
+  
+	#task-nav-engagementpage {
+	  font-size: 0.8rem;
+	  width: 70%;
+	}
+
+	.box-heading-engagementpage {
+		font-size: 0.9rem;
+	}
+
+	.box-heading-engagementpage h3{
+		font-size: 1rem;
+	}
+
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.article-topic-engagement h1 {
+	  font-size: 1.8rem;
+	}
+  
+	#task-nav-engagementpage {
+	  font-size: 0.8rem;
+	  width: 60%;
+	}
+
+	.box-heading-engagementpage {
+		font-size: 1.1rem;
+	}
+
+	.box-heading-engagementpage h3{
+		font-size: 1.2rem;
+	}
+
+  }
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.article-topic-engagement h1 {
+	  font-size: 2rem;
+	}
+  
+	#task-nav-engagementpage {
+	  font-size: 0.9rem;
+	  width: 50%;
+	}
+
+	.box-heading-engagementpage {
+		font-size: 1.3rem;
+	}
+
+	.box-heading-engagementpage h3{
+		font-size: 1.5rem;
+	}
+  }
+  
+  

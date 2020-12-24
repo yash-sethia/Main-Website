@@ -1,0 +1,221 @@
+
+.total-grid {
+  margin-left: 2.6vw;
+  /* Earlier it was 5.54vh */
+  padding-top: 16.54vh; 
+  width: inherit;
+}
+
+
+.headings{
+	background: auto;
+	width: 80%;
+	padding-left: 23px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+  margin-bottom: 1%;
+
+}
+.headings h1{
+  margin-bottom: 10px;
+}
+#task-nav{
+  display: flex;
+  width: 45%;
+	justify-content: space-between;
+}
+#task-nav a{
+  text-decoration: None;
+  color: #BDBDBD;
+}
+.active{
+  color: #060606 !important;
+  color: #060606 !important;
+}
+.tasks{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 6%;
+}
+.tasks div{
+  background-color: #FFFFFF;
+}
+
+.quick-view{
+  width: 90%;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 4%;
+  background-color: #FFFFFF;
+}
+
+.article-dashboard{
+  background-color: #FFFFFF;
+  color: black;
+  margin-left: auto;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 20px 10px 10px 10px;
+  text-align: center;
+}
+
+.task-tile-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tasklogo{
+  float:left;
+  height: 40px;
+  width: 40px;
+  display: inline;
+  margin: 0 1rem 0 0;
+}
+
+/* The heading/topic of each article */
+
+
+.article-topic{
+  display: inline;
+  text-decoration: none;
+
+}
+.article-topic h3{
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 0px 0px 10px 0px;
+  font-size: 1.25rem;
+}
+/* All the details of the article */
+.article-details{
+  font-size: 14px;
+  text-align: left;
+}
+.article-details p{
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+/* the word progress written and the percentage mentioned */
+.progress-dashboard{
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+/* A general class for float right */
+.fright{
+  float: right;
+}
+/* outer box of theprogress bar */
+.progressbar {
+  background-color: #BDBDBD;
+  border-radius: 4px;
+}
+/* the bar representing progress */
+.progressbar>div {
+  background-color: orange;
+  width: 40%;
+  height: 8px;
+  border-radius: 5px;
+}
+/* all the views comments and time taken */
+.engagement{
+  font-size: 10px;
+  margin-top: 10px;
+  color: #b5b5b5;
+}
+/* the rightmost box containing past transactions and donut chart */
+.quickv{
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 15px 20px;
+}
+h3{
+  margin: 0px;
+}
+#donut-chart img{
+  width: 90%;
+}
+#donut-chart{
+  padding: 0px 60px 20px;
+}
+.rule{
+  align-self: center;
+  width: 95%;
+}
+#past-transactions{
+  padding-left: 5px;
+  padding-top: 20px;
+}
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .total-grid {
+    padding-left: 1rem;
+  }
+  .headings h1{
+    font-size: 1.4rem;
+  }
+  #task-nav a {
+    font-size: 12px;
+  }
+  .article-topic h3 {
+    font-size: 1rem;
+    /* margin-top: 0.2rem; */
+  }
+  .article-details {
+    font-size: 10px;
+    margin-top: 0.2rem;
+  }
+  .tasklogo {
+    height: 27px;
+    width: 27px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .total-grid {
+    padding-top: 18vh;
+    padding-left: 1rem;
+  }
+  .headings h1{
+    font-size: 1.5rem;
+  }
+  #task-nav a {
+    font-size: 14px;
+  }
+
+  .article-topic h3 {
+    font-size: 1rem;
+    /* margin-top: 0.2rem; */
+  }
+  .article-details {
+    font-size: 12px;
+    margin-top: 0.2rem;
+  }
+  .tasklogo {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .headings h1{
+    font-size: 2rem;
+  }
+  #task-nav a {
+    font-size: 16px;
+  }
+  .article-topic h3 {
+    font-size: 1.15rem;
+    margin-top: 0.4rem;
+  }
+  .article-details {
+    font-size: 13px;
+    margin-top: 0.2rem;
+  }
+}

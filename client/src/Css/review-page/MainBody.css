@@ -1,0 +1,46 @@
+  body{
+    background-color: #f5f5f5;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+
+  #main-body-reviewpage{
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 40px;
+    margin-bottom: 30px;
+  }
+  .flex-container-reviewpage{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 3vw 10vw 0 10vw;
+  }
+
+
+  .button-reviewpage{
+    background-color: #0092FF;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 10rem;
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem ;
+    align-self: center;
+  }
+  .article-text-reviewpage {
+      height: auto;
+      font-size: 20px;
+      opacity: 90%;
+  }
+
+  .article-text{
+      font-size: 20px;
+      opacity: 90%;
+    }

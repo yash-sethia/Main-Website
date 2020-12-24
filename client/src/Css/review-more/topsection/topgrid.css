@@ -1,0 +1,97 @@
+.topgrid-review-more {
+    margin: 20% 5%;
+    height: auto;
+    border-bottom: 1px solid black;
+  }
+
+  /*************Top Grid Big Tile ********************/
+
+  .big-tile-article{
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .big-tile-article-image{
+    width: auto;
+    height: 22vh;
+  }
+  .big-tile-article-heading{
+    font-size: 1.5rem;
+  }
+
+  .big-tile-article-details{
+    display: flex;
+    font-size: 0.6rem;
+    margin-top: 3.5vh;
+  }
+  .big-tile-article-date{
+    flex: 1;
+  }
+  .big-tile-article-length{
+    flex: 1;
+    text-align: right;
+  }
+
+  /*****************Top Grid Small Tiles ********************/
+
+  .small-tile-articles {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .small-tile-articles-image{
+    width: 34vh;
+    height: 22vh;
+  }
+
+  .small-tile-article-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 3%;
+  }
+
+
+  .small-tile-article-content-heading{
+    font-size: 1rem;
+  }
+  .small-tile-article-content-text{
+    font-size: 0.7rem;
+  }
+  .small-tile-article-content-details{
+    display: flex;
+    font-size: 0.5rem;
+    margin-top: 4vh;
+  }
+  .small-tile-article-content-date{
+    flex: 1;
+  }
+  .small-tile-article-content-length{
+    flex: 1;
+    text-align: right;
+  }
+
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .big-tile-article-image {
+    width: auto;
+    height: 45vh;
+  }
+  .small-tile-articles {
+    display: flex;
+    flex-direction: column;
+  }
+  .small-tile-articles-image{
+    width: 52vh;
+    height: 30vh;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .big-tile-article-image {
+    width: auto;
+    height: 45vh;
+  }
+}

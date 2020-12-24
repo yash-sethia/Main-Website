@@ -1,0 +1,43 @@
+
+.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* height: 100%; */
+	position: absolute;
+    top: 42%;
+    left: 48%;
+}
+
+.bounce {
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	width: 100px;
+	height: 100px;
+}
+
+.bounce div {
+	width: 20px;
+	height: 20px;
+	background: #D5EDFF !important;
+	border-radius: 50%;
+	animation: bounce 0.5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+}
+
+.bounce div:nth-child(2) {
+	animation-delay: 0.1s;
+}
+.bounce div:nth-child(3) {
+	animation-delay: 0.2s;
+}
+.bounce div:nth-child(4) {
+	animation-delay: 0.3s;
+}
+
+
+@keyframes bounce {
+	from { transform: translateY(0)}
+	to { transform: translateY(-100px)}
+}
