@@ -19,13 +19,17 @@ const userSchema = new Schema({
     },
     displayPicture: {
         type: String,
+        // We need to have a by default image 
     },
     coverImage: {
         type: String
+        // We need to have a by default image 
     },
     bio: {
         type: String,
-        maxlength: 100
+        maxlength: 200,
+        minlength: 50,
+        required: true
     },
     city: {
         type: String
@@ -34,7 +38,10 @@ const userSchema = new Schema({
         type: String
     },
     email: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
     },
     facebookId: {
         type: String
@@ -47,9 +54,11 @@ const userSchema = new Schema({
     },
     reviewRating: {
         type: Number
+        // We can set a default value of 0
     },
     aiRating: {
         type: Number
+        // We can set a default value of 0
     },
     skilliesEarned: {
         type: Number
@@ -60,6 +69,7 @@ const userSchema = new Schema({
         items: {
             type: String
         }
+        //Set up default value ?
     }
 
     }
