@@ -7,6 +7,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+//Check Check
+
 app.use(cors());
 app.use(express.json());
 
@@ -24,6 +26,9 @@ const profileRouter = require('./routes/profile');
 
 app.use('/tasks', taskRouter);
 app.use('/profile', profileRouter);
+
+app.use('/api/tasks', taskRouter);
+app.use('/api/profile', profileRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
