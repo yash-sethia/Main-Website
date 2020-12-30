@@ -1,9 +1,9 @@
 const router = require('express').Router();
-let Profile = require('../models/profile.model');
+let User = require('../models/user.model');
 
 router.route('/:username').get((req, res) => {
-  Profile.find({username : req.params.username})
-    .then(profile => res.json( {ProfileData : profile} ))
+  User.find({username : req.params.username})
+    .then(users => res.json( {UserData : users} ))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -25,7 +25,7 @@ router.route('/add').post((req, res) => {
   const skilliesEarned = req.body.skilliesEarned;
   const badgesReceived = req.body.badgesReceived;
 
-  const newProfile = new Profile({
+  const newUser = new User({
       userID,
       username,
       name,
@@ -44,8 +44,8 @@ router.route('/add').post((req, res) => {
       badgesReceived,
     });
 
-  newProfile.save()
-    .then(() => res.json('Profile Data added!'))
+  newUser.save()
+    .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

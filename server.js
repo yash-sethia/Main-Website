@@ -22,13 +22,15 @@ connection.once('open', () => {
 })
 
 const taskRouter = require('./routes/tasks');
-const profileRouter = require('./routes/profile');
+const usersRouter = require('./routes/users');
+const articleRouter = require('./routes/articles');
+const reviewsRouter = require('./routes/reviews');
 
-app.use('/tasks', taskRouter);
-app.use('/profile', profileRouter);
-
+//Backend routes to begin with api
 app.use('/api/tasks', taskRouter);
-app.use('/api/profile', profileRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/articles', articleRouter);
+app.use('/api/reviews', reviewsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

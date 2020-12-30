@@ -52,7 +52,25 @@ const userSchema = new Schema({
     linkedinId: {
         type: String
     },
-    
+    reviewRating: {
+        type: Number
+        // We can set a default value of 0
+    },
+    aiRating: {
+        type: Number
+        // We can set a default value of 0
+    },
+    skilliesEarned: {
+        type: Number
+        // We can set a default value of 0
+    },
+    badgesReceived: {
+        type: Array,
+        items: {
+            type: String
+        }
+        //Set up default value ?
+    }
 
     }
 );

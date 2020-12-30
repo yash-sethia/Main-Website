@@ -3,15 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
-
-    articleTitle: {
+    
+    taskId: {
         type: String
     },
-    articleDesc : {
+    taskName: {
+        type: String
+    },
+    taskDesc : {
         type: String  
     },
-    articleImages: {
-        //   Don't know what to write   
+    taskLogo: {
+        type: String   
     }
 
     }
