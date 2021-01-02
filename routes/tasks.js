@@ -7,6 +7,9 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+
+// What is this doing ? username, Date, Duration schema mei nhi h!!!.
+// Add taskId ka random logic as well. May be a auto incrrmenting mode or something ? 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
