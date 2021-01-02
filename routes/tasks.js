@@ -31,6 +31,8 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// We don't really need this one as we can directly edit / delete from database 
+
 router.route('/:id').delete((req, res) => {
   Task.findByIdAndDelete(req.params.id)
     .then(() => res.json('Task deleted.'))
