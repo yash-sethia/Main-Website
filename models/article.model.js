@@ -7,49 +7,74 @@ const articleSchema = new Schema({
         type: String
     },
     articleTitle: {
-        type: String
+        type: String,
+        minlength: 10
     },
     articleContent: {
-        type: String
+        type: String,
+        minlength: 100
     },
     articleImages: {
         type: String
         //Not sure what type of data is here
     },
     progress: {
-        type: Number
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100
     },
     daysSpent: {
-        type: Number
+        type: Number,
+        default: 0
     },
     noOfViews: {
-        type: Number
+        type: Number,
+        default: 0
     },
     noOfReviews: {
-        type: Number
+        type: Number,
+        default: 0
     },
     reviewRating: {
-        type: Number
-        // We can set a default value of 0
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 5
     },
     aiRating: {
-        type: Number
-        // We can set a default value of 0
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 5
     },
     aiRating_1: {
-        type: Number                   //Readabilty
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100                   //Readabilty
     },
     aiRating_2: {
-        type: Number                   //TBD
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100                   //TBD
     },
     aiRating_3: {
-        type: Number                   //TBD
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100                   //TBD
     },
     aiRating_4: {
-        type: Number                   //TBD
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100                   //TBD
     },
     skilliesEarned: {
-        type: Number
+        type: Number,
+        default: 0
         // We can set a default value of 0
     },
 

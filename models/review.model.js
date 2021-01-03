@@ -8,13 +8,16 @@ const reviewSchema = new Schema({
         type: String
     },
     positiveReview: {
-        type: String
+        type: String,
+        minlength: 50
     },
     negativeReview : {
-        type: String  
+        type: String,
+        minlength: 50  
     },
     rating: {
-        type: Number   
+        type: Number
+        // Define minimum and maximum length. Also this comes from a slider to uske hisaab se inska min and max banega   
     }
 
     }
