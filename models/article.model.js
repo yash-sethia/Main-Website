@@ -12,7 +12,8 @@ const articleSchema = new Schema({
     },
     articleContent: {
         type: String,
-        minlength: 100
+        minlength: 100,
+        type: String
     },
     articleImages: {
         type: String
@@ -70,7 +71,9 @@ const articleSchema = new Schema({
         type: Number,
         default: 0,
         min: 0,
-        max: 100                   //TBD
+        max: 100,                   //TBD
+        type: Number
+        // Set default as 0
     },
     skilliesEarned: {
         type: Number,

@@ -16,8 +16,8 @@ const reviewSchema = new Schema({
         minlength: 50  
     },
     rating: {
+        // Define minimum and maximum length. Also this comes from a slider to uske hisaab se inska min and max banega
         type: Number
-        // Define minimum and maximum length. Also this comes from a slider to uske hisaab se inska min and max banega   
     }
 
     }
