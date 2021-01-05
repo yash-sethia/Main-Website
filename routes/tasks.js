@@ -3,7 +3,7 @@ let Task = require('../models/task.model');
 
 router.route('/').get((req, res) => {
   Task.find()
-    .then(tasks => res.json(tasks))
+    .then(tasks => res.json({taskData : tasks}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

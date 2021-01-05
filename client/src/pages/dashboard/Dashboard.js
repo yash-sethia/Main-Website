@@ -5,6 +5,8 @@ import LoadingAnimation from '../../shared/loading'
 import TaskTileGrid from './taskTilesGrid'
 import data from '../../data/DashboardData'
 
+import axios from 'axios'
+
 class Dashboard extends React.Component {
     constructor() {
         super();
@@ -25,6 +27,20 @@ class Dashboard extends React.Component {
   enableMessage() {
     this.setState({displayMessage: true, isLoading: false});
   }
+
+  // componentDidMount() {
+  //   axios.get('api/tasks/').then(res => {
+  //     this.setState({
+  //       articleinfo: {
+  //         cssId: res.taskData.taskId,
+  //         heading: res.taskData.taskName,
+  //         brief: res.taskData.taskDesc,
+  //         logo: res.taskData.taskLogo
+  //       }
+  //     })
+  //   })
+  // }
+
 
     render() {
 

@@ -1,6 +1,9 @@
 const router = require('express').Router();
 let User = require('../models/article.model');
 
+
+// Need a route that returns all the articles of a user given that we pass user Id only (User Id is mixed with TaskId in articleId)
+
 router.route('/:articleID').get((req, res) => {
   Article.find({articleID : req.params.articleID})
     .then(articles => res.json( {ArticleData : articles} ))
@@ -8,9 +11,9 @@ router.route('/:articleID').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const articleID = req.body.articleID;
+  const articleID = req.body.articleID; // User Id + Task Id 
   const articleTitle = req.body.articleTitle;
-  const articleContent = req.body.articleContent;
+  const articleContent = req.body.articleContent; // How to divide into paragraph ???
   const articleImages = req.body.articleImages;
   const progress = req.body.progress;
   const daysSpent = req.body.daysSpent;

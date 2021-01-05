@@ -2,6 +2,7 @@ import React from "react"
 import { NavLink, Link } from "react-router-dom";
 import TaskRow from './taskrow'
 import Grid from '@material-ui/core/Grid';
+import axios from "axios";
 
 
 class TaskTileGrid extends React.Component {
@@ -19,6 +20,69 @@ class TaskTileGrid extends React.Component {
             task9: this.props.articleinfo[8]
         };
     }
+
+    // componentDidMount() {
+    //     // Conditional rendering for tasks not done !
+    //     axios.get('api/tasks/').then(res => {
+    //         axios.get('')
+    //       this.setState({
+    //         task1: {
+    //           cssId: res.taskData[0].taskId,
+    //           heading: res.taskData[0].taskName,
+    //           brief: res.taskData[0].taskDesc,
+    //           logo: res.taskData[0].taskLogo
+    //         },
+    //         task2: {
+    //             cssId: res.taskData[1].taskId,
+    //             heading: res.taskData[1].taskName,
+    //             brief: res.taskData[1].taskDesc,
+    //             logo: res.taskData[1].taskLogo
+    //         },
+    //         task3: {
+    //             cssId: res.taskData[2].taskId,
+    //             heading: res.taskData[2].taskName,
+    //             brief: res.taskData[2].taskDesc,
+    //             logo: res.taskData[2].taskLogo
+    //         },
+    //         task4: {
+    //             cssId: res.taskData[3].taskId,
+    //             heading: res.taskData[3].taskName,
+    //             brief: res.taskData[3].taskDesc,
+    //             logo: res.taskData[3].taskLogo
+    //         },
+    //         task5: {
+    //             cssId: res.taskData[4].taskId,
+    //             heading: res.taskData[4].taskName,
+    //             brief: res.taskData[4].taskDesc,
+    //             logo: res.taskData[4].taskLogo
+    //         },
+    //         task6: {
+    //             cssId: res.taskData[5].taskId,
+    //             heading: res.taskData[5].taskName,
+    //             brief: res.taskData[5].taskDesc,
+    //             logo: res.taskData[5].taskLogo
+    //         },
+    //         task7: {
+    //             cssId: res.taskData[6].taskId,
+    //             heading: res.taskData[6].taskName,
+    //             brief: res.taskData[6].taskDesc,
+    //             logo: res.taskData[6].taskLogo
+    //         },
+    //         task8: {
+    //             cssId: res.taskData[7].taskId,
+    //             heading: res.taskData[7].taskName,
+    //             brief: res.taskData[7].taskDesc,
+    //             logo: res.taskData[7].taskLogo
+    //         },
+    //         task9: {
+    //             cssId: res.taskData[8].taskId,
+    //             heading: res.taskData[8].taskName,
+    //             brief: res.taskData[8].taskDesc,
+    //             logo: res.taskData[8].taskLogo
+    //         }
+    //       })
+    //     })
+    //   }
 
     render() {
       // props copied
