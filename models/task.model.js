@@ -10,6 +10,7 @@ const taskSchema = new Schema({
     taskName: {
         type: String
     },
+    // This is Short description of the task not the complete task!! We need to figure out a way on frontend to print description while we just save entire question
     taskDesc : {
         type: String  
     },

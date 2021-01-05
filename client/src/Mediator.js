@@ -100,7 +100,7 @@ class Mediator extends React.Component {
     }
 
     const TaskPageComponent = () => {
-      return( < TaskPage />)
+      return( < TaskPage taskId="5ff34a384be01834281ba64e" />)
     }
 
     const EngagementComponent = () => {

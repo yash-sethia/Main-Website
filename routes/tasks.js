@@ -28,9 +28,11 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
+
+// Route not working
 router.route('/:taskId').get((req, res) => {
-  Task.findById(req.params.id)
-    .then(task => res.json(task))
+  Task.findById(req.params.taskId)
+    .then(task => res.status(200).json({taskData : task}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
