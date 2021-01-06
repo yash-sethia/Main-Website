@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
 function TaskRow(props) {
     const classes = useStyles();
 
+    const taskBrief = props.brief.slice(0, 120) + "..."
+
     return (
         <Grid item xs={6} md={4} spacing={0}>
             <div className="tasks" id={props.cssId}>
@@ -32,7 +34,7 @@ function TaskRow(props) {
                             </div>
                             <div className="article-details">
                                 <p>
-                                {props.brief}
+                                    {taskBrief}
                                 </p>
                                 <br />
                                 <div className="progress-dashboard">Progress<span className="fright">{props.progress}%</span></div>

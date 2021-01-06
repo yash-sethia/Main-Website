@@ -35,3 +35,10 @@ app.use('/api/reviews', reviewsRouter);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+
+// Pages whose routing is done!
+// 1.Dashboar (Except Progress views comments etc.)
+// 2. Task Display Page
+// 3. Profile
+

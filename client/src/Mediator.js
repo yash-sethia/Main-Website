@@ -112,7 +112,7 @@ class Mediator extends React.Component {
     }
 
     const ReadReviewComponent = () => {
-      return( < ReadReview />)
+      return( < ReadReview articleId="5ff3638c0cbcb367208984e2" />)
     }
 
     const OverallAnalyticsComponent = () => {
@@ -125,17 +125,17 @@ class Mediator extends React.Component {
         {headercomponent}
         {sidebarcomponent}
         <Switch>
-          <Route exact path="/" component={DashboardPage} />
-          <Route path="/Review-more" component={ReviewMorePage} />
-          <Route path='/portfolio' component={PortfolioPage} />
-          <Route path='/analytics' component={AnalyticsPage} />
-          <Route path='/profile' component={ProfileComponent} />
+          <Route exact path="/" component={DashboardPage} />      {/* Routing semi Done */}
+          <Route path="/Review-more" component={ReviewMorePage} /> 
+          <Route path='/portfolio' component={PortfolioPage} /> 
+          <Route path='/analytics' component={AnalyticsPage} /> {/* Days Spent kaise calculate hoga ? */ }
+          <Route path='/profile' component={ProfileComponent} /> {/* Done */}
           <Route path='/question-like' component={QuestionLikeComponent} />
-          <Route path='/question-dislike' component={QuestionDislikeComponent} />
+          <Route path='/question-dislike' component={QuestionDislikeComponent} /> 
           <Route path='/engagement' component={EngagementComponent} />
           <Route path='/airating' component={AiRatingComponent} />
-          <Route path='/task-page' component={TaskPageComponent} />
-          <Route path='/readreview' component={ReadReviewComponent} />
+          <Route path='/task-page' component={TaskPageComponent} />  {/* Done */}
+          <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
           <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
         </Switch>
         <Footer />

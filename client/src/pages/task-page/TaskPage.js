@@ -31,7 +31,7 @@ class TaskPage extends Component {
           this.setState({
             isLoading: false,
             QuestionHeading: res.data.taskData.taskName,
-            QuestionText: res.data.taskData.taskText               // Check the name of this field
+            QuestionText: res.data.taskData.taskDesc             // Check the name of this field
           })
         })
       }

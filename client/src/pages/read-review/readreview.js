@@ -1,37 +1,42 @@
 import React from "react";
 import LoadingAnimation from '../../shared/loading'
 import ReviewBox from './Components/reviewbox';
-import data from '../../data/readreview'
 import '../../Css/read-review/readreview.css'
 import { NavLink } from 'react-router-dom'
 
+import axios from'axios';
+
 class ReadReview extends React.Component {
 
-    constructor() {
-        super();
-        this.enableMessage = this.enableMessage.bind(this);
+    constructor(props) {
+        super(props);
         this.state = {
-            isLoading: true
+            articleId: props.articleId,
+            isLoading: true,
+            reviewData: []
         }
-
-        this.timer = setTimeout(this.enableMessage,100);
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.timer);
-      }
+    componentDidMount() {
+        const articleId = this.state.articleId
+        // console.log("Article ID = ", articleId)
+        axios.get(`api/reviews/${articleId}`).then(res => {
+            this.setState({
+                reviewData: res.data.reviewData,
+                isLoading: false
+            })
 
-    enableMessage() {
-        this.setState({displayMessage: true, isLoading: false});
+            // console.log("Res = : ", res);
+            // console.log(this.state)
+        })
     }
-
     render() {
         const pageIsLoading = <LoadingAnimation />
 
         var ctr = 0;
-        const reviewBoxCallingArray = data.map((item) =>{
+        const reviewBoxCallingArray = this.state.reviewData.map((item) =>{
             ctr++;
-            return(<ReviewBox key = {item.id} reviewNumber = {ctr} questions = {item.questions} answers = {item.answers} image = {item.image} />);
+            return(<ReviewBox key = {item._id} reviewNumber = {ctr} positiveAnswer = {item.positiveReview} negativeAnswer={item.negativeReview} image = "https://media.istockphoto.com/vectors/cute-tiger-face-emoticon-emoji-showing-sad-face-expression-vector-id903164224" />);
         })
 
 

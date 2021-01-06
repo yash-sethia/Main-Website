@@ -8,8 +8,8 @@ class ReviewBox extends React.Component {
         this.state = {
             isLoading: true,
             reviewNumber: props.reviewNumber,
-            questions: props.questions,
-            answers: props.answers,
+            positiveAnswer: props.positiveAnswer,
+            negativeAnswer: props.negativeAnswer,
             image: props.image
         }
     }
@@ -28,7 +28,7 @@ class ReviewBox extends React.Component {
 
 					<div className="review-block">
 						<div className="question-read-review">
-                            {this.state.questions[0]}
+                            What did you like in this article ?
                         </div>
 
                         <p className="review-text">
@@ -36,7 +36,7 @@ class ReviewBox extends React.Component {
                                 <img src={this.state.image} alt="review given" className="review-image" />
                             </div>
                             
-                            {this.state.answers[0]}
+                            {this.state.positiveAnswer}
                         </p>
 
 					</div>
@@ -45,11 +45,11 @@ class ReviewBox extends React.Component {
 						<div className="review-block">
 
                             <div className="question-read-review">
-                                {this.state.questions[1]}
+                                What did you dislike in this article?
                             </div>
 
                             <p id="review-text">
-                                {this.state.answers[1]}
+                                {this.state.negativeAnswer}
                             </p>
 
                         </div>
