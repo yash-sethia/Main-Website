@@ -7,8 +7,10 @@ router.route('/:articleId').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-  const articleId = req.body.articleId;
+
+// This should take the article Id from the URL
+router.route('/:articleId').post((req, res) => {
+  const articleId = req.params.articleId;
   const positiveReview = req.body.positiveReview;
   const negativeReview = req.body.negativeReview;
   const rating = req.body.rating;

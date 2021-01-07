@@ -6,14 +6,20 @@ import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
 
 
+import axios from 'axios';
+
+
 class QuestionDislike extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          questionDislike: ""
+          questionLike: "This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.",
+          questionDislike: "",
+          rating: 3.9
         };
         console.log("Props: ", props)
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
   componentDidMount() {
     this.textarea.focus();
@@ -25,6 +31,12 @@ class QuestionDislike extends Component {
       questionDislike: event.target.value
     })
     console.log("State is : ", this.state)
+  }
+
+  onSubmit(data) {
+    // Need to send this article Id according to the logic we define !
+    const articleId = "5ff3638c0cbcb367208984e2"
+    axios.post(`api/reviews/${articleId}`, data).then(res => console.log("Inside on submit",res.data))
   }
 
   render() {
@@ -48,7 +60,17 @@ class QuestionDislike extends Component {
             </div>
 
             <div className="submit-button">
-              <Button variant="info"> Submit </Button> {/* Do history.push for changing the page after sending data to backend */}
+              <Button variant="info" onClick={() => {
+                                                      const data = {
+                                                        positiveReview: this.state.questionLike,
+                                                        negativeReview: this.state.questionDislike,
+                                                        rating: this.state.rating
+                                                      }
+                                                      this.onSubmit(data)
+                                                    }
+                }> 
+                Submit 
+              </Button> {/* Do history.push for changing the page after sending data to backend */}
             </div>
       </div>
     );
