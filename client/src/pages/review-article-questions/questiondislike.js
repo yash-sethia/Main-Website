@@ -3,16 +3,28 @@ import autosize from "autosize";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Css/review-article-questions/reviewquestion.css';
+import { Link } from "react-router-dom";
 
 
 class QuestionDislike extends Component {
-    constructor() {
-        super();
-        this.state = {};
+    constructor(props) {
+        super(props);
+        this.state = {
+          questionDislike: ""
+        };
+        console.log("Props: ", props)
+        this.handleChange = this.handleChange.bind(this)
     }
   componentDidMount() {
     this.textarea.focus();
     autosize(this.textarea);
+  }
+
+  handleChange(event) {
+    this.setState({
+      questionDislike: event.target.value
+    })
+    console.log("State is : ", this.state)
   }
 
   render() {
@@ -28,13 +40,15 @@ class QuestionDislike extends Component {
                     minLength = "300" 
                     spellCheck = "true"
                     ref={c => (this.textarea = c)}
-                    placeholder="I author can improve upon..."
+                    placeholder="The author can improve upon..."
                     rows={1}
+                    value={this.state.questionDislike}
+                    onChange={this.handleChange}
                 />
             </div>
 
             <div className="submit-button">
-              <Button variant="info"> Submit </Button>
+              <Button variant="info"> Submit </Button> {/* Do history.push for changing the page after sending data to backend */}
             </div>
       </div>
     );
