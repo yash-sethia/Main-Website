@@ -16,7 +16,26 @@ const taskSchema = new Schema({
     },
     taskLogo: {
         type: String   
-    }
+    },
+    // Extra Routes added by Yash
+    progress: {
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100
+    },
+    daysSpent: {
+        type: Number,
+        default: 0
+    },
+    noOfViews: {
+        type: Number,
+        default: 0
+    },
+    noOfReviews: {
+        type: Number,
+        default: 0
+    },
 
     }
 );

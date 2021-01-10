@@ -23,7 +23,7 @@ function TaskRow(props) {
     return (
         <Grid item xs={6} md={4} spacing={0}>
             <div className="tasks" id={props.cssId}>
-                <NavLink style={{ textDecoration: 'none' }} to = "/task-page">  {/* to = {`/task-page/${props.taskId}`}   */}
+                <Link style={{ textDecoration: 'none' }} to = {`/task-page/${props.id}`} params={{id: props.id}} >  {/* to = {`/task-page/${props.taskId}`}   */}
                     <Paper className={classes.paper}>
                         <div className="article-dashboard" id="article-1">
                             <div className="task-tile-header">
@@ -50,7 +50,7 @@ function TaskRow(props) {
                             </div>
                         </div>
                     </Paper>
-                </NavLink>
+                </Link>
             </div>
         </Grid>
     );

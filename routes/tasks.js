@@ -15,16 +15,24 @@ router.route('/add').post((req, res) => {
   const taskName = req.body.taskName;
   const taskDesc = req.body.taskDesc;
   const taskLogo = req.body.taskLogo;
+  const progress = req.body.progress;
+  const daysSpent = req.body.daysSpent;
+  const noOfViews = req.body.noOfViews;
+  const noOfReviews = req.body.noOfReviews;
 
   const newTask = new Task({
     taskId,
     taskName,
     taskDesc,
-    taskLogo
+    taskLogo,
+    progress,
+    daysSpent,
+    noOfViews,
+    noOfReviews
   });
 
   newTask.save()
-  .then(() => res.json('Task added!'))
+  .then(() => res.status(200).json('Task added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 

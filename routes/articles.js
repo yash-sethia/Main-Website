@@ -15,10 +15,10 @@ router.route('/add').post((req, res) => {
   const articleTitle = req.body.articleTitle;
   const articleContent = req.body.articleContent; // How to divide into paragraph ???
   const articleImages = req.body.articleImages;
-  const progress = req.body.progress;
+  // const progress = req.body.progress;
   const daysSpent = req.body.daysSpent;
-  const noOfViews = req.body.noOfViews;
-  const noOfReviews = req.body.noOfReviews;
+  // const noOfViews = req.body.noOfViews;
+  // const noOfReviews = req.body.noOfReviews;
   const reviewRating = req.body.reviewRating;
   const aiRating = req.body.aiRating;
   const aiRating_1 = req.body.aiRating_1;
@@ -32,10 +32,10 @@ router.route('/add').post((req, res) => {
       articleTitle,
       articleContent,
       articleImages,
-      progress,
+      // progress,
       daysSpent,
-      noOfViews,
-      noOfReviews,
+      // noOfViews,
+      // noOfReviews,
       reviewRating,
       aiRating,
       aiRating_1,

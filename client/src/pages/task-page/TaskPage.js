@@ -3,7 +3,6 @@ import "../../font-awesome/css/font-awesome.min.css";
 import "../../Css/task-page/MainBody.css";
 import Buttons from "./Mainbody-TaskPage/Buttons.js";
 import QuestionBox from "./Mainbody-TaskPage/QuestionBox.js";
-import Questions from "../../data/Questions.js";
 import LoadingAnimation from '../../shared/loading';
 
 import axios from 'axios';
@@ -12,22 +11,27 @@ import axios from 'axios';
 class TaskPage extends Component {
     constructor(props){
         super(props);
-        this.enableMessage = this.enableMessage.bind(this);
         this.state = {
             QuestionHeading : "",
             QuestionText: "",
             isLoading: true,
-            taskId: props.taskId
+            taskId: this.props.match.params.id
         };
-        this.timer = setTimeout(this.enableMessage,1000);
       }
 
-      componentWillUnmount() {
-        clearTimeout(this.timer);
-      }
 
       componentDidMount() {
-        axios.get(`api/tasks/${this.state.taskId}`).then(res => {
+        console.log("Task Page : ", props.match) 
+
+        //******************************************************************/
+        // ********************** Need to Fix this Errot *******************/
+        // *************** Here We have passed the id of the task in URL****/
+        // *** (Check taskrow.js Line 26) and to fetch data we need the ID */
+        // ****** But I am unable to read this from the URL itself *********/
+        //******************************************************************/
+        // *****************************************************************/
+
+        axios.get('api/tasks/' + this.state.taskId).then(res => {
           this.setState({
             isLoading: false,
             QuestionHeading: res.data.taskData.taskName,
@@ -35,14 +39,7 @@ class TaskPage extends Component {
           })
         })
       }
-    
-      enableMessage() {
-        // this.setState({
-        //     isLoading: false,
-        //     QuestionHeading: Questions[0].QuestionHeading,
-        //     QuestionText: Questions[0].QuestionText
-        // });
-      }
+
     render() {
         const pageIsLoading = <LoadingAnimation />
         

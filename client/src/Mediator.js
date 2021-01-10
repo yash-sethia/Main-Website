@@ -100,7 +100,7 @@ class Mediator extends React.Component {
     }
 
     const TaskPageComponent = () => {
-      return( < TaskPage taskId="5ff34a384be01834281ba64e" />)
+      return( < TaskPage />)
     }
 
     const EngagementComponent = () => {
@@ -125,7 +125,7 @@ class Mediator extends React.Component {
         {headercomponent}
         {sidebarcomponent}
         <Switch>
-          <Route exact path="/" component={DashboardPage} />      {/* Routing semi Done */}
+          <Route exact path="/" component={DashboardPage} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> 
           <Route path='/analytics' component={AnalyticsPage} /> {/* Days Spent kaise calculate hoga ? */ }
@@ -134,7 +134,7 @@ class Mediator extends React.Component {
           <Route path='/question-dislike' component={QuestionDislikeComponent} /> 
           <Route path='/engagement' component={EngagementComponent} />
           <Route path='/airating' component={AiRatingComponent} />
-          <Route path='/task-page' component={TaskPageComponent} />  {/* Done */}
+          <Route path='/task-page/:id' component={TaskPageComponent} />  {/* Done */}
           <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
           <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
         </Switch>

@@ -18,24 +18,24 @@ const articleSchema = new Schema({
         type: String
         //Not sure what type of data is here
     },
-    progress: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 100
-    },
+    // progress: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 100
+    // },
     daysSpent: {
         type: Number,
         default: 0
     },
-    noOfViews: {
-        type: Number,
-        default: 0
-    },
-    noOfReviews: {
-        type: Number,
-        default: 0
-    },
+    // noOfViews: {
+    //     type: Number,
+    //     default: 0
+    // },
+    // noOfReviews: {
+    //     type: Number,
+    //     default: 0
+    // },
     reviewRating: {
         type: Number,
         default: 0,

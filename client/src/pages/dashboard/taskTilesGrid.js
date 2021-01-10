@@ -21,68 +21,112 @@ class TaskTileGrid extends React.Component {
         };
     }
 
-    // componentDidMount() {
-    //     // Conditional rendering for tasks not done !
-    //     axios.get('api/tasks/').then(res => {
-    //         axios.get('')
-    //       this.setState({
-    //         task1: {
-    //           cssId: res.taskData[0].taskId,
-    //           heading: res.taskData[0].taskName,
-    //           brief: res.taskData[0].taskDesc,
-    //           logo: res.taskData[0].taskLogo
-    //         },
-    //         task2: {
-    //             cssId: res.taskData[1].taskId,
-    //             heading: res.taskData[1].taskName,
-    //             brief: res.taskData[1].taskDesc,
-    //             logo: res.taskData[1].taskLogo
-    //         },
-    //         task3: {
-    //             cssId: res.taskData[2].taskId,
-    //             heading: res.taskData[2].taskName,
-    //             brief: res.taskData[2].taskDesc,
-    //             logo: res.taskData[2].taskLogo
-    //         },
-    //         task4: {
-    //             cssId: res.taskData[3].taskId,
-    //             heading: res.taskData[3].taskName,
-    //             brief: res.taskData[3].taskDesc,
-    //             logo: res.taskData[3].taskLogo
-    //         },
-    //         task5: {
-    //             cssId: res.taskData[4].taskId,
-    //             heading: res.taskData[4].taskName,
-    //             brief: res.taskData[4].taskDesc,
-    //             logo: res.taskData[4].taskLogo
-    //         },
-    //         task6: {
-    //             cssId: res.taskData[5].taskId,
-    //             heading: res.taskData[5].taskName,
-    //             brief: res.taskData[5].taskDesc,
-    //             logo: res.taskData[5].taskLogo
-    //         },
-    //         task7: {
-    //             cssId: res.taskData[6].taskId,
-    //             heading: res.taskData[6].taskName,
-    //             brief: res.taskData[6].taskDesc,
-    //             logo: res.taskData[6].taskLogo
-    //         },
-    //         task8: {
-    //             cssId: res.taskData[7].taskId,
-    //             heading: res.taskData[7].taskName,
-    //             brief: res.taskData[7].taskDesc,
-    //             logo: res.taskData[7].taskLogo
-    //         },
-    //         task9: {
-    //             cssId: res.taskData[8].taskId,
-    //             heading: res.taskData[8].taskName,
-    //             brief: res.taskData[8].taskDesc,
-    //             logo: res.taskData[8].taskLogo
-    //         }
-    //       })
-    //     })
-    //   }
+    componentDidMount() {
+        // Conditional rendering for tasks not done !
+        axios.get('api/tasks/').then(res => {
+          this.setState({
+            task1: {
+                id: res.data.taskData[0]._id, 
+                cssId: res.data.taskData[0].taskId,
+                heading: res.data.taskData[0].taskName,
+                brief: res.data.taskData[0].taskDesc,
+                logo: res.data.taskData[0].taskLogo,
+                progress: res.data.taskData[0].progress,
+                views: res.data.taskData[0].noOfViews,
+                comments: res.data.taskData[0].noOfReviews,
+                daysTaken: res.data.taskData[0].daysSpent
+            },
+            task2: {
+                id: res.data.taskData[1]._id, 
+                cssId: res.data.taskData[1].taskId,
+                heading: res.data.taskData[1].taskName,
+                brief: res.data.taskData[1].taskDesc,
+                logo: res.data.taskData[1].taskLogo,
+                progress: res.data.taskData[1].progress,
+                views: res.data.taskData[1].noOfViews,
+                comments: res.data.taskData[1].noOfReviews,
+                daysTaken: res.data.taskData[1].daysSpent
+            },
+            task3: {
+                id: res.data.taskData[2]._id, 
+                cssId: res.data.taskData[2].taskId,
+                heading: res.data.taskData[2].taskName,
+                brief: res.data.taskData[2].taskDesc,
+                logo: res.data.taskData[2].taskLogo,
+                progress: res.data.taskData[2].progress,
+                views: res.data.taskData[2].noOfViews,
+                comments: res.data.taskData[2].noOfReviews,
+                daysTaken: res.data.taskData[2].daysSpent
+            },
+            task4: {
+                id: res.data.taskData[3]._id, 
+                cssId: res.data.taskData[3].taskId,
+                heading: res.data.taskData[3].taskName,
+                brief: res.data.taskData[3].taskDesc,
+                logo: res.data.taskData[3].taskLogo,
+                progress: res.data.taskData[3].progress,
+                views: res.data.taskData[3].noOfViews,
+                comments: res.data.taskData[3].noOfReviews,
+                daysTaken: res.data.taskData[3].daysSpent
+            },
+            task5: {
+                id: res.data.taskData[4]._id, 
+                cssId: res.data.taskData[4].taskId,
+                heading: res.data.taskData[4].taskName,
+                brief: res.data.taskData[4].taskDesc,
+                logo: res.data.taskData[4].taskLogo,
+                progress: res.data.taskData[4].progress,
+                views: res.data.taskData[4].noOfViews,
+                comments: res.data.taskData[4].noOfReviews,
+                daysTaken: res.data.taskData[4].daysSpent
+            },
+            task6: {
+                id: res.data.taskData[5]._id, 
+                cssId: res.data.taskData[5].taskId,
+                heading: res.data.taskData[5].taskName,
+                brief: res.data.taskData[5].taskDesc,
+                logo: res.data.taskData[5].taskLogo,
+                progress: res.data.taskData[5].progress,
+                views: res.data.taskData[5].noOfViews,
+                comments: res.data.taskData[5].noOfReviews,
+                daysTaken: res.data.taskData[5].daysSpent
+            },
+            task7: {
+                id: res.data.taskData[6]._id, 
+                cssId: res.data.taskData[6].taskId,
+                heading: res.data.taskData[6].taskName,
+                brief: res.data.taskData[6].taskDesc,
+                logo: res.data.taskData[6].taskLogo,
+                progress: res.data.taskData[6].progress,
+                views: res.data.taskData[6].noOfViews,
+                comments: res.data.taskData[6].noOfReviews,
+                daysTaken: res.data.taskData[6].daysSpent
+            },
+            task8: {
+                id: res.data.taskData[7]._id, 
+                cssId: res.data.taskData[7].taskId,
+                heading: res.data.taskData[7].taskName,
+                brief: res.data.taskData[7].taskDesc,
+                logo: res.data.taskData[7].taskLogo,
+                progress: res.data.taskData[7].progress,
+                views: res.data.taskData[7].noOfViews,
+                comments: res.data.taskData[7].noOfReviews,
+                daysTaken: res.data.taskData[7].daysSpent
+            },
+            task9: {
+                id: res.data.taskData[8]._id, 
+                cssId: res.data.taskData[8].taskId,
+                heading: res.data.taskData[8].taskName,
+                brief: res.data.taskData[8].taskDesc,
+                logo: res.data.taskData[8].taskLogo,
+                progress: res.data.taskData[8].progress,
+                views: res.data.taskData[8].noOfViews,
+                comments: res.data.taskData[8].noOfReviews,
+                daysTaken: res.data.taskData[8].daysSpent
+            }
+          })
+        })
+      }
 
     render() {
       // props copied
@@ -90,6 +134,7 @@ class TaskTileGrid extends React.Component {
             <Grid container spacing={1}>
                 <Grid container item xs={9} spacing={1}>
                     <TaskRow
+                        id={this.state.task1.id} 
                         cssId={this.state.task1.cssId}
                         heading={this.state.task1.heading}
                         brief={this.state.task1.brief}
@@ -99,6 +144,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task1.comments}
                     />
                     <TaskRow
+                        id={this.state.task2.id}
                         cssId={this.state.task2.cssId}
                         heading={this.state.task2.heading}
                         brief={this.state.task2.brief}
@@ -108,6 +154,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task2.comments}
                     />
                     <TaskRow
+                        id={this.state.task3.id}
                         cssId={this.state.task3.cssId}
                         heading={this.state.task3.heading}
                         brief={this.state.task3.brief}
@@ -118,6 +165,7 @@ class TaskTileGrid extends React.Component {
                     />
                 
                     <TaskRow
+                        id={this.state.task4.id}
                         cssId={this.state.task4.cssId}
                         heading={this.state.task4.heading}
                         brief={this.state.task4.brief}
@@ -127,6 +175,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task4.comments}
                     />
                     <TaskRow
+                        id={this.state.task5.id}
                         cssId={this.state.task5.cssId}
                         heading={this.state.task5.heading}
                         brief={this.state.task5.brief}
@@ -136,6 +185,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task5.comments}
                     />
                     <TaskRow
+                        id={this.state.task6.id}
                         cssId={this.state.task6.cssId}
                         heading={this.state.task6.heading}
                         brief={this.state.task6.brief}
@@ -146,6 +196,7 @@ class TaskTileGrid extends React.Component {
                     />
 
                     <TaskRow
+                        id={this.state.task7.id}
                         cssId={this.state.task7.cssId}
                         heading={this.state.task7.heading}
                         brief={this.state.task7.brief}
@@ -155,6 +206,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task7.comments}
                     />
                     <TaskRow
+                        id={this.state.task8.id}
                         cssId={this.state.task8.cssId}
                         heading={this.state.task8.heading}
                         brief={this.state.task8.brief}
@@ -164,6 +216,7 @@ class TaskTileGrid extends React.Component {
                         comments={this.state.task8.comments}
                     />
                     <TaskRow
+                        id={this.state.task9.id}
                         cssId={this.state.task9.cssId}
                         heading={this.state.task9.heading}
                         brief={this.state.task9.brief}
