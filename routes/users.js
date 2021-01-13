@@ -3,12 +3,12 @@ let User = require('../models/user.model');
 
 router.route('/:username').get((req, res) => {
   User.find({username : req.params.username})
-    .then(users => res.json( {UserData : users} ))
+    .then(users => res.json( {userData : users} ))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
-  const userID = req.body.userID;
+  const userId = req.body.userId;
   const username = req.body.username;
   const name = req.body.name;
   const displayPicture = req.body.displayPicture;
@@ -26,7 +26,7 @@ router.route('/add').post((req, res) => {
   const badgesReceived = req.body.badgesReceived;
 
   const newUser = new User({
-      userID,
+      userId,
       username,
       name,
       displayPicture,

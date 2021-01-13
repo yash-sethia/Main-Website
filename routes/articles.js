@@ -2,7 +2,7 @@ const router = require('express').Router();
 let User = require('../models/article.model');
 
 
-// Need a route that returns all the articles of a user given that we pass user Id only (User Id is mixed with TaskId in articleId)
+// Need a route that returns all the articles of a user given that we pass user's Id
 
 router.route('/:articleID').get((req, res) => {
   Article.find({articleID : req.params.articleID})

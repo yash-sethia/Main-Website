@@ -9,6 +9,8 @@ import ProfileIntroduction from './Components/ProfileIntro/profileIntro';
 import ArticleGrid from './Components/ArticleGrid/userArticleGrid';
 import LoadingAnimation from '../../shared/loading'
 
+import axios from 'axios';
+
 class Portfolio extends Component {
   constructor () {
     super();
@@ -40,6 +42,33 @@ class Portfolio extends Component {
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+  }
+
+  componentDidMount() {
+    const username = superstart599;
+    axios.get('api/users/' + username).then(res => {
+      console.log("Res from users is as follows : ", res.data.userData[0]);
+      this.setState({
+        id: res.data.userData[0]._id,
+        name: res.data.userData[0].name,
+        dp: res.data.userData[0].displayPicture,
+        cover: res.data.userData[0].coverImage,
+        bio: res.data.userData[0].bio,
+        city: res.data.userData[0].city,
+        country: res.data.userData[0].country,
+        email: res.data.userData[0].email,
+        facebook: res.data.userData[0].facebookId,
+        twitter: res.data.userData[0].twitterId,
+        linkedin: res.data.userData[0].linkedinId,
+      })
+    })
+
+    axios.get('api/users/' + this.state.id).then(res => {
+      this.setState({
+        isLoading: false
+      })
+    })
+
   }
 
   enableMessage() {
