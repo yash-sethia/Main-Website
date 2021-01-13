@@ -23,7 +23,8 @@ class TaskTileGrid extends React.Component {
 
     componentDidMount() {
         // Conditional rendering for tasks not done !
-        axios.get('api/tasks/').then(res => {
+        axios.get('/api/tasks/').then(res => {
+            console.log("Task Tile Grid : ", res.data)
           this.setState({
             task1: {
                 id: res.data.taskData[0]._id, 
@@ -230,7 +231,7 @@ class TaskTileGrid extends React.Component {
                     <div className="quick-view" id="">
                         <div className="quickv">
                             <div id="donut-chart">
-                                <img src="images/donutchart.png" alt=""/>
+                                <img src="https://apexcharts.com/wp-content/uploads/2018/05/simple-donut-chart.svg" alt=""/>
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">

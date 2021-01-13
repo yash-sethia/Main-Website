@@ -24,10 +24,10 @@ const articleSchema = new Schema({
     //     min: 0,
     //     max: 100
     // },
-    daysSpent: {
-        type: Number,
-        default: 0
-    },
+    // daysSpent: {
+    //     type: Number,
+    //     default: 0
+    // },
     // noOfViews: {
     //     type: Number,
     //     default: 0

@@ -15,13 +15,13 @@ class TaskPage extends Component {
             QuestionHeading : "",
             QuestionText: "",
             isLoading: true,
-            taskId: this.props.match.params.id
+            //taskId: this.props.match.params.id
         };
       }
 
 
       componentDidMount() {
-        console.log("Task Page : ", props.match) 
+        //console.log("Task Page : ", props.match) 
 
         //******************************************************************/
         // ********************** Need to Fix this Errot *******************/

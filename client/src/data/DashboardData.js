@@ -1,7 +1,7 @@
 const DashboardData = [
     {
         cssid: "task1",
-        heading: "Dunk of Dunkin",
+        heading: "D",
         brief: "Dunkin Donut is an American multinational coffee and doughnut company founded in 1950. The brand has stores at 12900 different...",
         Progress: 40,
         views: 15,
@@ -10,7 +10,7 @@ const DashboardData = [
     },
     {
         cssid: "task2",
-        heading: "Dunk of Dunkin",
+        heading: "D",
         brief: "Dunkin Donut is an American multinational coffee and doughnut company founded in 1950. The brand has stores at 12900 different...",
         Progress: 40,
         views: 15,
@@ -19,7 +19,7 @@ const DashboardData = [
     },
     {
         cssid: "task3",
-        heading: "Dunk of Dunkin",
+        heading: "D",
         brief: "Dunkin Donut is an American multinational coffee and doughnut company founded in 1950. The brand has stores at 12900 different...",
         Progress: 40,
         views: 15,

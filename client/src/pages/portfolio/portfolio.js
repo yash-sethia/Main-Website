@@ -14,7 +14,6 @@ import axios from 'axios';
 class Portfolio extends Component {
   constructor () {
     super();
-    this.enableMessage = this.enableMessage.bind(this);
     this.state= {
       id : data[0].id,
       name : data[0].name,
@@ -37,18 +36,15 @@ class Portfolio extends Component {
 
     };
 
-    this.timer = setTimeout(this.enableMessage,1000);
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timer);
   }
 
   componentDidMount() {
-    const username = superstart599;
-    axios.get('api/users/' + username).then(res => {
+    const id = "5fff3d9de46eff5f282c6b3e";
+    axios.get('api/users/' + id).then(res => {
       console.log("Res from users is as follows : ", res.data.userData[0]);
       this.setState({
+        isLoading: false,
+
         id: res.data.userData[0]._id,
         name: res.data.userData[0].name,
         dp: res.data.userData[0].displayPicture,
@@ -60,19 +56,11 @@ class Portfolio extends Component {
         facebook: res.data.userData[0].facebookId,
         twitter: res.data.userData[0].twitterId,
         linkedin: res.data.userData[0].linkedinId,
+
+        articleData: res.data.articleData,
+        articleCount: res.data.articleData.length,
       })
     })
-
-    axios.get('api/users/' + this.state.id).then(res => {
-      this.setState({
-        isLoading: false
-      })
-    })
-
-  }
-
-  enableMessage() {
-    this.setState({displayMessage: true, isLoading: false});
   }
 
   render() {
@@ -99,9 +87,7 @@ class Portfolio extends Component {
 
             <ArticleGrid
                 count = {this.state.articleCount}
-                titles = {this.state.titles}
-                desc = {this.state.desc}
-                images = {this.state.articleImgages}
+                articles = {this.state.articleData}
             />
           </div>;
 

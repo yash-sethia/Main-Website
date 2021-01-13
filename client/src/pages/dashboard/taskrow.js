@@ -18,7 +18,12 @@ const useStyles = makeStyles((theme) => ({
 function TaskRow(props) {
     const classes = useStyles();
 
-    const taskBrief = props.brief.slice(0, 120) + "..."
+    const desc = props.brief;
+    // console.log("Task tile : ", props)
+
+    const taskBrief = desc.slice(0, 120) + "..."
+
+    console.log("Task Tile ID : ", props.id )
 
     return (
         <Grid item xs={6} md={4} spacing={0}>

@@ -8,25 +8,26 @@ class userArticleGrid extends React.Component {
         super(props);
         this.state = {
             count : this.props.count,
-            titles : this.props.titles,
-            desc : this.props.desc,
-            images : this.props.images
+            articleData: this.props.articles,
+            titles : [],
+            desc : [],
+            images : []
         }
     }
 
     render() {
-        var allUserArticles = [];
-        for(let i = 0; i < this.state.count; i++)
-        {
-            allUserArticles.push(   {
-                                        image : this.state.images[i],
-                                        title : this.state.titles[i], 
-                                        description : this.state.desc[i]
-                                    } 
-                                );
-        }
+        // var allUserArticles = [];
+        // for(let i = 0; i < this.state.count; i++)
+        // {
+        //     allUserArticles.push(   {
+        //                                 image : this.state.images[i],
+        //                                 title : this.state.titles[i], 
+        //                                 description : this.state.desc[i]
+        //                             } 
+        //                         );
+        // }
 
-        var indArticles = allUserArticles.map(item => <IndividualArticle image={item.image} title={item.title} description={item.description} />);
+        var indArticles = this.state.articleData.map(item => <IndividualArticle image={item.articleImages} title={item.articleTitle} description={item.articleContent.slice(0, 120) + "..."} />);
         
         
         return (

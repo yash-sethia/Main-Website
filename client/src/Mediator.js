@@ -127,7 +127,7 @@ class Mediator extends React.Component {
         <Switch>
           <Route exact path="/" component={DashboardPage} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
-          <Route path='/portfolio' component={PortfolioPage} /> 
+          <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
           <Route path='/analytics' component={AnalyticsPage} /> {/* Days Spent kaise calculate hoga ? */ }
           <Route path='/profile' component={ProfileComponent} /> {/* Done */}
           <Route path='/question-like' component={QuestionLikeComponent} />

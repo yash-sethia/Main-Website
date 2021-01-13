@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let User = require('../models/article.model');
+let Article = require('../models/article.model');
 
 
 // Need a route that returns all the articles of a user given that we pass user's Id
@@ -16,7 +16,7 @@ router.route('/add').post((req, res) => {
   const articleContent = req.body.articleContent; // How to divide into paragraph ???
   const articleImages = req.body.articleImages;
   // const progress = req.body.progress;
-  const daysSpent = req.body.daysSpent;
+  // const daysSpent = req.body.daysSpent;
   // const noOfViews = req.body.noOfViews;
   // const noOfReviews = req.body.noOfReviews;
   const reviewRating = req.body.reviewRating;
@@ -27,13 +27,13 @@ router.route('/add').post((req, res) => {
   const aiRating_4 = req.body.aiRating_4;
   const skilliesEarned = req.body.skilliesEarned;
 
-  const newUser = new User({
+  const newArticle = new Article({
       articleID,
       articleTitle,
       articleContent,
       articleImages,
       // progress,
-      daysSpent,
+      // daysSpent,
       // noOfViews,
       // noOfReviews,
       reviewRating,
@@ -45,8 +45,8 @@ router.route('/add').post((req, res) => {
       skilliesEarned,
     });
 
-  newUser.save()
-    .then(() => res.json('Article added!'))
+  newArticle.save()
+    .then(() => res.status(200).json('Article added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
