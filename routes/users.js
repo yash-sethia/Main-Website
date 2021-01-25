@@ -2,6 +2,8 @@ const router = require('express').Router();
 let User = require('../models/user.model');
 let Article = require('../models/article.model');
 
+
+
 // How to get all article of user given his userId + How do we know that the article is to be shown in portfolio
 router.route('/:id').get((req, res) => {
   User.find({_id : req.params.id})
@@ -14,12 +16,6 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
-router.route('/:username').get((req, res) => {
-  User.find({username : req.params.username})
-    .then(users => res.json( {userData : users} ))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
 
 router.route('/add').post((req, res) => {
   const userId = req.body.userId;
