@@ -53,16 +53,20 @@ const userSchema = new Schema({
         type: String
     },
     reviewRating: {
-        type: Number
-        // We can set a default value of 0
+        type: Number,
+        default: 0
+    },
+    taskCount: {
+        type: Number,
+        default: 0
     },
     aiRating: {
-        type: Number
-        // We can set a default value of 0
+        type: Number,
+        default: 0
     },
     skilliesEarned: {
-        type: Number
-        // We can set a default value of 0
+        type: Number,
+        default: 0
     },
     badgesReceived: {
         type: Array,

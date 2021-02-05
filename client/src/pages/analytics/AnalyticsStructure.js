@@ -7,8 +7,11 @@ class AnalyticsStructure extends React.Component {
         super(props);
         this.state = {
           SkillliesEarned: props.analyticsData.SkillliesEarned,
+          SkillliesEarnedChange: props.analyticsData.SkillliesEarnedChange,
           reviewRating: props.analyticsData.reviewRating,
+          reviewRatingChange: props.analyticsData.reviewRatingChange,
           aiRating: props.analyticsData.aiRating,
+          aiRatingChange: props.analyticsData.aiRatingChange,
           DaysTaken: props.analyticsData.DaysTaken,
         }
     }
@@ -40,7 +43,7 @@ class AnalyticsStructure extends React.Component {
                               Skilllies Earned
                               </div>
                               <div className="stat-value-analytics">
-                              $ {this.state.SkillliesEarned} <span>  +24.8%</span>
+                              $ {this.state.SkillliesEarned} <span style= {{color: this.state.SkillliesEarnedChange < 0 ? "red" : "#009933"}}> {this.state.SkillliesEarnedChange}% </span>
                               </div>
                           </div>
 
@@ -49,7 +52,7 @@ class AnalyticsStructure extends React.Component {
                             Review Rating
                             </div>
                             <div className="stat-value-analytics">
-                            {this.state.reviewRating} <span>  +24.8%</span>
+                            {this.state.reviewRating} <span style= {{color: this.state.reviewRatingChange < 0 ? "red" : "#009933"}}> {this.state.reviewRatingChange}% </span>
                             </div>
                           </div>
 
@@ -58,7 +61,7 @@ class AnalyticsStructure extends React.Component {
                             AI Rating
                             </div>
                             <div className="stat-value-analytics">
-                            {this.state.aiRating} <span>  +24.8%</span>
+                            {this.state.aiRating} <span style= {{color: this.state.aiRatingChange < 0 ? "red" : "#009933"}}> {this.state.aiRatingChange}% </span>
                             </div>
                           </div>
 
@@ -67,7 +70,7 @@ class AnalyticsStructure extends React.Component {
                             Days Spent
                             </div>
                             <div className="stat-value-analytics">
-                              {this.state.DaysTaken} <span>  +24.8%</span>
+                              {this.state.DaysTaken} <span> 0.0% </span>
                             </div>
                           </div>
 
@@ -96,23 +99,23 @@ class AnalyticsStructure extends React.Component {
                               <tr>
                                 <td>Skilllies Earned</td>
                                 <td>$ {this.state.SkillliesEarned}</td>
-                                <td>$ 39</td>
+                                <td>$ {(this.state.SkillliesEarned * 0.92).toFixed(1)}</td>
                               </tr>
                               <tr>
                                 <td>Review Rating</td>
-                                <td>{this.state.reviewRating}</td>
-                                <td>3.8</td>
+                                <td>{(this.state.reviewRating)}</td>
+                                <td>{(this.state.reviewRating * 0.9).toFixed(1) }</td>
                               </tr>
                               <tr>
                                 <td>AI Rating</td>
-                                <td>{this.state.aiRating}</td>
-                                <td>74</td>
+                                <td>{(this.state.aiRating)}</td>
+                                <td>{(this.state.aiRating * (this.state.aiRating * 1.1 > 5 ? 0.9 : 1.1)).toFixed(1)}</td>
                               </tr>
 
                               <tr>
                                 <td>Days Spent</td>
                                 <td>{this.state.DaysTaken}</td>
-                                <td>4</td>
+                                <td>Soon :)</td>
                               </tr>
                               </tbody>
                             </table>

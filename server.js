@@ -26,6 +26,8 @@ const usersRouter = require('./routes/users');
 const articleRouter = require('./routes/articles');
 const reviewsRouter = require('./routes/reviews');
 const profileRouter = require('./routes/profile');
+const engagementRouter = require('./routes/engagement');
+const taskAnalyticsRouter = require('./routes/taskAnalytics');
 
 //Backend routes to begin with api
 app.use('/api/tasks', taskRouter);
@@ -33,6 +35,8 @@ app.use('/api/users', usersRouter);
 app.use('/api/articles', articleRouter);
 app.use('/api/reviews', reviewsRouter);
 app.use('/api/profile', profileRouter);
+app.use('/api/enagagement', engagementRouter);
+app.use('/api/taskAnalytics', taskAnalyticsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -4,28 +4,32 @@ import AnalyticsStructure from "./AnalyticsStructure.js"
 import LoadingAnimation from '../../shared/loading'
 import AnalyticsData from '../../data/AnalyticsData'
 
+import axios from 'axios'
+
 class Analytics extends React.Component {
 
     constructor(props) {
         super(props);
-        this.enableMessage = this.enableMessage.bind(this);
         
         this.state = {
-            analyticsdata: AnalyticsData,
+            analyticsdata: [],
+            articleId: "5fff4eeb434cb74e48b7f968",
             isLoading: true
         }
-        this.timer = setTimeout(this.enableMessage,1000);
         
     }
 
+    componentDidMount() {
+        const articleId = this.state.articleId;
+        axios.get(`api/taskAnalytics/${articleId}`).then(res => {
+            console.log("Hi there from enagements : ", res.data)
+            this.setState(prevState => ({
+                analyticsdata: [...prevState.analyticsdata, res.data.taskAnalytics],
+                isLoading: false
+            }))
+        })
+    }
 
-    componentWillUnmount() {
-        clearTimeout(this.timer);
-    }
-    
-    enableMessage() {
-        this.setState({isLoading: false});
-    }
 
       
     render() {

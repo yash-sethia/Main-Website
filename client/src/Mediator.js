@@ -128,11 +128,11 @@ class Mediator extends React.Component {
           <Route exact path="/" component={DashboardPage} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
-          <Route path='/analytics' component={AnalyticsPage} /> {/* Days Spent kaise calculate hoga ? */ }
+          <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
           <Route path='/profile' component={ProfileComponent} /> {/* Done */}
-          <Route path='/question-like' component={QuestionLikeComponent} />
-          <Route path='/question-dislike' component={QuestionDislikeComponent} /> 
-          <Route path='/engagement' component={EngagementComponent} />
+          <Route path='/question-like' component={QuestionLikeComponent} /> {/* Done */}
+          <Route path='/question-dislike' component={QuestionDislikeComponent} /> {/* Problem in Sending the data from 1 page to another */}
+          <Route path='/engagement' component={EngagementComponent} /> {/* Done + SCAM */}
           <Route path='/airating' component={AiRatingComponent} />
           <Route path='/task-page/:id' component={TaskPageComponent} />  {/* Done */}
           <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}

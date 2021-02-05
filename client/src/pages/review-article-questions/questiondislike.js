@@ -30,13 +30,17 @@ class QuestionDislike extends Component {
     this.setState({
       questionDislike: event.target.value
     })
-    console.log("State is : ", this.state)
+    // console.log("State is : ", this.state)
   }
 
   onSubmit(data) {
     // Need to send this article Id according to the logic we define !
     const articleId = "5ff3638c0cbcb367208984e2"
-    axios.post(`api/reviews/${articleId}`, data).then(res => console.log("Inside on submit",res.data))
+    axios.post(`api/reviews/${articleId}`, data).then(res => {
+      console.log("Inside on submit",res.data)
+      window.location = "/"
+    }
+      )
   }
 
   render() {
