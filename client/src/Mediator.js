@@ -5,6 +5,7 @@ import Header from './shared/Header.js';
 import Sidebar from './shared/Sidebar.js';
 import Footer from './shared/Footer.js';
 
+import HomePage from './pages/homepage/homepage.js';
 import Analytics from './pages/analytics/Analytics.js';
 import Dashboard from './pages/dashboard/Dashboard.js';
 import Portfolio from './pages/portfolio/portfolio';
@@ -53,7 +54,11 @@ class Mediator extends React.Component {
       headercomponent = <Header/>
     }
 
-
+    const HomePageComponent = () => {
+      return(
+          <HomePage/>
+      );
+    }
     const DashboardPage = () => {
       return(
           <Dashboard/>
