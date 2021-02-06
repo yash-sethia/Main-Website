@@ -6,31 +6,67 @@ import undraw_connected_world_wuay from "../../../images/undraw_connected_world_
 import undraw_public_discussion_btnw from "../../../images/undraw_public_discussion_btnw.svg";
 import undraw_Post_re_mtr4 from "../../../images/undraw_Post_re_mtr4.svg";
 import undraw_community_8nwl from "../../../images/undraw_community_8nwl.svg";
+import { gsap } from "gsap";
 
 class MainPage extends React.Component {
     constructor() {
         super();
+
+        this.herotext = null;
+        this.boxes = null;
+        this.midwayTextContainerh2 = null;
+        this.midwayTextContainerh4 = null;
+        this.odd = null;
+        this.even = null;
     }
     componentDidMount() {
-        const script1 = document.createElement("script");
-        script1.src = "https://kit.fontawesome.com/b99e675b6e.js";
-        script1.async = true;
-        document.body.appendChild(script1);
 
-        const script2 = document.createElement("script");
-        script2.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js";
-        script2.async = true;
-        document.body.appendChild(script2);
-
-        const script3 = document.createElement("script");
-        script3.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js";
-        script3.async = true;
-        document.body.appendChild(script3);
-
-        const script4 = document.createElement("script");
-        script4.src = "function.js";
-        script4.async = true;
-        document.body.appendChild(script4);
+        gsap.from(this.herotext, {
+            opacity: 0, 
+            duration: 2, 
+            y: -50
+        });
+        
+        gsap.from(this.boxes, {
+            scrollTrigger: '.boxes',
+            opacity: 0,
+            y: 50,
+            duration: 0.6,
+            scale: 0.9
+        });
+        
+        gsap.from(this.midwayTextContainerh2, {
+            scrollTrigger: '.midwayTextContainer',
+            opacity: 0,
+            y: 80,
+            duration: 1,
+        });
+        
+        gsap.from(this.midwayTextContainerh4, {
+            scrollTrigger: '.midwayTextContainer',
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+        });
+        
+        gsap.from(this.odd, {
+            scrollTrigger: '.odd',
+            opacity: 0,
+            x: -100,
+            duration: 0.7,
+            scale: 0.9,
+            stagger: 1
+        });
+        
+        gsap.from(this.even, {
+            scrollTrigger: '.even',
+            opacity: 0,
+            x: 100,
+            duration: 0.7,
+            scale: 0.9,
+            stagger: 1
+        });
+         
     }
     
     render() {
@@ -54,7 +90,7 @@ class MainPage extends React.Component {
 
                     {/* <!-- hero section --> */}
                     <div class="container">
-                        <div class="hero-text">
+                        <div ref={(div) => (this.herotext = div)} class="hero-text">
                             <h2>Easiest way to start a <br/>career in Content Writing</h2>
                             <div class="subtext">Learn as a community, Give back to the community, Grow as a community</div>
                             <div class="buttonHero"><a class="aButton" href="#">Join now</a></div>
@@ -66,7 +102,7 @@ class MainPage extends React.Component {
                 {/* <!-- how we work --> */}
                 <div class="threeBoxLayout">
                     <div class="mainHeading">How We Work</div>
-                    <div class="boxes">
+                    <div ref={(div) => (this.boxes = div)} class="boxes">
                         <div class="individualBoxes">
                             <div class="individualBoxesImage"><img src={undraw_typewriter_i8xd}/></div>  
                             <p>Practice writing on the platform through articles on real life issues</p>
@@ -84,13 +120,13 @@ class MainPage extends React.Component {
 
                 <div class="midwayContainer">
                     <div class="midwayTextContainer">
-                        <h2>Everyone needs talent, and we have the talent network</h2>
-                        <h4>Content operations platform for all kinds of customers. Save on time, quality and cost with Pepper Content.</h4>
+                        <h2 ref={(div) => (this.midwayTextContainerh2 = div)} >Everyone needs talent, and we have the talent network</h2>
+                        <h4 ref={(div) => (this.midwayTextContainerh4 = div)} >Content operations platform for all kinds of customers. Save on time, quality and cost with Pepper Content.</h4>
                     </div>
                 </div>
 
                 <div class="meritsSection">
-                    <div class="meritsContainer odd">
+                    <div ref={(div) => (this.odd = div)} class="meritsContainer odd">
                         <div class="meritsText">
                             <div class="meritsTextContainer">
                                 <h3>Real World issues</h3>
@@ -106,7 +142,7 @@ class MainPage extends React.Component {
                 </div>
 
                 <div class="meritsSection">
-                    <div class="meritsContainer even">
+                    <div ref={(div) => (this.even = div)} class="meritsContainer even">
                         <div class="meritsText">
                             <div class="meritsTextContainer"><h3>learn from the community</h3>
                                 <p>Skilly acts as a medium to generate real and constructive feedback on your work to help you identify mistakes and improve as a writer</p>
@@ -121,7 +157,7 @@ class MainPage extends React.Component {
                 </div>
 
                 <div class="meritsSection">
-                    <div class="meritsContainer odd">
+                    <div ref={(div) => (this.odd = div)} class="meritsContainer odd">
                         <div class="meritsText">
                             <div class="meritsTextContainer">
                                 <h3>read fellow writers work</h3>
@@ -137,7 +173,7 @@ class MainPage extends React.Component {
                 </div>
 
                 <div class="meritsSection">
-                    <div class="meritsContainer even">
+                    <div ref={(div) => (this.even = div)} class="meritsContainer even">
                         <div class="meritsText">
                             <div class="meritsTextContainer"><h3>Give back to the community</h3>
                                 <p>Skillly allows you to help fellow artists learn and grow and hence give back to the community</p>
@@ -209,7 +245,10 @@ class MainPage extends React.Component {
                         <p>Copyright © SkillLy</p>
                     </div>
                 </div>
-
+                <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" ></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CSSRulePlugin.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
             </div>
         )
     }
