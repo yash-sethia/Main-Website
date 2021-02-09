@@ -8,16 +8,23 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows:  2.5fr 2fr 4.2fr 1fr;
   grid-template-areas:
-	  "main-body main-body"
+	  "main-body nav-div"
 	  "overview overview"
 	  "content1 content2"
 	  "footerp footerp";
 }
 
+.nav-div{
+  width: 93%;
+  grid-area: nav-div;
+  padding-top: 14%;
+  padding-left: 67%;
+}
+
 
 .headings-analytics{
   background: auto;
-  width: 80%;
+  width: 125%;
   padding-left: 20px;
   grid-area: main-body;
   display: flex;

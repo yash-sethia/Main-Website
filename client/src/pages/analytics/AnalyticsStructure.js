@@ -1,6 +1,9 @@
 import React from "react"
 import '../../Css/analytics/Analytics.css';
 import { NavLink, Link } from "react-router-dom";
+import NavButton from "./nav-button.js";
+import { Dropdown } from "semantic-ui-react"
+import 'semantic-ui-css/semantic.min.css'
 
 class AnalyticsStructure extends React.Component {
     constructor(props) {
@@ -27,12 +30,17 @@ class AnalyticsStructure extends React.Component {
                     <h1>Dunk of the Dunkin</h1>
                   </div>
 
-                      <div className="sub-nav" id="task-nav-analytics">
-                          <NavLink to="/analytics" className="active-analytics">OVERVIEW</NavLink>
-                          <NavLink to="/readreview">REVIEW</NavLink>
-                          <NavLink to="/airating">AI REVIEW</NavLink>
-                          <NavLink to="/engagement">ENGAGEMENT</NavLink>
+                    <div className="sub-nav" id="task-nav-analytics">
+                        <NavLink to="/analytics" className="active-analytics">OVERVIEW</NavLink>
+                        <NavLink to="/readreview">REVIEW</NavLink>
+                        <NavLink to="/airating">AI REVIEW</NavLink>
+                        <NavLink to="/engagement">ENGAGEMENT</NavLink>
                     </div>
+                </div>
+                <div className="nav-div">
+                  
+                  <NavButton/>
+
                 </div>
 
                   <div className="overview-analytics">
