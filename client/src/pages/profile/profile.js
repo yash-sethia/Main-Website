@@ -65,7 +65,7 @@ class Profile extends React.Component {
         
 
       const pageIsNotLoading = 
-          <div className="profile">
+          <div className="profilePageOfUser">
               <CoverImage coverImage={this.state.coverImage} />
               <div className="grid-container" >
                   <Box1 data = {this.state} />
