@@ -18,6 +18,7 @@ import Engagement from './pages/engagement/Engagement'
 import AiRating from './pages/ai-rating/airating'
 import OverallAnalytics from './pages/overallanalytics/OverallAnalytics.js';
 import EditorPage from './pages/editor/editor'
+import ImagePage from './pages/editor/imagePage'
 
 
 
@@ -62,7 +63,7 @@ class Mediator extends React.Component {
     }
     const DashboardPage = () => {
       return(
-          <EditorPage />
+          <ImagePage />
       );
     }
     const AnalyticsPage = () => {

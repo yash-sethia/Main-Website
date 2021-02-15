@@ -30,6 +30,12 @@ class EditorPage extends Component {
     }
 
     render() {
+        const config={
+            placeholder: "Show your magic! (PS: Select the text to format it)",
+            disableNativeSpellChecker: false,
+            toolbar: [ 'bold', 'italic', 'underline', 'strikethrough', 'link', 'blockQuote', 'undo', 'redo', 'numberedList', 'bulletedList' ]
+        }
+        BalloonEditor.defaultConfig = config
         return (
             <div>
                 <div className="buttons-on-editor-page">
@@ -62,11 +68,6 @@ class EditorPage extends Component {
                             'border': 'none',
                             'width' : '80vw',
                             'margin-left': '20vw'
-                        }}
-                        config={{
-                            placeholder: "Show your magic! (PS: Select the text to format it)",
-                            disableNativeSpellChecker: false,
-                            toolbar: [ 'bold', 'italic', 'underline', 'strikethrough', 'link', 'blockQuote', 'undo', 'redo', 'numberedList', 'bulletedList' ]
                         }}
                         data = {this.state.data}
                         onReady={ editor => {
