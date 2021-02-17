@@ -10,11 +10,15 @@
 }
 
 .back-button {
+    height: 40px;
+    width: auto;
     justify-content: flex-start;
 
 }
 
 .publish-button {
+    height: 40px;
+    width: auto;
     justify-content: flex-end;
 }
 
@@ -87,4 +91,26 @@ a {
 a:focus {
     cursor: pointer;
     text-decoration: underline black solid;
+}
+
+ .images-from-unsplash {
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap:   5px;
+  -moz-column-count:    5;
+  -moz-column-gap:      5px;
+  column-count:         5;
+  column-gap:           5px;  
+}
+
+.images-from-unsplash img {
+    margin: 5px;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px; 
+    padding: 0;
+  }
+.images-from-unsplash .img-selected {
+    width: 100% !important;
+    outline: blue 2px solid;
 }

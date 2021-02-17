@@ -8,7 +8,7 @@ const articleSchema = new Schema({
     },
     articleTitle: {
         type: String,
-        minlength: 10
+        minlength: 5
     },
     articleContent: {
         type: String,

@@ -17,8 +17,7 @@ import TaskPage from './pages/task-page/TaskPage'
 import Engagement from './pages/engagement/Engagement'
 import AiRating from './pages/ai-rating/airating'
 import OverallAnalytics from './pages/overallanalytics/OverallAnalytics.js';
-import EditorPage from './pages/editor/editor'
-import ImagePage from './pages/editor/imagePage'
+import Editor from './pages/editor/editor'
 
 
 
@@ -63,7 +62,12 @@ class Mediator extends React.Component {
     }
     const DashboardPage = () => {
       return(
-          <ImagePage />
+          <Dashboard />
+      );
+    }
+    const EditorPage = () => {
+      return(
+          <Editor />
       );
     }
     const AnalyticsPage = () => {
@@ -144,6 +148,7 @@ class Mediator extends React.Component {
           <Route path='/task-page/:id' component={TaskPageComponent} />  {/* Done */}
           <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
           <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
+          <Route path='/editor' component={EditorPage} />
         </Switch>
         <Footer />
       </div>

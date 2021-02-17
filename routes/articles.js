@@ -11,6 +11,7 @@ router.route('/:articleID').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  // console.log("This is from backend : ", req.body)
   const articleID = req.body.articleID; // User Id + Task Id 
   const articleTitle = req.body.articleTitle;
   const articleContent = req.body.articleContent; // How to divide into paragraph ???
@@ -46,7 +47,7 @@ router.route('/add').post((req, res) => {
     });
 
   newArticle.save()
-    .then(() => res.status(200).json('Article added!'))
+    .then(() => res.status(200).json({article: newArticle}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

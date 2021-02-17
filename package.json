@@ -17,11 +17,15 @@
     "@ckeditor/ckeditor5-ckfinder": "^25.0.0",
     "@ckeditor/ckeditor5-essentials": "^25.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.1",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "gasp": "0.0.2",
-    "mongoose": "^5.11.8"
+    "mongoose": "^5.11.8",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3"
   }
 }
