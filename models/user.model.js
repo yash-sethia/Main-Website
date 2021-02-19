@@ -8,8 +8,8 @@ const userSchema = new Schema({
     },
     username: {
         type: String,
-        required: true,
         unique: true,
+        required: false,
         trim: true,
         minlength: 5
     },
@@ -29,13 +29,14 @@ const userSchema = new Schema({
         type: String,
         maxlength: 200,
         minlength: 50,
-        required: true
+        // required: true
     },
     city: {
         type: String
     },
     country: {
-        type: String
+        type: String,
+        default:  "India"
     },
     email: {
         type: String,

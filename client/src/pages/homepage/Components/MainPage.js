@@ -8,9 +8,20 @@ import undraw_Post_re_mtr4 from "../../../images/undraw_Post_re_mtr4.svg";
 import undraw_community_8nwl from "../../../images/undraw_community_8nwl.svg";
 import { gsap } from "gsap";
 
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
+import axios from 'axios';
+
 class MainPage extends React.Component {
     constructor() {
         super();
+        this.state = {
+            name: "",
+            username: "",
+            email: "",
+            displayPicture: ""
+        }
 
         this.herotext = null;
         this.boxes = null;
@@ -18,6 +29,7 @@ class MainPage extends React.Component {
         this.midwayTextContainerh4 = null;
         this.odd = null;
         this.even = null;
+
     }
     componentDidMount() {
 
@@ -70,6 +82,51 @@ class MainPage extends React.Component {
     }
     
     render() {
+        const responseGoogle = (response) => {
+            // console.log("Google : ", response);
+            var uname = "";
+            for(let i = 0; i < response.profileObj.email; i++) {
+                if(response.profileObj.email[i] == '@') {
+                    break;
+                }
+                uname += response.profileObj.email[i];
+            }
+            this.setState({
+                name: response.profileObj.name,
+                email: response.profileObj.email,
+                displayPicture: response.profileObj.imageUrl,
+                username: uname
+            })
+            // console.log("State : ", this.state)
+            axios.post('/api/users/add', this.state).then(res => {
+                console.log(res);
+            })
+            .catch(res => {
+                console.log(res);
+            })
+            
+        }
+        const responseFacebook = (response) => {
+            // console.log("Facebook :", response);
+            var uname = "";
+            for(let i = 0; i < response.email; i++) {
+                if(response.email[i] == '@') {
+                    break;
+                }
+                uname += response.email[i];
+            }
+            this.setState({
+                name: response.name,
+                email: response.email,
+                displayPicture: response.picture.data.url,
+                username: uname
+            })
+            console.log("State : ", this.state)
+        }
+
+        const componentClicked = () => {
+            console.log("Clicked!");
+        }
         return(
             <div>
 
@@ -81,7 +138,24 @@ class MainPage extends React.Component {
                             <h1 class="logo">SkillLy</h1>
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">Login</a></li>
+                                    <li>
+                                        {/* <a href="index.html">Login</a> */}
+                                        <GoogleLogin
+                                            clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+                                            buttonText="Login"
+                                            onSuccess={responseGoogle}
+                                            onFailure={responseGoogle}
+                                            cookiePolicy={'single_host_origin'}
+                                        />
+
+                                        <FacebookLogin
+                                            appId="1828585720649229"
+                                            autoLoad={true}
+                                            fields="name,email,picture"
+                                            onClick={componentClicked}
+                                            callback={responseFacebook} 
+                                        />
+                                    </li>
                                     <li><a href="features.html">Sign Up</a></li>
                                 </ul>
                             </nav>

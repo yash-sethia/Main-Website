@@ -133,10 +133,10 @@ class Mediator extends React.Component {
     return (
       <Router>
       <div className="Mediator">
-        {headercomponent}
-        {sidebarcomponent}
+        {/* {headercomponent}
+        {sidebarcomponent} */}
         <Switch>
-          <Route exact path="/" component={DashboardPage} />     {/* Done */}
+          <Route exact path="/" component={HomePageComponent} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
           <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }

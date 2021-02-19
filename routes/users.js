@@ -35,27 +35,41 @@ router.route('/add').post((req, res) => {
   const skilliesEarned = req.body.skilliesEarned;
   const badgesReceived = req.body.badgesReceived;
 
-  const newUser = new User({
-      userId,
-      username,
-      name,
-      displayPicture,
-      coverImage,
-      bio,
-      city,
-      country,
-      email,
-      facebookId,
-      twitterId,
-      linkedinId,
-      reviewRating,
-      aiRating,
-      skilliesEarned,
-      badgesReceived,
-    });
+  User.findOne({email : req.body.email})
+    .then(user => {
+      if(user) {
+        res.status(200).json({
+        userData: user, exist: true
+      })
+    }
+    else {
+      const newUser = new User({
+        userId,
+        username,
+        name,
+        displayPicture,
+        coverImage,
+        bio,
+        city,
+        country,
+        email,
+        facebookId,
+        twitterId,
+        linkedinId,
+        reviewRating,
+        aiRating,
+        skilliesEarned,
+        badgesReceived,
+      });
+  
+    newUser.save()
+      .then(() => res.json({
+        userData: newUser, exist: false
+      }))
+      .catch(err => res.status(400).json('Error: ' + err));
 
-  newUser.save()
-    .then(() => res.json('User added!'))
+    }
+  })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
