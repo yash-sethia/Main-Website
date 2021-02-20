@@ -1,6 +1,6 @@
 import React from "react"
 import "../../font-awesome/css/font-awesome.min.css"
-
+import Compare from './Compare'
 
 
 class Content1 extends React.Component {
@@ -10,7 +10,7 @@ class Content1 extends React.Component {
         return (
           <div class="content-box">
             <div>
-                Graph comapiring user with other users
+                <Compare />
             </div>
         </div>
         );

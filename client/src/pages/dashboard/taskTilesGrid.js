@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import TaskRow from './taskrow'
 import Grid from '@material-ui/core/Grid';
 import axios from "axios";
+import Donutchart from './Donutchart'
 
 
 class TaskTileGrid extends React.Component {
@@ -231,7 +232,7 @@ class TaskTileGrid extends React.Component {
                     <div className="quick-view" id="">
                         <div className="quickv">
                             <div id="donut-chart">
-                                <img src="https://apexcharts.com/wp-content/uploads/2018/05/simple-donut-chart.svg" alt=""/>
+                                <Donutchart />
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">

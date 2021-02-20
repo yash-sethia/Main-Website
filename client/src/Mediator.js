@@ -40,7 +40,7 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname=="/portfolio") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/") {
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -49,7 +49,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname=="/portfolio") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -133,10 +133,11 @@ class Mediator extends React.Component {
     return (
       <Router>
       <div className="Mediator">
-        {/* {headercomponent}
-        {sidebarcomponent} */}
+         {headercomponent}
+        {sidebarcomponent}
         <Switch>
           <Route exact path="/" component={HomePageComponent} />     {/* Done */}
+          <Route path="/Dashboard" component={DashboardPage} />
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
           <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }

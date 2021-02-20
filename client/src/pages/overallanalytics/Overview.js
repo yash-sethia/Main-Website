@@ -1,7 +1,8 @@
 import React from "react"
 import "../../font-awesome/css/font-awesome.min.css"
-
-
+import Skillliesline from './Skillliesline'
+import Avgreviewrating from './Avgreviewrating'
+import Avgairating from './Avgairating'
 
 class Overview extends React.Component {
     render() {
@@ -23,7 +24,7 @@ class Overview extends React.Component {
                            </div>
 
                            <div className="stat-graph">
-                                   <img src="Image 15.png" alt="Graph"/>
+                                   <Skillliesline />
                            </div>
                 </div>
 
@@ -37,7 +38,7 @@ class Overview extends React.Component {
        </div>
      </div>
      <div className="stat-graph">
-       <img src="Image 15.png" alt="Graph"/>
+       <Avgreviewrating />
      </div>
 
 
@@ -53,7 +54,7 @@ class Overview extends React.Component {
        </div>
      </div>
      <div className="stat-graph">
-       <img src="Image 15.png" alt="Graph"/>
+       <Avgairating />
      </div>
 
 
