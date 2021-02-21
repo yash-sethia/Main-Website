@@ -10,8 +10,10 @@ import { gsap } from "gsap";
 
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import { Redirect } from 'react-router';
-import { AiOutlineGoogle } from 'react-icons/ai';
+import Link from 'react-router-dom/Link';
+import { Redirect } from 'react-router'
+import LoginPage from './login';
+
 import axios from 'axios';
 
 class MainPage extends React.Component {
@@ -166,34 +168,11 @@ class MainPage extends React.Component {
                     <div class="navbar">
                         <div class="container flex">
                             <h1 class="logo">SkillLy</h1>
+                            {/* <LoginPage /> */}
                             <nav>
                                 <ul>
-                                    <li><span>Login in using </span></li>
-                                    <li>
-                                        {/* <a href="index.html">Login</a> */}
-                                        <GoogleLogin
-                                            clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
-                                            buttonText="Login"
-                                            onSuccess={responseGoogle}
-                                            onFailure={responseGoogle}
-                                            render={renderProps => (
-                                                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="icon-check-empty btn btn-lg btn-white m-1"><i className="fa fa-google"></i></button>
-                                            )}
-                                            cookiePolicy={'single_host_origin'}
-                                        />
-
-                                        <FacebookLogin
-                                            appId="1828585720649229"
-                                            // autoLoad={true}
-                                            fields="name,email,picture"
-                                            onClick={componentClicked}
-                                            callback={responseFacebook} 
-                                            cssClass="btn btn-lg m-1"
-                                            textButton=""
-                                            icon="fab fa-facebook"
-                                        />
-                                    </li>
-                                    {/* <li><a href="features.html">Sign Up</a></li> */}
+                                    <li><Link to={'/login'} target='_blank' >Login</Link> </li>
+                                    <li><Link to={'/login'} target='_blank' >Sign Up</Link> </li>
                                 </ul>
                             </nav>
                         </div>
@@ -365,3 +344,36 @@ class MainPage extends React.Component {
     }
 }
 export default MainPage;
+
+
+
+// <nav>
+//                                 <ul>
+//                                     <li><span>Login in using </span></li>
+//                                     <li>
+//                                         {/* <a href="index.html">Login</a> */}
+//                                         <GoogleLogin
+//                                             clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+//                                             buttonText="Login"
+//                                             onSuccess={responseGoogle}
+//                                             onFailure={responseGoogle}
+//                                             render={renderProps => (
+//                                                 <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="icon-check-empty btn btn-lg btn-white m-1"><i className="fa fa-google"></i></button>
+//                                             )}
+//                                             cookiePolicy={'single_host_origin'}
+//                                         />
+
+//                                         <FacebookLogin
+//                                             appId="1828585720649229"
+//                                             // autoLoad={true}
+//                                             fields="name,email,picture"
+//                                             onClick={componentClicked}
+//                                             callback={responseFacebook} 
+//                                             cssClass="btn btn-lg m-1"
+//                                             textButton=""
+//                                             icon="fab fa-facebook"
+//                                         />
+//                                     </li>
+//                                     {/* <li><a href="features.html">Sign Up</a></li> */}
+//                                 </ul>
+//                             </nav>
