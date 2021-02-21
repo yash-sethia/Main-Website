@@ -1,6 +1,6 @@
 import React from "react"
 import "../../font-awesome/css/font-awesome.min.css"
-
+import Donut from './Donut'
 
 
 class Content4 extends React.Component {
@@ -10,7 +10,7 @@ class Content4 extends React.Component {
         return (
           <div class="content-box">
       			<div class="donut-graph">
-      				<img src="Image 17.png" alt = "Donut Graph" />
+      				<Donut />
       			</div>
       		</div>
         );

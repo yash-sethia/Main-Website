@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\pages",
+    "\\client\\src\\pages\\dashboard",
+    "\\client\\src\\pages\\overallanalytics"
+  ],
+  "SelectedNode": "\\client\\src\\pages\\overallanalytics\\Donut.js",
+  "PreviewInSolutionExplorer": false
+}
