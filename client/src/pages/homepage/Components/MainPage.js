@@ -10,17 +10,21 @@ import { gsap } from "gsap";
 
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-
+import { Redirect } from 'react-router';
+import { AiOutlineGoogle } from 'react-icons/ai';
 import axios from 'axios';
 
 class MainPage extends React.Component {
     constructor() {
         super();
         this.state = {
+            id: "",
             name: "",
             username: "",
             email: "",
-            displayPicture: ""
+            displayPicture: "", 
+            loggedIn: false,
+            exists: false
         }
 
         this.herotext = null;
@@ -85,7 +89,7 @@ class MainPage extends React.Component {
         const responseGoogle = (response) => {
             // console.log("Google : ", response);
             var uname = "";
-            for(let i = 0; i < response.profileObj.email; i++) {
+            for(let i = 0; i < response.profileObj.email.length; i++) {
                 if(response.profileObj.email[i] == '@') {
                     break;
                 }
@@ -95,11 +99,16 @@ class MainPage extends React.Component {
                 name: response.profileObj.name,
                 email: response.profileObj.email,
                 displayPicture: response.profileObj.imageUrl,
-                username: uname
+                username: uname,
+                loggedIn: true
             })
-            // console.log("State : ", this.state)
+            console.log("State : ", this.state)
             axios.post('/api/users/add', this.state).then(res => {
                 console.log(res);
+                this.setState({
+                    id : res.data.userData._id,
+                    exists: res.data.exist
+                })
             })
             .catch(res => {
                 console.log(res);
@@ -109,7 +118,7 @@ class MainPage extends React.Component {
         const responseFacebook = (response) => {
             // console.log("Facebook :", response);
             var uname = "";
-            for(let i = 0; i < response.email; i++) {
+            for(let i = 0; i < response.email.length; i++) {
                 if(response.email[i] == '@') {
                     break;
                 }
@@ -119,14 +128,35 @@ class MainPage extends React.Component {
                 name: response.name,
                 email: response.email,
                 displayPicture: response.picture.data.url,
-                username: uname
+                username: uname,
+                loggedIn: true
             })
-            console.log("State : ", this.state)
+
+            console.log("State : ", this.state);
+
+            axios.post('/api/users/add', this.state).then(res => {
+                console.log(res);
+                this.setState({
+                    id : res.data.userData._id,
+                    exists: res.data.exist
+                })
+            })
+            .catch(res => {
+                console.log(res);
+            })
+
         }
 
         const componentClicked = () => {
             console.log("Clicked!");
         }
+
+        if(this.state.loggedIn) {
+            return( <Redirect to={'/dashboard'} /> );
+        }
+
+        console.log(window.location.pathname)
+
         return(
             <div>
 
@@ -138,6 +168,7 @@ class MainPage extends React.Component {
                             <h1 class="logo">SkillLy</h1>
                             <nav>
                                 <ul>
+                                    <li><span>Login in using </span></li>
                                     <li>
                                         {/* <a href="index.html">Login</a> */}
                                         <GoogleLogin
@@ -145,18 +176,24 @@ class MainPage extends React.Component {
                                             buttonText="Login"
                                             onSuccess={responseGoogle}
                                             onFailure={responseGoogle}
+                                            render={renderProps => (
+                                                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="icon-check-empty btn btn-lg btn-white m-1"><i className="fa fa-google"></i></button>
+                                            )}
                                             cookiePolicy={'single_host_origin'}
                                         />
 
                                         <FacebookLogin
                                             appId="1828585720649229"
-                                            autoLoad={true}
+                                            // autoLoad={true}
                                             fields="name,email,picture"
                                             onClick={componentClicked}
                                             callback={responseFacebook} 
+                                            cssClass="btn btn-lg m-1"
+                                            textButton=""
+                                            icon="fab fa-facebook"
                                         />
                                     </li>
-                                    <li><a href="features.html">Sign Up</a></li>
+                                    {/* <li><a href="features.html">Sign Up</a></li> */}
                                 </ul>
                             </nav>
                         </div>

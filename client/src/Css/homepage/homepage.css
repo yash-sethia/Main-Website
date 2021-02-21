@@ -71,6 +71,13 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+.navbar span {
+  color:white;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 .navbar a {
   color:white;
   padding: 10px;
@@ -456,7 +463,14 @@ a {
  }
 
 
+.btn {
+  color: white !important;
+}
 
+.btn-primary .fb-button {
+  background-color: transparent;
+  border: none;
+}
 
 
 
