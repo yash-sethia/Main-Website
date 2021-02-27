@@ -7,6 +7,7 @@ import Footer from './shared/Footer.js';
 
 import HomePage from './pages/homepage/homepage.js';
 import LoginPage from './pages/homepage/Components/login';
+import SetProfile from './pages/homepage/Components/setProfile';
 import Analytics from './pages/analytics/Analytics.js';
 import Dashboard from './pages/dashboard/Dashboard.js';
 import Portfolio from './pages/portfolio/portfolio';
@@ -41,7 +42,7 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login" || window.location.pathname=="/setprofile") { 
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -50,7 +51,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login" || window.location.pathname=="/setprofile") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -77,6 +78,15 @@ class Mediator extends React.Component {
         </div>
       );
     }
+
+    const SetProfilePageComponent = () => {
+      return(
+        <div>
+          <SetProfile />
+        </div>
+      );
+    }
+
     const EditorPage = () => {
       return(
           <Editor />
@@ -148,8 +158,9 @@ class Mediator extends React.Component {
         {headercomponent}
         {sidebarcomponent}
         <Switch>
-          <Route exact path="/" component={HomePageComponent} />
-          <Route path="/login" component={LoginPageComponent} />
+          <Route exact path="/" component={HomePageComponent} />    {/* Done */}
+          <Route path="/login" component={LoginPageComponent} />    {/* Done */}
+          <Route path="/setprofile" component={SetProfilePageComponent} />   {/* Done */}
           <Route path="/dashboard" component={DashboardPage} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}

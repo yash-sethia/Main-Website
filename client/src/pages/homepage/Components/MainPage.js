@@ -35,6 +35,7 @@ class MainPage extends React.Component {
         this.midwayTextContainerh4 = null;
         this.odd = null;
         this.even = null;
+        this.responseGoogle = this.responseGoogle.bind(this);
 
     }
     componentDidMount() {
@@ -86,78 +87,84 @@ class MainPage extends React.Component {
         });
          
     }
+
+    responseGoogle = (response) => {
+        console.log("Google : ", response);
+        var uname = "";
+        for(let i = 0; i < response.profileObj.email.length; i++) {
+            if(response.profileObj.email[i] == '@') {
+                break;
+            }
+            uname += response.profileObj.email[i];
+        }
+        this.setState({
+            name: response.profileObj.name,
+            email: response.profileObj.email,
+            displayPicture: response.profileObj.imageUrl,
+            username: uname,
+        })
+        console.log("State : ", this.state)
+        axios.post('/api/users/add', this.state).then(res => {
+            console.log("Res : ",res);
+            this.setState({
+                id : res.data.userData._id,
+                exists: res.data.exist,
+                loggedIn: true
+            })
+            console.log("Now state : ", this.state)
+        })
+        .catch(res => {
+            console.log(res);
+        })
+        
+    }
     
     render() {
-        const responseGoogle = (response) => {
-            // console.log("Google : ", response);
-            var uname = "";
-            for(let i = 0; i < response.profileObj.email.length; i++) {
-                if(response.profileObj.email[i] == '@') {
-                    break;
-                }
-                uname += response.profileObj.email[i];
-            }
-            this.setState({
-                name: response.profileObj.name,
-                email: response.profileObj.email,
-                displayPicture: response.profileObj.imageUrl,
-                username: uname,
-                loggedIn: true
-            })
-            console.log("State : ", this.state)
-            axios.post('/api/users/add', this.state).then(res => {
-                console.log(res);
-                this.setState({
-                    id : res.data.userData._id,
-                    exists: res.data.exist
-                })
-            })
-            .catch(res => {
-                console.log(res);
-            })
-            
-        }
-        const responseFacebook = (response) => {
-            // console.log("Facebook :", response);
-            var uname = "";
-            for(let i = 0; i < response.email.length; i++) {
-                if(response.email[i] == '@') {
-                    break;
-                }
-                uname += response.email[i];
-            }
-            this.setState({
-                name: response.name,
-                email: response.email,
-                displayPicture: response.picture.data.url,
-                username: uname,
-                loggedIn: true
-            })
+        // const responseFacebook = (response) => {
+        //     // console.log("Facebook :", response);
+        //     var uname = "";
+        //     for(let i = 0; i < response.email.length; i++) {
+        //         if(response.email[i] == '@') {
+        //             break;
+        //         }
+        //         uname += response.email[i];
+        //     }
+        //     this.setState({
+        //         name: response.name,
+        //         email: response.email,
+        //         displayPicture: response.picture.data.url,
+        //         username: uname,
+        //         loggedIn: true
+        //     })
 
-            console.log("State : ", this.state);
+        //     console.log("State : ", this.state);
 
-            axios.post('/api/users/add', this.state).then(res => {
-                console.log(res);
-                this.setState({
-                    id : res.data.userData._id,
-                    exists: res.data.exist
-                })
-            })
-            .catch(res => {
-                console.log(res);
-            })
+        //     axios.post('/api/users/add', this.state).then(res => {
+        //         console.log(res);
+        //         this.setState({
+        //             id : res.data.userData._id,
+        //             exists: res.data.exist
+        //         })
+        //     })
+        //     .catch(res => {
+        //         console.log(res);
+        //     })
 
-        }
+        // }
 
         const componentClicked = () => {
             console.log("Clicked!");
         }
 
-        if(this.state.loggedIn) {
+        if(this.state.loggedIn && this.state.exists) {
             return( <Redirect to={'/dashboard'} /> );
         }
+        else if(this.state.loggedIn && !this.state.exists) {
+            return( <Redirect to={'/setprofile'} /> );
+        }
 
-        console.log(window.location.pathname)
+
+        // console.log(window.location.pathname)
 
         return(
             <div>
@@ -171,7 +178,20 @@ class MainPage extends React.Component {
                             {/* <LoginPage /> */}
                             <nav>
                                 <ul>
-                                    <li><Link to={'/login'} target='_blank' >Sign In</Link> </li>
+                                    <li>
+                                        {/* <Link to={'/login'} target='_blank' > */}
+                                            <GoogleLogin
+                                                clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+                                                buttonText="Login"
+                                                onSuccess={this.responseGoogle}
+                                                onFailure={this.responseGoogle}
+                                                render={renderProps => (
+                                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign In </button>
+                                                )}
+                                                cookiePolicy={'single_host_origin'}
+                                            />
+                                        {/* </Link>  */}
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

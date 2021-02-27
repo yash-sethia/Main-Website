@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -12,10 +8,11 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { AiOutlineGoogle } from 'react-icons/ai';
+import { withStyles } from '@material-ui/styles';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router';
+import { withTheme } from '@material-ui/core/styles';
 
 import axios from 'axios';
 
@@ -35,49 +32,64 @@ function Copyright() {
 
 
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     height: '100vh',
   },
   image: {
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundColor: '#eeeeee',
+
+      // theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: '64px 32px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: '8px',
+    backgroundColor: '#dc004e',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: '8px',
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: '24px 0 16px',
   },
-}));
+});
 
-export default function SignInSide() {
-  const classes = useStyles();
-    const [id, setId ] = useState("");
-    const [name, setName ] = useState("");
-    const [username, setUsername ] = useState("");
-    const [email, setEmail ] = useState("");
-    const [displayPicture, setDisplayPicture ] = useState("");
-    const [loggedIn, setLoggedIn ] = useState(false);
-    const [exists, setExists ] = useState(false);
+class SignInSide extends React.Component {
+  // const classes = useStyles();
+  //   const [id, setId ] = useState("");
+  //   const [name, setName ] = useState("");
+  //   const [username, setUsername ] = useState("");
+  //   const [email, setEmail ] = useState("");
+  //   const [displayPicture, setDisplayPicture ] = useState("");
+  //   const [loggedIn, setLoggedIn ] = useState(false);
+  //   const [exists, setExists ] = useState(false);
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "",
+      name: "",
+      email: "",
+      username: "",
+      displayPicture: "",
+      exists: false,
+      loggedIn: false
+    }
+    this.responseGoogle = this.responseGoogle.bind(this);
+    this.responseFacebook = this.responseFacebook.bind(this);
+  }
 
-  const responseGoogle = (response) => {
-    // console.log("Google : ", response);
+  responseGoogle = (response) => {
+    console.log("Google : ", response);
     var uname = "";
     for(let i = 0; i < response.profileObj.email.length; i++) {
         if(response.profileObj.email[i] == '@') {
@@ -85,27 +97,40 @@ export default function SignInSide() {
         }
         uname += response.profileObj.email[i];
     }
-    // this.setState({
-        setName(response.profileObj.name);
-        setEmail(response.profileObj.email);
-        setDisplayPicture(response.profileObj.imageUrl);
-        setUsername(uname);
-        setLoggedIn(true);
-    // })
-    // console.log("State : ", this.state)
+    this.setState({
+        name: (response.profileObj.name),
+        email: (response.profileObj.email),
+        displayPicture: (response.profileObj.imageUrl),
+        username: (uname)
+    })
+    console.log("State : ", this.state)
+    // console.log(name, email,username, displayPicture);
+
+    // var data = {
+    //   name: name,
+    //   email: email,
+    //   username: username,
+    //   displayPicture: displayPicture
+    // }
+
+    //console.log("data : ", this)
     axios.post('/api/users/add', this.state).then(res => {
         console.log(res);
-        // this.setState({
-            setId(res.data.userData._id);
-            setExists(res.data.exist);
-        // })
+        this.setState({
+          id: res.data.userData._id,
+          exist: res.data.exist,
+          loggedIn: true
+        })
+        // setId(res.data.userData._id);
+        // setExists(res.data.exist);
+        // setLoggedIn(true);
     })
     .catch(res => {
         console.log(res);
     })
     
 }
-const responseFacebook = (response) => {
+responseFacebook = (response) => {
     // console.log("Facebook :", response);
     var uname = "";
     for(let i = 0; i < response.email.length; i++) {
@@ -114,22 +139,28 @@ const responseFacebook = (response) => {
         }
         uname += response.email[i];
     }
-    // this.setState({
-        setName(response.name);
-        setEmail(response.email);
-        setDisplayPicture(response.picture.data.url);
-        setUsername(uname);
-        setLoggedIn(true);
-    // })
+    this.setState({
+        name: (response.name),
+        email: (response.email),
+        displayPicture: (response.picture.data.url),
+        username: (uname),
+    })
 
-    // console.log("State : ", this.state);
+    console.log("State : ", this.state);
+    // const data = {
+    //   name: name,
+    //   email: email,
+    //   username: username,
+    //   displayPicture: displayPicture
+    // }
 
     axios.post('/api/users/add', this.state).then(res => {
         console.log(res);
-        // this.setState({
-            setId(res.data.userData._id);
-            setExists(res.data.exist);
-        // })
+        this.setState({
+            id: (res.data.userData._id),
+            exists: (res.data.exist),
+            loggedIn: (true),
+        })
     })
     .catch(res => {
         console.log(res);
@@ -137,14 +168,24 @@ const responseFacebook = (response) => {
 
 }
 
-const componentClicked = () => {
+componentClicked = () => {
     console.log("Clicked!");
 }
+render() {
+  const { classes } = this.props;
+  console.log("Classes : ", classes);
+  const classes1 = styles();
+  console.log("Classes : ", classes1);
 
-if(loggedIn) {
-    return( <Redirect to={'/dashboard'} /> );
-}
-
+  if(this.state.loggedIn && this.state.exists ) {
+  return( <Redirect to={'/dashboard'} /> );
+  }
+  else if(this.state.loggedIn && !this.state.exists) {
+    return (<Redirect to={{
+      pathname: '/setprofile',
+      state: { userId: this.state.id }
+    }} />);
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -161,54 +202,6 @@ if(loggedIn) {
           <Typography component="h2" variant="h6">
             using
           </Typography>
-          {/* <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid> */}
             <div className='login-page'>
                                 <ul>
                                     {/* <li><p><h4> Login / Sign Up </h4> </p></li>
@@ -218,24 +211,24 @@ if(loggedIn) {
                                         <GoogleLogin
                                             clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
                                             buttonText="Login"
-                                            onSuccess={responseGoogle}
-                                            onFailure={responseGoogle}
+                                            onSuccess={this.responseGoogle}
+                                            onFailure={this.responseGoogle}
                                             render={renderProps => (
-                                                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-lg btn-danger m-1"><i className="fa fa-google"></i></button>
+                                                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-lg btn-danger m-1"><i style = {{padding: '5px'}} className="fa fa-google"> &nbsp;&nbsp; with Google</i></button>
                                             )}
                                             cookiePolicy={'single_host_origin'}
                                         />
-
-                                        <FacebookLogin
+                                          <br />
+                                        {/* <FacebookLogin
                                             appId="1828585720649229"
                                             // autoLoad={true}
                                             fields="name,email,picture"
-                                            onClick={componentClicked}
-                                            callback={responseFacebook} 
+                                            onClick={this.componentClicked}
+                                            callback={this.responseFacebook} 
                                             cssClass="btn btn-primary btn-lg m-1"
-                                            textButton=""
+                                            textButton="  with Facebook"
                                             icon="fab fa-facebook"
-                                        />
+                                        /> */}
                                     </li>
                                     {/* <li><a href="features.html">Sign Up</a></li> */}
                                 </ul>
@@ -248,3 +241,6 @@ if(loggedIn) {
     </Grid>
   );
 }
+}
+
+export default withTheme(withStyles(styles)(SignInSide));
