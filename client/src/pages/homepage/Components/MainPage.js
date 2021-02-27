@@ -171,8 +171,7 @@ class MainPage extends React.Component {
                             {/* <LoginPage /> */}
                             <nav>
                                 <ul>
-                                    <li><Link to={'/login'} target='_blank' >Login</Link> </li>
-                                    <li><Link to={'/login'} target='_blank' >Sign Up</Link> </li>
+                                    <li><Link to={'/login'} target='_blank' >Sign In</Link> </li>
                                 </ul>
                             </nav>
                         </div>

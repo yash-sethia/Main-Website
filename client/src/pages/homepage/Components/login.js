@@ -156,7 +156,7 @@ if(loggedIn) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h4">
-            Login / Sign Up
+            Sign In
           </Typography>
           <Typography component="h2" variant="h6">
             using
