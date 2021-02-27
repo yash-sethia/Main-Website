@@ -8,35 +8,50 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows:  2.5fr 2fr 4.2fr 1fr;
   grid-template-areas:
-	  "main-body nav-div"
+	  "main-body main-body"
 	  "overview overview"
 	  "content1 content2"
 	  "footerp footerp";
 }
 
-.nav-div{
-  width: 93%;
-  grid-area: nav-div;
-  padding-top: 14%;
-  padding-left: 67%;
-}
 
+.nav-div{
+  grid-area: nav-div;
+  display: inline-block;
+  align-self: flex-end;
+  padding-left: 90%;
+}
 
 .headings-analytics{
   background: auto;
-  width: 125%;
+  width: 100%;
+  padding-top: 6%;
   padding-left: 20px;
   grid-area: main-body;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  grid-template-areas:
+	  "article-topic nav-div"
+	  "sub-nav blank";
   justify-content: flex-end;
 
 }
 
+.sub-nav{
+  grid-area: sub-nav;
+}
+
+.article-topic-analytics{
+  width: 50%;
+  grid-area: article-topic;
+}
+
 #task-nav-analytics{
+  padding-top: 0.5%;
   display: flex;
-  width: 45%;
-  min-width: 40%;
+  width: 55%;
+  min-width: 26.66%;
   justify-content: space-between
 }
 #task-nav-analytics a{

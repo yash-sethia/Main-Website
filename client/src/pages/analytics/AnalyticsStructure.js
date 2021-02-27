@@ -36,12 +36,13 @@ class AnalyticsStructure extends React.Component {
                         <NavLink to="/airating">AI REVIEW</NavLink>
                         <NavLink to="/engagement">ENGAGEMENT</NavLink>
                     </div>
-                </div>
-                <div className="nav-div">
+                    <div className="nav-div">
                   
-                  <NavButton/>
+                      <NavButton/>
 
+                    </div>  
                 </div>
+                
 
                   <div className="overview-analytics">
                         <div className="overview-box-analytics">

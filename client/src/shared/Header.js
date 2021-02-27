@@ -20,8 +20,18 @@ class Header extends React.Component {
     return (
         <div id="topnav">
             <i className="fa fa-star fa-lg" aria-hidden="true" id="logo">  SKILLY</i>
-            <a id="name">{this.state.name}</a>
-            <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a>
+            <div className="dropdown">
+              <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a>
+              <a id="name">{this.state.name}</a>
+              <div className="dropdown-content">
+                <ul>
+                  <li>option 1</li>
+                  <li>option 1</li>
+                  <li>option 1</li>
+                  <li>option 1</li>
+                </ul>
+              </div>
+            </div>
             <a id="notifications"><i className="fa fa-bell fa-lg" aria-hidden="true"></i></a>
             <a id="search"><i className="fa fa-search fa-lg" aria-hidden="true"></i></a>
         </div>
