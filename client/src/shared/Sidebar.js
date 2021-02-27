@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
 
           <span>
             <li className="sidenav-item">
-              <NavLink to="/">
+              <NavLink to="/Dashboard">
                 <span className="icons"><i className="fa fa-home" aria-hidden="true"></i></span>
                 <span className="options">SkillBoard</span>
               </NavLink>

@@ -6,6 +6,7 @@ import Sidebar from './shared/Sidebar.js';
 import Footer from './shared/Footer.js';
 
 import HomePage from './pages/homepage/homepage.js';
+import LoginPage from './pages/homepage/Components/login';
 import Analytics from './pages/analytics/Analytics.js';
 import Dashboard from './pages/dashboard/Dashboard.js';
 import Portfolio from './pages/portfolio/portfolio';
@@ -40,7 +41,7 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname=="/portfolio") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login") {
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -49,7 +50,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname=="/portfolio") {
+    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -62,7 +63,18 @@ class Mediator extends React.Component {
     }
     const DashboardPage = () => {
       return(
+        <div>
+          <Sidebar />
+          <Header/>
           <Dashboard />
+        </div>
+      );
+    }
+    const LoginPageComponent = () => {
+      return(
+        <div>
+          <LoginPage />
+        </div>
       );
     }
     const EditorPage = () => {
@@ -136,7 +148,9 @@ class Mediator extends React.Component {
         {headercomponent}
         {sidebarcomponent}
         <Switch>
-          <Route exact path="/" component={DashboardPage} />     {/* Done */}
+          <Route exact path="/" component={HomePageComponent} />
+          <Route path="/login" component={LoginPageComponent} />
+          <Route path="/dashboard" component={DashboardPage} />     {/* Done */}
           <Route path="/Review-more" component={ReviewMorePage} /> 
           <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
           <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }

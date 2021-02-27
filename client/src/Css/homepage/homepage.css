@@ -65,18 +65,38 @@ a {
   color:rgb(255, 255, 255);
 }
 
+.login-page {
+  margin-left: 1rem;
+  padding: 3rem;
+}
+
+.login-page ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-right: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
 .navbar ul {
   display: flex;
   padding-right: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
-.navbar a {
+.navbar p, .login-page p {
+  color:black;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.navbar a, .login-page a {
   color:white;
   padding: 10px;
 }
 
-.navbar a:hover {
+.navbar a:hover, .login-page a:hover {
   border-bottom: 2px #fff solid;
 }
 
@@ -456,7 +476,14 @@ a {
  }
 
 
+/* .btn {
+  color: white !important;
+}
 
+.btn-primary .fb-button {
+  background-color: transparent;
+  border: none;
+} */
 
 
 

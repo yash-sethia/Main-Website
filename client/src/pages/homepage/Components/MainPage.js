@@ -8,9 +8,26 @@ import undraw_Post_re_mtr4 from "../../../images/undraw_Post_re_mtr4.svg";
 import undraw_community_8nwl from "../../../images/undraw_community_8nwl.svg";
 import { gsap } from "gsap";
 
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import Link from 'react-router-dom/Link';
+import { Redirect } from 'react-router'
+import LoginPage from './login';
+
+import axios from 'axios';
+
 class MainPage extends React.Component {
     constructor() {
         super();
+        this.state = {
+            id: "",
+            name: "",
+            username: "",
+            email: "",
+            displayPicture: "", 
+            loggedIn: false,
+            exists: false
+        }
 
         this.herotext = null;
         this.boxes = null;
@@ -18,6 +35,7 @@ class MainPage extends React.Component {
         this.midwayTextContainerh4 = null;
         this.odd = null;
         this.even = null;
+
     }
     componentDidMount() {
 
@@ -70,6 +88,77 @@ class MainPage extends React.Component {
     }
     
     render() {
+        const responseGoogle = (response) => {
+            // console.log("Google : ", response);
+            var uname = "";
+            for(let i = 0; i < response.profileObj.email.length; i++) {
+                if(response.profileObj.email[i] == '@') {
+                    break;
+                }
+                uname += response.profileObj.email[i];
+            }
+            this.setState({
+                name: response.profileObj.name,
+                email: response.profileObj.email,
+                displayPicture: response.profileObj.imageUrl,
+                username: uname,
+                loggedIn: true
+            })
+            console.log("State : ", this.state)
+            axios.post('/api/users/add', this.state).then(res => {
+                console.log(res);
+                this.setState({
+                    id : res.data.userData._id,
+                    exists: res.data.exist
+                })
+            })
+            .catch(res => {
+                console.log(res);
+            })
+            
+        }
+        const responseFacebook = (response) => {
+            // console.log("Facebook :", response);
+            var uname = "";
+            for(let i = 0; i < response.email.length; i++) {
+                if(response.email[i] == '@') {
+                    break;
+                }
+                uname += response.email[i];
+            }
+            this.setState({
+                name: response.name,
+                email: response.email,
+                displayPicture: response.picture.data.url,
+                username: uname,
+                loggedIn: true
+            })
+
+            console.log("State : ", this.state);
+
+            axios.post('/api/users/add', this.state).then(res => {
+                console.log(res);
+                this.setState({
+                    id : res.data.userData._id,
+                    exists: res.data.exist
+                })
+            })
+            .catch(res => {
+                console.log(res);
+            })
+
+        }
+
+        const componentClicked = () => {
+            console.log("Clicked!");
+        }
+
+        if(this.state.loggedIn) {
+            return( <Redirect to={'/dashboard'} /> );
+        }
+
+        console.log(window.location.pathname)
+
         return(
             <div>
 
@@ -79,10 +168,11 @@ class MainPage extends React.Component {
                     <div class="navbar">
                         <div class="container flex">
                             <h1 class="logo">SkillLy</h1>
+                            {/* <LoginPage /> */}
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">Login</a></li>
-                                    <li><a href="features.html">Sign Up</a></li>
+                                    <li><Link to={'/login'} target='_blank' >Login</Link> </li>
+                                    <li><Link to={'/login'} target='_blank' >Sign Up</Link> </li>
                                 </ul>
                             </nav>
                         </div>
@@ -254,3 +344,36 @@ class MainPage extends React.Component {
     }
 }
 export default MainPage;
+
+
+
+// <nav>
+//                                 <ul>
+//                                     <li><span>Login in using </span></li>
+//                                     <li>
+//                                         {/* <a href="index.html">Login</a> */}
+//                                         <GoogleLogin
+//                                             clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+//                                             buttonText="Login"
+//                                             onSuccess={responseGoogle}
+//                                             onFailure={responseGoogle}
+//                                             render={renderProps => (
+//                                                 <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="icon-check-empty btn btn-lg btn-white m-1"><i className="fa fa-google"></i></button>
+//                                             )}
+//                                             cookiePolicy={'single_host_origin'}
+//                                         />
+
+//                                         <FacebookLogin
+//                                             appId="1828585720649229"
+//                                             // autoLoad={true}
+//                                             fields="name,email,picture"
+//                                             onClick={componentClicked}
+//                                             callback={responseFacebook} 
+//                                             cssClass="btn btn-lg m-1"
+//                                             textButton=""
+//                                             icon="fab fa-facebook"
+//                                         />
+//                                     </li>
+//                                     {/* <li><a href="features.html">Sign Up</a></li> */}
+//                                 </ul>
+//                             </nav>
