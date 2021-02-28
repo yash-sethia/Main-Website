@@ -20,6 +20,7 @@ import Engagement from './pages/engagement/Engagement'
 import AiRating from './pages/ai-rating/airating'
 import OverallAnalytics from './pages/overallanalytics/OverallAnalytics.js';
 import Editor from './pages/editor/editor'
+import RatingSlider from './pages/review-article-questions/ratingSlider'
 
 
 
@@ -119,6 +120,10 @@ class Mediator extends React.Component {
       return( < QuestionLike />)
     }
 
+    const RatingSliderComponent = () => {
+      return( < RatingSlider />)
+    }
+
     const QuestionDislikeComponent = () => {
       return( < QuestionDislike />)
     }
@@ -167,6 +172,7 @@ class Mediator extends React.Component {
           <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
           <Route path='/profile' component={ProfileComponent} /> {/* Done */}
           <Route path='/question-like' component={QuestionLikeComponent} /> {/* Done */}
+          <Route path='/RatingSlider' component={RatingSliderComponent} />
           <Route path='/question-dislike' component={QuestionDislikeComponent} /> {/* Problem in Sending the data from 1 page to another */}
           <Route path='/engagement' component={EngagementComponent} /> {/* Done + SCAM */}
           <Route path='/airating' component={AiRatingComponent} />

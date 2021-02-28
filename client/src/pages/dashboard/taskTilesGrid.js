@@ -25,7 +25,7 @@ class TaskTileGrid extends React.Component {
     componentDidMount() {
         // Conditional rendering for tasks not done !
         axios.get('/api/tasks/').then(res => {
-            console.log("Task Tile Grid : ", res.data)
+            console.log("Task Tile Grid : ", res)
           this.setState({
             task1: {
                 id: res.data.taskData[0]._id, 
@@ -128,6 +128,7 @@ class TaskTileGrid extends React.Component {
             }
           })
         })
+        .catch(err => {console.log(err)})
       }
 
     render() {
