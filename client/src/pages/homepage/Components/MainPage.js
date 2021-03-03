@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { UserContext } from '../../AuthContext';
 import undraw_typewriter_i8xd from "../../../images/undraw_typewriter_i8xd.svg";
 import undraw_respond_8wjt from "../../../images/undraw_respond_8wjt.svg";
 import undraw_stepping_up_g6oo from "../../../images/undraw_stepping_up_g6oo.svg";
@@ -17,8 +18,8 @@ import LoginPage from './login';
 import axios from 'axios';
 
 class MainPage extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             id: "",
             name: "",
@@ -26,7 +27,9 @@ class MainPage extends React.Component {
             email: "",
             displayPicture: "", 
             loggedIn: false,
-            exists: false
+            exists: false,
+
+            setUserContext: props.setUserContext
         }
 
         this.herotext = null;
@@ -103,20 +106,33 @@ class MainPage extends React.Component {
             displayPicture: response.profileObj.imageUrl,
             username: uname,
         })
-        console.log("State : ", this.state)
+
+        // console.log("State : ", this.state)
+
+
         axios.post('/api/users/add', this.state).then(res => {
             console.log("Res : ",res);
-            this.setState({
+            this.setState(prevState => ({
+                ...prevState,
                 id : res.data.userData._id,
                 exists: res.data.exist,
                 loggedIn: true
-            })
+            }))
             console.log("Now state : ", this.state)
+            const user = {
+                id: this.state.id,
+                username: this.state.username,
+                isAuth: this.state.loggedIn
+            }
+    
+            this.state.setUserContext(user);
+
         })
         .catch(res => {
             console.log(res);
         })
-        
+
+        // console.log("This is the final state :", this.state)
     }
     
     render() {
@@ -362,37 +378,18 @@ class MainPage extends React.Component {
         )
     }
 }
-export default MainPage;
+
+
+const MainPageFunc = () => {
+    const [user, setUser ] = useContext(UserContext);
+    const handleLogIn = user => {
+        setUser(user);
+    }
+    return(<MainPage setUserContext= {handleLogIn} />);
+}
 
 
 
-// <nav>
-//                                 <ul>
-//                                     <li><span>Login in using </span></li>
-//                                     <li>
-//                                         {/* <a href="index.html">Login</a> */}
-//                                         <GoogleLogin
-//                                             clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
-//                                             buttonText="Login"
-//                                             onSuccess={responseGoogle}
-//                                             onFailure={responseGoogle}
-//                                             render={renderProps => (
-//                                                 <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="icon-check-empty btn btn-lg btn-white m-1"><i className="fa fa-google"></i></button>
-//                                             )}
-//                                             cookiePolicy={'single_host_origin'}
-//                                         />
+export default MainPageFunc;
 
-//                                         <FacebookLogin
-//                                             appId="1828585720649229"
-//                                             // autoLoad={true}
-//                                             fields="name,email,picture"
-//                                             onClick={componentClicked}
-//                                             callback={responseFacebook} 
-//                                             cssClass="btn btn-lg m-1"
-//                                             textButton=""
-//                                             icon="fab fa-facebook"
-//                                         />
-//                                     </li>
-//                                     {/* <li><a href="features.html">Sign Up</a></li> */}
-//                                 </ul>
-//                             </nav>
+

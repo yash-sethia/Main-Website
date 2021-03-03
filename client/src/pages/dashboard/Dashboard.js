@@ -1,11 +1,11 @@
-import React from "react"
+import React, {useContext} from "react"
 import "../../font-awesome/css/font-awesome.min.css"
 import '../../Css/dashboard/Dashboard.css'
 import LoadingAnimation from '../../shared/loading'
 import TaskTileGrid from './taskTilesGrid'
 import data from '../../data/DashboardData'
 
-import axios from 'axios'
+import { UserContext } from '../AuthContext';
 
 class Dashboard extends React.Component {
     constructor() {
@@ -69,4 +69,13 @@ class Dashboard extends React.Component {
     }
   }
 
-export default Dashboard
+const DashboardFunc = () => {
+  const [user, setUser] = useContext(UserContext);
+
+  console.log("Hello There Genius : ", user);
+
+  return(<Dashboard/>);
+}
+
+
+export default DashboardFunc;

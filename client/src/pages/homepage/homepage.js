@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import MainPage from './Components/MainPage';
 import '../../Css/homepage/homepage.css';
-import LoadingAnimation from '../../shared/loading'
+import LoadingAnimation from '../../shared/loading';
+import { UserContext } from '../AuthContext';
 
-class homepage extends React.Component {
-    constructor() {
+
+class Homepage extends React.Component {
+    constructor(props) {
         super();
         this.enableMessage = this.enableMessage.bind(this);
 
@@ -20,6 +22,8 @@ class homepage extends React.Component {
     enableMessage() {
     this.setState({isLoading: false});
     }
+
+
 
     render() {
         const pageIsLoading = <LoadingAnimation />
@@ -41,4 +45,5 @@ class homepage extends React.Component {
         );
     }
 }
-export default homepage;
+
+export default Homepage;
