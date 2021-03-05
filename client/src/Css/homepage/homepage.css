@@ -18,6 +18,7 @@ body{
   width: 10px;
 }
 
+
 ::-webkit-scrollbar-track {
   background: #ffffff; 
 }
@@ -48,14 +49,14 @@ a {
 
 
 /* Navbar */
-.navbar {
+.homepageNavbar {
   background-color: rgba(0, 0, 0, 0);
   height: 70px;
   z-index: 100;
   
 }
 
-.navbar .logo {
+.homepageNavbar .logo {
   padding-left: 10px;
   font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
@@ -78,42 +79,44 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
-.navbar ul {
+.homepageNavbar ul {
   display: flex;
   padding-right: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
-.navbar p, .login-page p {
-  color:black;
-  padding: 10px 10px 10px 10px;
+
+
+.login-page {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color:white;
+  border-radius: 10px;
+  padding: 5px 15px;
   font-size: 1.2rem;
   font-weight: 300;
+  
 }
 
-.navbar a, .login-page a {
-  color:white;
-  padding: 10px;
+.login-page:hover {
+  border-bottom: 2px rgba(255, 255, 255, 0.411) solid;
+  background-color: rgba(221, 221, 221, 0.1);
+  
 }
 
-.navbar a:hover, .login-page a:hover {
-  border-bottom: 2px #fff solid;
-}
-
-.container {
+.homepageContainer{
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 10px;
   height: auto;
 }
 
-.navbar .flex {
+.homepageNavbar .flex {
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
 }
-
 
 
 .wrapper {
@@ -123,8 +126,7 @@ a {
 
 
 .totalHero .hero-text {
-	position: absolute;
-	bottom: 35%;
+	margin-top: 20vh;
   color: white;
   padding-left: 10px;
 
@@ -141,9 +143,11 @@ a {
 .totalHero .hero-text .subtext {
   padding-top: 10px;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 30px;
 }
 
-.totalHero .hero-text .buttonHero {
+
+.aButton {
   height: 50px;
   width: 160px;
   background-color: rgba(0, 0, 0, 0);
@@ -151,18 +155,14 @@ a {
   border-style: solid;
   border-width: 2px;
   border-color: white;
-  margin-top: 40px;
-
-}
-
-.totalHero .hero-text .aButton {
+  margin-top: 30px;
   font-family: 'Roboto', sans-serif;
   font-size: 1.3em;
   color: white;
   margin: auto;
 }
 
-.totalHero .hero-text a:hover {
+.aButton :hover {
   transform: scale(0.98);
 }
 
@@ -358,7 +358,7 @@ a {
 
   
 
-.footer{
+/* .footer{
     background: #2c2c2c;;
     padding: 50px;
  }
@@ -473,7 +473,54 @@ a {
  
  .footer .social_media{
    color: #adadad;
- }
+ } */
+
+
+ .homepageFooter {
+  background-color:rgb(212, 212, 212);
+  padding: 50px 200px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+ .footerMenu{
+ display: flex;
+ margin-bottom: 25px;
+ justify-content: space-between;
+}
+
+ .footerMenu .title{
+ margin-bottom: 10px;
+ color: #000000;
+ font-size: 18px;
+ font-weight: 600;
+}
+
+.footerMenu ul {
+   list-style: none;
+}
+
+.footerMenu ul li a{
+ display: block;
+ margin-bottom: 6px;
+ color: rgb(66, 66, 66);
+ text-decoration: none;
+}
+
+.footerMenu ul li a:hover{
+  color: rgb(0, 0, 0);
+}
+
+.socialMedia{
+  margin-top: 50px;
+  padding-bottom: 10px;
+ text-align: center;
+}
+
+.socialMedia{
+ color: #8b8b8b;
+}
+
 
 
 /* .btn {
@@ -545,23 +592,22 @@ a {
   }
 
   .hero-text{
-    padding-left: 0;
+    padding-left: 5px;
+    padding-right: 20px;
+
   }
 
   .totalHero .hero-text h2 {
     font-size: 2.2em;
-    text-align: center;
+    text-align: left;
   }
   
   
   .totalHero .hero-text .subtext {
-    padding-top: 15px 10px 0;
-    text-align: center;
+    padding-top: 15px 10px 0 30px;
+    text-align: left;
   }
 
-  .totalHero .hero-text .buttonHero {
-    margin: 50px auto 0;
-  }
 
   .totalHero .hero-text {
     padding-left: 0;
@@ -660,6 +706,13 @@ a {
   .even .mySvg {
     float: none;
     
+  }
+
+  .homepageFooter {
+    background-color:rgb(212, 212, 212);
+    padding: 15px;
+    font-size: 12px;
+    font-weight: 500;
   }
 
 
