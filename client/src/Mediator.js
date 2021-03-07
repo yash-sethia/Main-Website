@@ -164,7 +164,7 @@ class Mediator extends React.Component {
           {headercomponent}
           {sidebarcomponent}
           <Switch>
-            <Route exact path="/" component={HomePageComponent} />    {/* Done */}
+            <Route exact path="/" component={EditorPage} />    {/* Done */}
             <Route path="/login" component={LoginPageComponent} />    {/* Done */}
             <Route path="/setprofile" component={SetProfilePageComponent} />   {/* Done */}
             <Route path="/dashboard" component={DashboardPage} />     {/* Done */}

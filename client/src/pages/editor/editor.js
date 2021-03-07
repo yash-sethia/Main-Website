@@ -24,7 +24,7 @@ import '../../Css/task-page/QuestionBox.css'
 
 import axios from 'axios';
 
-import { rate, grade} from "./AI-Rating.js"
+import { rate1, grade1} from "./AI-Rating.js"
 
 const styles = (theme) => ({
     appBar: {
@@ -73,8 +73,8 @@ class Editor extends Component {
             questionTitle: "",
             questionData: "",
             taskId: "5ff34a384be01834281ba64e",
-            aiRating: "",
-            readability: "",
+            aiRating: 9,
+            readability:10,
             reviewRating: "",
             skillliesEarned: ""
         }
@@ -98,17 +98,15 @@ class Editor extends Component {
 
 
     componentDidMount() {
-        this.textarea.focus();
-        autosize(this.textarea);
-        axios.get('/api/tasks/' + this.state.taskId).then(res => {
-            this.setState({
-              questionTitle: res.data.taskData.taskName,
-              questionData: res.data.taskData.taskDesc,
-              readability: rate(res.data.taskData.taskDesc),
-              aiRating: grade(res.data.taskData.taskDesc)        // Check the name of this field
-            })
-          })
-          console.log("Question : ", this.state.QuestionData);
+        // this.textarea.focus();
+        // autosize(this.textarea);
+        // axios.get('/api/tasks/' + this.state.taskId).then(res => {
+        //     this.setState({
+        //       questionTitle: res.data.taskData.taskName,
+        //       questionData: res.data.taskData.taskDesc,       // Check the name of this field
+        //     })
+        //   })
+        //   console.log("Question : ", this.state.QuestionData);
     }
 
     handleOpen(val) {
@@ -198,16 +196,31 @@ class Editor extends Component {
     } 
 
     handlePublish() {
-        const articleID = "5fff3d9de46eff5f282c6b3e-5ff34a384be01834281ba64e"
+        const articleID = "5fff3d9de46eff5f282c6b3e-603e7d4cf49dab101cb36398"
+        var htmlString = this.state.data;
+        var plainString = htmlString.replace(/<[^>]+>/g, '');
+        var AIRating = grade1(plainString)%5+0.1;
+        var Readability = rate1(plainString)%5;
+        
+        // this.setState({
+        //     aiRating: AIRating,           //AI Rating
+        //     readability: Readability          //Readability
+        // })
+        console.log("Readability:",this.state.readability)
         const article = {
             "articleID": articleID,
             "articleTitle": this.state.title,
             "articleContent": this.state.data,
             "articleImages": this.state.thumbnail,
+            "aiRating": AIRating,
+            "reviewRating": Readability,
         }
         console.log("the created article is : ", article)
         axios.post('/api/articles/add', article)
-            .then(window.location = "/")
+            .then(res => {
+                console.log("res=", res);
+                return window.location = "/";
+        })
             .catch(res => res.data);
     }
       

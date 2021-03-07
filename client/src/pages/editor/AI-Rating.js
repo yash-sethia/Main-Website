@@ -19,9 +19,11 @@ var wordsPerSentence = function wordsPerSentence(x) {
     return words(x) / sentences(x);
 };
 
-function rate(x) {
-    return 206.835 - 1.015 * wordsPerSentence(x) - 84.6 * syllablesPerWord(x);
+export function rate1(x) {
+    return 206.835 - 1.015 * wordsPerSentence(x) - 84.6 * syllablesPerWord(x);            //Readabilty
 };
-function grade(x) {
-    return 0.39 * wordsPerSentence(x) + 11.8 * syllablesPerWord(x) - 15.59;
+export function grade1(x) {
+    console.log("grade", 0.39 * wordsPerSentence(x) + 11.8 * syllablesPerWord(x) - 15.59)
+    return 0.39 * wordsPerSentence(x) + 11.8 * syllablesPerWord(x) - 15.59;        //AIRating
 };
+
