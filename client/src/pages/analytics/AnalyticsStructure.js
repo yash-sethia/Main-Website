@@ -16,7 +16,7 @@ class AnalyticsStructure extends React.Component {
           SkillliesEarnedChange: props.analyticsData.SkillliesEarnedChange,
           reviewRating: syllables('The Australian platypus is seemingly a hybrid of mammal and reptilian creature.'),
           reviewRatingChange: props.analyticsData.reviewRatingChange,
-          aiRating: flesch({sentence: 1, word: 12, syllable: a00}),
+          aiRating: flesch({sentence: 1, word: 12, syllable: a}),
           aiRatingChange: props.analyticsData.aiRatingChange,
           DaysTaken: props.analyticsData.DaysTaken,
         }

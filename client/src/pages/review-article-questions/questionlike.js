@@ -48,7 +48,7 @@ class QuestionLike extends Component {
             <div className="submit-button">
               <Link 
                 to={{
-                  pathname: '/question-dislike',
+                  pathname: '/RatingSlider',
                   state: [{questionLike: this.state.questionLike}]
                 }}
               >
