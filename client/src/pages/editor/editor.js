@@ -16,7 +16,7 @@ import Slide from '@material-ui/core/Slide';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from "@material-ui/core/styles"
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert, AlertTitle, Rating } from '@material-ui/lab';
 
 import QuestionBox from '../task-page/Mainbody-TaskPage/QuestionBox'
 import '../../Css/task-page/QuestionBox.css'
@@ -24,7 +24,7 @@ import '../../Css/task-page/QuestionBox.css'
 
 import axios from 'axios';
 
-
+import { rate, grade} from "./AI-Rating.js"
 
 const styles = (theme) => ({
     appBar: {
@@ -53,8 +53,6 @@ const styles = (theme) => ({
 
 
 
-
-
 class Editor extends Component {
     constructor() {
         super();
@@ -74,7 +72,11 @@ class Editor extends Component {
             promptOpen: false,
             questionTitle: "",
             questionData: "",
-            taskId: "5ff34a384be01834281ba64e"
+            taskId: "5ff34a384be01834281ba64e",
+            aiRating: "",
+            readability: "",
+            reviewRating: "",
+            skillliesEarned: ""
         }
         this.handleOpen = this.handleOpen.bind(this);
         this.handleImageName = this.handleImageName.bind(this);
@@ -101,7 +103,9 @@ class Editor extends Component {
         axios.get('/api/tasks/' + this.state.taskId).then(res => {
             this.setState({
               questionTitle: res.data.taskData.taskName,
-              questionData: res.data.taskData.taskDesc             // Check the name of this field
+              questionData: res.data.taskData.taskDesc,
+              readability: rate(res.data.taskData.taskDesc),
+              aiRating: grade(res.data.taskData.taskDesc)        // Check the name of this field
             })
           })
           console.log("Question : ", this.state.QuestionData);
@@ -206,7 +210,8 @@ class Editor extends Component {
             .then(window.location = "/")
             .catch(res => res.data);
     }
-
+      
+ 
 
 
     render() {

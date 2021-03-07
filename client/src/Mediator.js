@@ -68,8 +68,6 @@ class Mediator extends React.Component {
     const DashboardPage = () => {
       return(
         <div>
-          <Sidebar />
-          <Header/>
           <Dashboard />
         </div>
       );

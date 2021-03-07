@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "flesch": "^1.0.5",
+    "flesch-kincaid": "github:daveross/flesch-kincaid",
     "gasp": "0.0.2",
     "gsap": "^3.6.0",
     "loadash": "^1.0.0",
