@@ -2,9 +2,12 @@ const router = require('express').Router();
 let Task = require('../models/task.model');
 
 router.route('/').get((req, res) => {
-  Task.find()
-    .then(tasks => res.json({taskData : tasks}))
-    .catch(err => res.status(400).json('Error: ' + err));
+  // Task.find({}).then(tasks => res.status(200).json({taskData : tasks}))
+  //   .catch(err => res.status(400).json('Error: ' + err));
+  Task.find().then(tasks => {
+    return(res.status(200).json({taskData : tasks}));
+  })
+  .catch(err => console.log(err));
 });
 
 

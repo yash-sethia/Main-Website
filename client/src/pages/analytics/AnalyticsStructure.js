@@ -4,9 +4,6 @@ import { NavLink, Link } from "react-router-dom";
 import NavButton from "./nav-button.js";
 import { Dropdown } from "semantic-ui-react"
 import 'semantic-ui-css/semantic.min.css'
-var flesch = require('flesch');
-const syllables = require('syllables');
-var a=23;
 
 class AnalyticsStructure extends React.Component {
     constructor(props) {
@@ -14,9 +11,9 @@ class AnalyticsStructure extends React.Component {
         this.state = {
           SkillliesEarned: props.analyticsData.SkillliesEarned,
           SkillliesEarnedChange: props.analyticsData.SkillliesEarnedChange,
-          reviewRating: syllables('The Australian platypus is seemingly a hybrid of mammal and reptilian creature.'),
+          reviewRating: props.analyticsData.reviewRating,
           reviewRatingChange: props.analyticsData.reviewRatingChange,
-          aiRating: flesch({sentence: 1, word: 12, syllable: a}),
+          aiRating: props.analyticsData.aiRating,
           aiRatingChange: props.analyticsData.aiRatingChange,
           DaysTaken: props.analyticsData.DaysTaken,
         }
@@ -24,8 +21,7 @@ class AnalyticsStructure extends React.Component {
     // ********************ERROR********************
     ///////////////////////////////////////
     // Average User data is hardcoded //
-    ////////////////////////////////////// 
-
+    //////////////////////////////////////
     render() {
         return (
             <div className="total-grid-analytics">

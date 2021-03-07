@@ -27,6 +27,8 @@ import RatingSlider from './pages/review-article-questions/ratingSlider'
 import ReviewMore from './pages/review-more/reviewmore'
 import ReadReview from './pages/read-review/readreview'
 
+import {UserProvider} from './pages/AuthContext';
+
 import "./Css/Mediator.css"
 
 
@@ -158,32 +160,34 @@ class Mediator extends React.Component {
     }
 
     return (
+        <UserProvider>
       <Router>
       <div className="Mediator">
-        {headercomponent}
-        {sidebarcomponent}
-        <Switch>
-          <Route exact path="/" component={HomePageComponent} />    {/* Done */}
-          <Route path="/login" component={LoginPageComponent} />    {/* Done */}
-          <Route path="/setprofile" component={SetProfilePageComponent} />   {/* Done */}
-          <Route path="/dashboard" component={DashboardPage} />     {/* Done */}
-          <Route path="/Review-more" component={ReviewMorePage} /> 
-          <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
-          <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
-          <Route path='/profile' component={ProfileComponent} /> {/* Done */}
-          <Route path='/question-like' component={QuestionLikeComponent} /> {/* Done */}
-          <Route path='/RatingSlider' component={RatingSliderComponent} />
-          <Route path='/question-dislike' component={QuestionDislikeComponent} /> {/* Problem in Sending the data from 1 page to another */}
-          <Route path='/engagement' component={EngagementComponent} /> {/* Done + SCAM */}
-          <Route path='/airating' component={AiRatingComponent} />
-          <Route path='/task-page' component={TaskPageComponent} />  {/* Done */}
-          <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
-          <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
-          <Route path='/editor' component={EditorPage} />
-        </Switch>
-        <Footer />
+          {headercomponent}
+          {sidebarcomponent}
+          <Switch>
+            <Route exact path="/" component={HomePageComponent} />    {/* Done */}
+            <Route path="/login" component={LoginPageComponent} />    {/* Done */}
+            <Route path="/setprofile" component={SetProfilePageComponent} />   {/* Done */}
+            <Route path="/dashboard" component={DashboardPage} />     {/* Done */}
+            <Route path="/Review-more" component={ReviewMorePage} /> 
+            <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
+            <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
+            <Route path='/profile' component={ProfileComponent} /> {/* Done */}
+            <Route path='/question-like' component={QuestionLikeComponent} /> {/* Done */}
+            <Route path='/RatingSlider' component={RatingSliderComponent} />
+            <Route path='/question-dislike' component={QuestionDislikeComponent} /> {/* Problem in Sending the data from 1 page to another */}
+            <Route path='/engagement' component={EngagementComponent} /> {/* Done + SCAM */}
+            <Route path='/airating' component={AiRatingComponent} />
+            <Route path='/task-page' component={TaskPageComponent} />  {/* Done */}
+            <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
+            <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
+            <Route path='/editor' component={EditorPage} />
+          </Switch>
+          <Footer />
       </div>
       </Router>
+        </UserProvider>
     );
   }
 }
