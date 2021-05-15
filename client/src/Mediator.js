@@ -46,7 +46,7 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -55,7 +55,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -80,21 +80,21 @@ class Mediator extends React.Component {
           <Switch>
             <Route exact path="/" exact component={HomePage} />    
             {/* <GuestRoute location={this.props.location} path="/" component={HomePageComponent} /> */}
-            <Route path='/portfolio' exact component={Portfolio} /> {/* Done */}
-            <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* Done */}
-            <UserRoute location={this.props.location} path="/dashboard/:id" exact component={Dashboard}/>
+            <Route location={this.props.location} path='/portfolio/:id' exact component={Portfolio} /> {/* Done */}
+            <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* BACKEND FRONTEND LEFT */}
+            <UserRoute location={this.props.location} path="/dashboard" exact component={Dashboard}/>
             <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
             <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
-            <UserRoute location={this.props.location}  path='/profile' exact component={Profile} /> {/* Done */}
+            <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
             <UserRoute location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
             <UserRoute location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
             <UserRoute location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
             <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
             <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />
-            <UserRoute location={this.props.location}  path='/task-page' exact component={TaskPage} />  {/* Done */}
+            <UserRoute location={this.props.location}  path='/task-page/:taskId' exact component={TaskPage} />  {/* Done */}
             <UserRoute location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
             <UserRoute location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
-            <UserRoute location={this.props.location}  path='/editor' exact component={EditorPage} />
+            <UserRoute location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
           </Switch>
           <Footer />
       </div>

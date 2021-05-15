@@ -28,7 +28,7 @@ function PageChangeToDashboardFunction(props) {
       console.log("Excuse me, User Pt2 : ", props)
   
       if(props.exists) {
-        return( <Redirect to={`/dashboard/${props.id}`} /> );
+        return( <Redirect to={"/dashboard"} /> );
       }
       else {
         return (<Redirect to={{

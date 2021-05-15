@@ -30,13 +30,15 @@ class Profile extends React.Component {
         reviewRating: 0,
         SkillliesEarned: 0,
         badgesReceived: [],
-        isLoading: true
+        isLoading: true,
+        username: this.props.match.params.username
       };
     }
 
     componentDidMount() {
-      var username = "Khaleesi";
-      axios.get(`api/profile/${username}`).then(res => {
+      var username = this.state.username;
+      //console.log("From profile page : ", username);
+      axios.get(`/api/profile/${username}`).then(res => {
         console.log("This is profile data read : ", res.data);
         this.setState({
           isLoading: false,
@@ -44,20 +46,21 @@ class Profile extends React.Component {
           name: res.data.UserData[0].name,
           nickName: res.data.UserData[0].username,
           profileImage: res.data.UserData[0].displayPicture,
-          coverImage: res.data.UserData[0].coverImage,
-          city: res.data.UserData[0].city,
+          coverImage: res.data.UserData[0].coverImage == undefined ? "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/nature-design.jpg": res.data.UserData[0].coverImage, 
+          city: res.data.UserData[0].city == undefined ? "Not Available": res.data.UserData[0].city, 
           country: res.data.UserData[0].country,
           email: res.data.UserData[0].email,
-          facebookId: res.data.UserData[0].facebookId,
-          twitterId: res.data.UserData[0].twitterId,
-          linkedinId: res.data.UserData[0].linkedinId,
-          aboutMe: res.data.UserData[0].bio,
-          aiRating: res.data.UserData[0].aiRating,
+          facebookId: res.data.UserData[0].facebookId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].facebookId, 
+          twitterId: res.data.UserData[0].twitterId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].twitterId, 
+          linkedinId: res.data.UserData[0].linkedinId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].linkedinId, 
+          aboutMe: res.data.UserData[0].bio == undefined ? "Writer, Thinker, Human. Unapologetic feminist. Fan of incomplete sentences. Writer & content marketing speacilist at Skillly. Freelance Writer for Hire.": res.data.UserData[0].bio, 
+          aiRating: res.data.UserData[0].aiRating, 
           reviewRating: res.data.UserData[0].reviewRating,
           SkillliesEarned: res.data.UserData[0].skilliesEarned,
           badgesReceived: res.data.UserData[0].badgesReceived
         })
       })
+      .catch(err => console.log("From Profile Page: ", err));
     }
 
     render(){

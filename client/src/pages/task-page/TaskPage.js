@@ -15,14 +15,14 @@ class TaskPage extends Component {
             QuestionHeading : "",
             QuestionText: "",
             isLoading: true,
-            taskId: "603e7d4cf49dab101cb36398"
-            //taskId: this.props.match.params.id
+            //taskId: "603e7d4cf49dab101cb36398"
+            taskId: this.props.match.params.taskId
         };
       }
 
 
       componentDidMount() {
-        //console.log("Task Page : ", props.match) 
+        console.log("Task Page : ", this.state.taskId) 
 
         //******************************************************************/
         // ********************** Need to Fix this Errot *******************/
@@ -32,14 +32,16 @@ class TaskPage extends Component {
         //******************************************************************/
         // *****************************************************************/
 
-        axios.get('api/tasks/' + this.state.taskId).then(res => {
+        axios.get('/api/tasks/' + this.state.taskId).then(res => {
           this.setState({
             isLoading: false,
             QuestionHeading: res.data.taskData.taskName,
             QuestionText: res.data.taskData.taskDesc             // Check the name of this field
           })
         })
+        .catch(err => console.log("Taskpage ", err));
       }
+      
 
     render() {
         const pageIsLoading = <LoadingAnimation />
@@ -50,7 +52,7 @@ class TaskPage extends Component {
                         <div class="total-flex">
                             <div class="parent-question-box">
                                 <QuestionBox QuestionHeading={this.state.QuestionHeading} QuestionText={this.state.QuestionText}/>
-                                <Buttons/>
+                                <Buttons taskId = {this.state.taskId} />
                             </div>
                         </div>
                 </div>
