@@ -6,7 +6,6 @@ import Sidebar from './shared/Sidebar.js';
 import Footer from './shared/Footer.js';
 
 import HomePage from './pages/homepage/homepage.js';
-import LoginPage from './pages/homepage/Components/login';
 import SetProfile from './pages/homepage/Components/setProfile';
 import Analytics from './pages/analytics/Analytics.js';
 import Dashboard from './pages/dashboard/Dashboard.js';
@@ -19,15 +18,17 @@ import TaskPage from './pages/task-page/TaskPage'
 import Engagement from './pages/engagement/Engagement'
 import AiRating from './pages/ai-rating/airating'
 import OverallAnalytics from './pages/overallanalytics/OverallAnalytics.js';
-import Editor from './pages/editor/editor'
+import EditorPage from './pages/editor/editor'
 import RatingSlider from './pages/review-article-questions/ratingSlider'
 
-
+import UserRoute from './Routes/UserRoute';
 
 import ReviewMore from './pages/review-more/reviewmore'
 import ReadReview from './pages/read-review/readreview'
 
 import {UserProvider} from './pages/AuthContext';
+
+import { withRouter } from 'react-router'
 
 import "./Css/Mediator.css"
 
@@ -45,7 +46,7 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login" || window.location.pathname=="/setprofile") { 
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -54,107 +55,20 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname=="/portfolio" || window.location.pathname=="/" || window.location.pathname=="/dashboard" || window.location.pathname=="/login" || window.location.pathname=="/setprofile") {
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
     }
 
-    const HomePageComponent = () => {
-      return(
-          <HomePage/>
-      );
-    }
-    const DashboardPage = () => {
-      return(
-        <div>
-          <Dashboard />
-        </div>
-      );
-    }
-    const LoginPageComponent = () => {
-      return(
-        <div>
-          <LoginPage />
-        </div>
-      );
-    }
-
-    const SetProfilePageComponent = () => {
-      return(
-        <div>
-          <SetProfile />
-        </div>
-      );
-    }
-
-    const EditorPage = () => {
-      return(
-          <Editor />
-      );
-    }
-    const AnalyticsPage = () => {
-      return(
-          <Analytics/>
-      );
-    }
-
-    const ReviewMorePage = () => {
-      return(
-          <ReviewMore />
-      );
-    }
-
-    const PortfolioPage = () => {
-      return(
-          <Portfolio />
-      );
-    }
-
-
-    // const ReviewArticleQuestionComponent = () => {
-    //   return( < ReviewArticleQuestion />)
-    // }
-
-    const QuestionLikeComponent = () => {
-      return( < QuestionLike />)
-    }
-
-    const RatingSliderComponent = () => {
-      return( < RatingSlider />)
-    }
-
-    const QuestionDislikeComponent = () => {
-      return( < QuestionDislike />)
-    }
-
-
-    const ProfileComponent = () => {
-      return( < Profile />)
-    }
-
+    //  IMPORTANT : ROUTE TO BE ADDED 
     const ReviewPageComponent = () => {
       return( < ReviewPage />)
     }
 
-    const TaskPageComponent = () => {
-      return( < TaskPage />)
-    }
-
-    const EngagementComponent = () => {
-      return( < Engagement />)
-    }
-
-    const AiRatingComponent = () => {
-      return( < AiRating />)
-    }
 
     const ReadReviewComponent = () => {
       return( < ReadReview articleId="5ff3638c0cbcb367208984e2" />)
-    }
-
-    const OverallAnalyticsComponent = () => {
-      return( < OverallAnalytics />)
     }
 
     return (
@@ -164,23 +78,23 @@ class Mediator extends React.Component {
           {headercomponent}
           {sidebarcomponent}
           <Switch>
-            <Route exact path="/" component={EditorPage} />    {/* Done */}
-            <Route path="/login" component={LoginPageComponent} />    {/* Done */}
-            <Route path="/setprofile" component={SetProfilePageComponent} />   {/* Done */}
-            <Route path="/dashboard" component={DashboardPage} />     {/* Done */}
-            <Route path="/Review-more" component={ReviewMorePage} /> 
-            <Route path='/portfolio' component={PortfolioPage} /> {/* Done */}
-            <Route path='/analytics' component={AnalyticsPage} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
-            <Route path='/profile' component={ProfileComponent} /> {/* Done */}
-            <Route path='/question-like' component={QuestionLikeComponent} /> {/* Done */}
-            <Route path='/RatingSlider' component={RatingSliderComponent} />
-            <Route path='/question-dislike' component={QuestionDislikeComponent} /> {/* Problem in Sending the data from 1 page to another */}
-            <Route path='/engagement' component={EngagementComponent} /> {/* Done + SCAM */}
-            <Route path='/airating' component={AiRatingComponent} />
-            <Route path='/task-page' component={TaskPageComponent} />  {/* Done */}
-            <Route path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
-            <Route path='/overall-analytics' component={OverallAnalyticsComponent} />
-            <Route path='/editor' component={EditorPage} />
+            <Route exact path="/" exact component={HomePage} />    
+            {/* <GuestRoute location={this.props.location} path="/" component={HomePageComponent} /> */}
+            <Route location={this.props.location} path='/portfolio/:id' exact component={Portfolio} /> {/* Done */}
+            <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* BACKEND FRONTEND LEFT */}
+            <UserRoute location={this.props.location} path="/dashboard" exact component={Dashboard}/>
+            <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
+            <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
+            <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
+            <UserRoute location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
+            <UserRoute location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
+            <UserRoute location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
+            <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
+            <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />
+            <UserRoute location={this.props.location}  path='/task-page/:taskId' exact component={TaskPage} />  {/* Done */}
+            <UserRoute location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
+            <UserRoute location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
+            <UserRoute location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
           </Switch>
           <Footer />
       </div>
@@ -189,4 +103,4 @@ class Mediator extends React.Component {
     );
   }
 }
-export default Mediator;
+export default withRouter(Mediator);
