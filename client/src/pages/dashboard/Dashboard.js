@@ -4,14 +4,17 @@ import '../../Css/dashboard/Dashboard.css'
 import LoadingAnimation from '../../shared/loading'
 import TaskTileGrid from './taskTilesGrid'
 import data from '../../data/DashboardData'
+import Header from '../../shared/Header.js';
+import Sidebar from '../../shared/Sidebar.js';
 
 import { UserContext } from '../AuthContext';
 
 class Dashboard extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-          articleinfo: data
+          articleinfo: data,
+          id: props.match.params.id
         };
   }
 
@@ -32,6 +35,7 @@ class Dashboard extends React.Component {
 
     render() {
 
+
         // const pageIsLoading = <LoadingAnimation />
 
 
@@ -47,6 +51,9 @@ class Dashboard extends React.Component {
         // else {
         //   pageContent = pageIsNotLoading;
         // }
+
+        console.log("GOD : ", this.state.id)
+        console.log("GOD : ", this.props.match.params)
 
         return (
             <div className="total-grid" >
@@ -69,12 +76,18 @@ class Dashboard extends React.Component {
     }
   }
 
-const DashboardFunc = () => {
+const DashboardFunc = (props) => {
   const [user, setUser] = useContext(UserContext);
 
   console.log("Hello There Genius : ", user);
 
-  return(<Dashboard/>);
+  return(
+    <div>
+      <Header />
+      <Sidebar />
+      <Dashboard {...props} />
+    </div>
+  );
 }
 
 

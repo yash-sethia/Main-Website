@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import data from '../../data/PortfolioData';
 import '../../Css/portfolio/index.css';
 import '../../Css/portfolio/profileIntro.css';
@@ -9,13 +9,16 @@ import ProfileIntroduction from './Components/ProfileIntro/profileIntro';
 import ArticleGrid from './Components/ArticleGrid/userArticleGrid';
 import LoadingAnimation from '../../shared/loading'
 
+import { UserContext } from '../AuthContext';
+
 import axios from 'axios';
 
 class Portfolio extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state= {
-      id : data[0].id,
+      // id : data[0].id,
+      id: this.props.match.params.id,
       name : data[0].name,
       dp : data[0].displayPicture,
       cover : data[0].coverImage,
@@ -39,8 +42,9 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    const id = "5fff3d9de46eff5f282c6b3e";
-    axios.get('api/users/' + id).then(res => {
+    const id = this.state.id;
+    console.log("Hello from portfolio = ", this.props)
+    axios.get('/api/users/' + id).then(res => {
       console.log("Res from users is as follows : ", res.data.userData[0]);
       this.setState({
         isLoading: false,
@@ -48,19 +52,20 @@ class Portfolio extends Component {
         id: res.data.userData[0]._id,
         name: res.data.userData[0].name,
         dp: res.data.userData[0].displayPicture,
-        cover: res.data.userData[0].coverImage,
-        bio: res.data.userData[0].bio,
-        city: res.data.userData[0].city,
+        cover: res.data.userData[0].coverImage == undefined ? "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/nature-design.jpg": res.data.UserData[0].coverImage,
+        bio: res.data.userData[0].bio == undefined ? "Writer, Thinker, Human. Unapologetic feminist. Fan of incomplete sentences. Writer & content marketing speacilist at Skillly. Freelance Writer for Hire.": res.data.UserData[0].bio,
+        city: res.data.userData[0].city == undefined ? "Not Available": res.data.UserData[0].city,
         country: res.data.userData[0].country,
         email: res.data.userData[0].email,
-        facebook: res.data.userData[0].facebookId,
-        twitter: res.data.userData[0].twitterId,
-        linkedin: res.data.userData[0].linkedinId,
+        facebook: res.data.userData[0].facebookId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].facebookId,
+        twitter: res.data.userData[0].twitterId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].twitterId,
+        linkedin: res.data.userData[0].linkedinId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.UserData[0].linkedinId,
 
         articleData: res.data.articleData,
         articleCount: res.data.articleData.length,
       })
     })
+    .catch(err => console.log("Error from portfolio : ", err))
   }
 
   render() {
@@ -106,5 +111,6 @@ class Portfolio extends Component {
 
   }
 }
+
 
 export default Portfolio;

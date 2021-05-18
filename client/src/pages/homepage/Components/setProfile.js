@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   withStyles,
   makeStyles
@@ -13,6 +13,8 @@ import './setprofile.css';
 import Button from '@material-ui/core/Button';
 import { Redirect, useLocation } from 'react-router';
 import { Message } from 'semantic-ui-react'
+
+import { UserContext } from '../../AuthContext';
 
 const CssTextField = withStyles({
   root: {
@@ -69,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function SetProfile(props) {
+  const [user, setUser] = useContext(UserContext);
     //const [id, setId ] = useState(props.location.state.id);
     const [bio, setBio ] = useState("");
     const [fb, setFB ] = useState("");
@@ -124,6 +127,8 @@ export default function SetProfile(props) {
 
   
     function Copyright() {
+      
+      var id = user.id;
         return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
@@ -138,7 +143,7 @@ export default function SetProfile(props) {
 
     if(submit) {
         return (
-            <Redirect to={'/dashboard'}/>
+            <Redirect to={"/dashboard"} />
         );
     }
 

@@ -1,14 +1,18 @@
-import React from "react"
+import React, {useContext} from "react"
 import "./Sidebar.css"
 import "../font-awesome/css/font-awesome.min.css"
 import { NavLink, Link } from "react-router-dom";
 
 
+import { UserContext } from '../pages/AuthContext';
+
 class Sidebar extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       isSidebarOpen: false,
+      username: props.username,
+      userId: props.userId,
       sidebarClass: "sidenav",
     };
     this.onClickSidebarOpen = this.onClickSidebarOpen.bind(this)
@@ -44,7 +48,7 @@ class Sidebar extends React.Component {
 
           <span>
             <li className="sidenav-item">
-              <NavLink to="/Dashboard">
+              <NavLink to="/dashboard">
                 <span className="icons"><i className="fa fa-home" aria-hidden="true"></i></span>
                 <span className="options">SkillBoard</span>
               </NavLink>
@@ -62,13 +66,13 @@ class Sidebar extends React.Component {
               </NavLink>
             </li>
             <li className="sidenav-item">
-              <NavLink to="/profile">
+              <NavLink to={`/profile/${this.state.username}`}>
                 <span className="icons"><i className="fa fa-user" aria-hidden="true"></i></span>
                 <span className="options">Profile</span>
               </NavLink>
             </li>
             <li className="sidenav-item">
-              <NavLink to ="/portfolio" target ="_blank" >
+              <NavLink to = {`/portfolio/${this.state.userId}`} target ="_blank" >
                 <span className="icons"><i className="fa fa-address-book" aria-hidden="true"></i></span>
                 <span className="options">Portfolio</span>
               </NavLink>
@@ -79,4 +83,14 @@ class Sidebar extends React.Component {
     )
   }
 }
-export default Sidebar
+
+function SidebarFunc() {
+  const [user, setUser] = useContext(UserContext);
+  return (
+    <Sidebar username = {user.username} userId = {user.id} />
+  );
+
+}
+
+
+export default SidebarFunc;

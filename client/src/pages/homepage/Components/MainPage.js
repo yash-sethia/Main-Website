@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { UserContext } from '../../AuthContext';
 import undraw_typewriter_i8xd from "../../../images/undraw_typewriter_i8xd.svg";
 import undraw_respond_8wjt from "../../../images/undraw_respond_8wjt.svg";
@@ -7,15 +7,37 @@ import undraw_connected_world_wuay from "../../../images/undraw_connected_world_
 import undraw_public_discussion_btnw from "../../../images/undraw_public_discussion_btnw.svg";
 import undraw_Post_re_mtr4 from "../../../images/undraw_Post_re_mtr4.svg";
 import undraw_community_8nwl from "../../../images/undraw_community_8nwl.svg";
-import { gsap } from "gsap";
 
-import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import Link from 'react-router-dom/Link';
+
 import { Redirect } from 'react-router'
-import LoginPage from './login';
 
 import axios from 'axios';
+
+
+
+function PageChangeToDashboardFunction(props) {
+    const [user, setUser] = useContext(UserContext);
+      setUser({
+        username: props.username,
+        id: props.id,
+        isAuth: true
+      })
+  
+      console.log("Excuse me, User : ", user)
+      console.log("Excuse me, User Pt2 : ", props)
+  
+      if(props.exists) {
+        return( <Redirect to={"/dashboard"} /> );
+      }
+      else {
+        return (<Redirect to={{
+          pathname: '/setprofile'
+        }} />);
+      }
+  
+  }
+
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -143,12 +165,12 @@ class MainPage extends React.Component {
             console.log("Clicked!");
         }
 
-        if(this.state.loggedIn && this.state.exists) {
-            return( <Redirect to={'/dashboard'} /> );
-        }
-        else if(this.state.loggedIn && !this.state.exists) {
-            return( <Redirect to={'/setprofile'} /> );
-        }
+        if(this.state.loggedIn && this.state.exists ) {
+            return <PageChangeToDashboardFunction username={this.state.username} id={this.state.id} isLoggedIn={this.state.loggedIn} exists = {this.state.exists} />
+          }
+          else if(this.state.loggedIn && !this.state.exists) {
+            return <PageChangeToDashboardFunction username={this.state.username} id={this.state.id} isLoggedIn={this.state.loggedIn} exists = {this.state.exists} />
+          }
 
 
         // console.log(window.location.pathname)
@@ -352,14 +374,14 @@ class MainPage extends React.Component {
 }
 
 
-const MainPageFunc = () => {
-    const [user, setUser ] = useContext(UserContext);
-    const handleLogIn = user => {
-        setUser(user);
-    }
-    return(<MainPage setUserContext= {handleLogIn} />);
-}
+// const MainPageFunc = () => {
+//     const [user, setUser ] = useContext(UserContext);
+//     const handleLogIn = user => {
+//         setUser(user);
+//     }
+//     return(<MainPage setUserContext= {handleLogIn} />);
+// }
 
 
 
-export default MainPageFunc;
+export default MainPage;

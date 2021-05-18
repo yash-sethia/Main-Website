@@ -54,8 +54,8 @@ const styles = (theme) => ({
 
 
 class Editor extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: "",
             data: "",
@@ -72,7 +72,8 @@ class Editor extends Component {
             promptOpen: false,
             questionTitle: "",
             questionData: "",
-            taskId: "5ff34a384be01834281ba64e",
+            //taskId: "5ff34a384be01834281ba64e",
+            taskId: this.props.match.params.id,
             aiRating: 9,
             readability:10,
             reviewRating: "",
@@ -219,7 +220,8 @@ class Editor extends Component {
         axios.post('/api/articles/add', article)
             .then(res => {
                 console.log("res=", res);
-                return window.location = "/";
+                //return window.location = "/";
+                this.props.history.push("/dashboard");
         })
             .catch(res => res.data);
     }
@@ -233,6 +235,7 @@ class Editor extends Component {
         const classes = this.props.classes;
 
         // console.log("classes is : ")
+        console.log("Editor Task ID: ", this.state.taskId)
 
         const config={
             placeholder: "Show your magic! (PS: Select the text to format it)",
