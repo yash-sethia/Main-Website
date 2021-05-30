@@ -4,6 +4,10 @@ import { NavLink, Link } from "react-router-dom";
 import NavButton from "./nav-button.js";
 import { Dropdown } from "semantic-ui-react"
 import 'semantic-ui-css/semantic.min.css'
+import Cloud from "./Cloud.js"
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import * as am4plugins_wordCloud from "@amcharts/amcharts4/plugins/wordCloud"; 
 
 class AnalyticsStructure extends React.Component {
     constructor(props) {
@@ -87,14 +91,15 @@ class AnalyticsStructure extends React.Component {
                   </div>
 
                   <div className="content1">
-                        <div className="content-box">
-                          <div>word cloud image
-                          </div>
-                          </div>
+                        <div className="content-box-analytics">
+                      
+                               <Cloud />
+               
+                         </div>
                   </div>
 
                   <div className="content2">
-                        <div className="content-box">
+                        <div className="content-box-analytics">
                           <div>
                             <table className="content-table">
                               <thead>
