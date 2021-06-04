@@ -1,18 +1,50 @@
 import React from 'react';
 import '../../../../../Css/review-more/topsection/topgrid.css';
-import data from '../../../../../data/review-more-data/topGridArticles';
+import dat from '../../../../../data/review-more-data/topGridArticles';
 import { Grid } from '@material-ui/core';
 import BigTile from './tiles/bigtile';
 import SmallTile from './tiles/smalltile';
+import { useReadingTime } from "react-hook-reading-time";
+
+import axios from 'axios';
 
 
 class Topgrid extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            data: dat
+        };
+    }
+
+    componentDidMount() {
+        axios.get('/api/reviewmore/topgrid').then(res => {
+            console.log("JMD ", res.data);
+            var adata = res.data.articleData.map(item => {
+                console.log("So : ", item);
+                var d = new Date()
+                const mon = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
+                var ans = d.getDate() + " " + mon[d.getMonth()] + " " + d.getFullYear();
+                const { text } = useReadingTime(item.articleContent);
+                return({
+                    id: item._id,
+                    title: item.articleTitle,
+                    image: item.articleImages,
+                    metaText: item.articleContent.substring(0, 71) + "....",
+                    date: ans,
+                    readTime: text
+                })
+            });
+            console.log("adata : ", adata);
+            this.setState({
+                data: adata
+            })
+        })
     }
 
     render() {
+        const { data } = this.state;
+        console.log("Hemlo : ", data);
         return (
             <Grid container spacing={2} className="topgrid-review-more">
 
