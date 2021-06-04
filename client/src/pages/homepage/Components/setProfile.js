@@ -16,6 +16,8 @@ import { Message } from 'semantic-ui-react'
 
 import { UserContext } from '../../AuthContext';
 
+import axios from 'axios';
+
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
@@ -113,7 +115,18 @@ export default function SetProfile(props) {
             console.log(bioErrorText);
         }
         else {
-            
+            // Send data to backend
+            //api/adduserdata
+            const data = {
+              bio: bio,
+              facebookId: fb,
+              twitterId: twitter,
+              linkedinId: linked
+            };
+            axios.post(`/api/adduserdata/${user.id}`, data).then(res => {
+              console.log("Done dona done: ", res);
+            })
+            .catch(err => {console.log("Error in setprofile: ", err)});
             setSubmit(true);
         }
     }

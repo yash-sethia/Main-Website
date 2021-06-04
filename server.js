@@ -27,7 +27,8 @@ const articleRouter = require('./routes/articles');
 const reviewsRouter = require('./routes/reviews');
 const profileRouter = require('./routes/profile');
 const engagementRouter = require('./routes/engagement');
-const taskAnalyticsRouter = require('./routes/taskAnalytics');
+const taskAnalyticsRouter = require('./routes/taskAnalytics'); 
+const adduserdata = require('./routes/adduserdata');
 
 //Backend routes to begin with api
 app.use('/api/tasks', taskRouter);
@@ -37,10 +38,19 @@ app.use('/api/reviews', reviewsRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/enagagement', engagementRouter);
 app.use('/api/taskAnalytics', taskAnalyticsRouter);
+app.use('/api/adduserdata', adduserdata);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+if(process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
 
 
 // Pages whose routing is done!
