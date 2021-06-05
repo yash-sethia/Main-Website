@@ -43,7 +43,6 @@
 }
 
 .article-topic-analytics{
-  width: 50%;
   grid-area: article-topic;
 }
 
@@ -254,4 +253,7 @@
     font-size: 0.9rem;
     width: 50%;
   }
+}
+#chartdiv{
+    height: 100%;
 }
