@@ -25,12 +25,13 @@ class Topgrid extends React.Component {
                 var d = new Date()
                 const mon = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
                 var ans = d.getDate() + " " + mon[d.getMonth()] + " " + d.getFullYear();
+                var str = item.articleContent.replace(/<[^>]+>/g, '');
                 const { text } = useReadingTime(item.articleContent);
                 return({
                     id: item._id,
                     title: item.articleTitle,
                     image: item.articleImages,
-                    metaText: item.articleContent.substring(0, 71) + "....",
+                    metaText: str.substring(0, 71) + "....",
                     date: ans,
                     readTime: text
                 })
