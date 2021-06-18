@@ -330,7 +330,7 @@ class Editor extends Component {
 
 
                 <div className="buttons-on-editor-page">
-                    <Button variant="info" className="back-button" onClick={() => {window.location = "/"}}> 
+                    <Button variant="info" className="back-button" onClick={() => {this.props.history.push("/dashboard")}}> 
                         Back to the Dashboard 
                     </Button>
 
