@@ -54,7 +54,6 @@ if(process.env.NODE_ENV == "production") {
   })
 }
 
-
 // Pages whose routing is done!
 // 1.Dashboar (Except Progress views comments etc.)
 // 2. Task Display Page
