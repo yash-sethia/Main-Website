@@ -1,26 +1,18 @@
 {
-  "name": "trial1fs",
+  "name": "skillly",
   "version": "1.0.0",
   "description": "Trial 1 folder structure",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start"
   },
   "author": "VG",
   "license": "ISC",
   "dependencies": {
-    "@ckeditor/ckeditor5-alignment": "^25.0.0",
-    "@ckeditor/ckeditor5-basic-styles": "^25.0.0",
-    "@ckeditor/ckeditor5-block-quote": "^25.0.0",
-    "@ckeditor/ckeditor5-build-balloon": "^25.0.0",
-    "@ckeditor/ckeditor5-ckfinder": "^25.0.0",
-    "@ckeditor/ckeditor5-essentials": "^25.0.0",
-    "@ckeditor/ckeditor5-react": "^3.0.1",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -28,5 +20,9 @@
     "mongoose": "^5.11.8",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3"
+  },
+  "engines": {
+    "node": "12.17.0",
+    "npm": "6.14.4"
   }
 }
