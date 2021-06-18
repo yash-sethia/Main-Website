@@ -101,13 +101,13 @@ class Editor extends Component {
     componentDidMount() {
         // this.textarea.focus();
         // autosize(this.textarea);
-        // axios.get('/api/tasks/' + this.state.taskId).then(res => {
-        //     this.setState({
-        //       questionTitle: res.data.taskData.taskName,
-        //       questionData: res.data.taskData.taskDesc,       // Check the name of this field
-        //     })
-        //   })
-        //   console.log("Question : ", this.state.QuestionData);
+        axios.get('/api/tasks/' + this.state.taskId).then(res => {
+            this.setState({
+              questionTitle: res.data.taskData.taskName,
+              questionData: res.data.taskData.taskDesc,       // Check the name of this field
+            })
+          })
+          console.log("Question : ", this.state.QuestionData);
     }
 
     handleOpen(val) {
