@@ -16,7 +16,7 @@ class Donutchart extends Component {
                                             expandOnClick: true,
                                              //  offsetX: 0,
                                              //   offsetY: 0,
-                                             //   customScale: 1,
+                                            customScale: 1,
                                              //   dataLabels: {
                                              //     offset: 0,
                                              //   minAngleToShowLabel: 10
@@ -66,6 +66,9 @@ class Donutchart extends Component {
     },
   }
 },
+legend: {
+    show: false,
+},
 labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
 },
 }//This.state
@@ -75,7 +78,7 @@ labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
 
     return (
       <div className="donut">
-        <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
+        <Chart options={this.state.options} series={this.state.series} type="donut" width="100%" />
       </div>
     );
   }

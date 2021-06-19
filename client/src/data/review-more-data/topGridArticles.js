@@ -14,6 +14,7 @@ export default [
         metaText: "In the blockbuster hit Groundhog Day, Bill Murray gets trapped in a time....",
         date: "6 Aug, 2020",
         readTime: "9 min read"
+        // 71 words and 4 .
     },
     {
         id: 3,

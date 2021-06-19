@@ -3,10 +3,13 @@
     "",
     "\\client",
     "\\client\\src",
+    "\\client\\src\\Css",
+    "\\client\\src\\Css\\analytics",
     "\\client\\src\\pages",
+    "\\client\\src\\pages\\analytics",
     "\\client\\src\\pages\\dashboard",
     "\\client\\src\\pages\\overallanalytics"
   ],
-  "SelectedNode": "\\client\\src\\pages\\overallanalytics\\Donut.js",
+  "SelectedNode": "\\client\\src\\Css\\analytics\\Analytics.css",
   "PreviewInSolutionExplorer": false
 }

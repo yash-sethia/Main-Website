@@ -4,6 +4,7 @@ import AnalyticsStructure from "./AnalyticsStructure.js"
 import LoadingAnimation from '../../shared/loading'
 import AnalyticsData from '../../data/AnalyticsData'
 
+
 import axios from 'axios'
 
 class Analytics extends React.Component {

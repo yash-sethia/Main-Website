@@ -44,9 +44,9 @@ function TaskRow(props) {
                                 <br />
                                 <div className="progress-dashboard">Progress<span className="fright">{props.progress}%</span></div>
 
-                                <div className="progressbar">
+                                {/* <div className="progressbar">
                                     <div></div>
-                                </div>
+                                </div> */}
                                 <div className="engagement">
                                     <i className="fa fa-eye" aria-hidden="true">    {props.views}</i>&nbsp;&nbsp;
                                     <i className="fa fa-comments-o" aria-hidden="true"> {props.comments}</i>

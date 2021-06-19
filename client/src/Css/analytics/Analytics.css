@@ -43,7 +43,6 @@
 }
 
 .article-topic-analytics{
-  width: 50%;
   grid-area: article-topic;
 }
 
@@ -127,7 +126,7 @@
 
 }
 
-.content-box {
+.content-box-analytics {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -254,4 +253,7 @@
     font-size: 0.9rem;
     width: 50%;
   }
+}
+#chartdiv{
+    height: 100%;
 }

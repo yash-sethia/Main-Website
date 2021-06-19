@@ -101,13 +101,13 @@ class Editor extends Component {
     componentDidMount() {
         // this.textarea.focus();
         // autosize(this.textarea);
-        // axios.get('/api/tasks/' + this.state.taskId).then(res => {
-        //     this.setState({
-        //       questionTitle: res.data.taskData.taskName,
-        //       questionData: res.data.taskData.taskDesc,       // Check the name of this field
-        //     })
-        //   })
-        //   console.log("Question : ", this.state.QuestionData);
+        axios.get('/api/tasks/' + this.state.taskId).then(res => {
+            this.setState({
+              questionTitle: res.data.taskData.taskName,
+              questionData: res.data.taskData.taskDesc,       // Check the name of this field
+            })
+          })
+          console.log("Question : ", this.state.QuestionData);
     }
 
     handleOpen(val) {
@@ -330,7 +330,7 @@ class Editor extends Component {
 
 
                 <div className="buttons-on-editor-page">
-                    <Button variant="info" className="back-button" onClick={() => {window.location = "/"}}> 
+                    <Button variant="info" className="back-button" onClick={() => {this.props.history.push("/dashboard")}}> 
                         Back to the Dashboard 
                     </Button>
 
