@@ -22,6 +22,8 @@ import QuestionBox from '../task-page/Mainbody-TaskPage/QuestionBox'
 import '../../Css/task-page/QuestionBox.css'
 
 
+import { UserContext } from '../AuthContext';
+
 import axios from 'axios';
 
 import { rate1, grade1} from "./AI-Rating.js"
@@ -72,8 +74,8 @@ class Editor extends Component {
             promptOpen: false,
             questionTitle: "",
             questionData: "",
-            //taskId: "5ff34a384be01834281ba64e",
             taskId: this.props.match.params.id,
+            userId: this.props.location.state.userId,
             aiRating: 9,
             readability:10,
             reviewRating: "",
@@ -197,7 +199,7 @@ class Editor extends Component {
     } 
 
     handlePublish() {
-        const articleID = "5fff3d9de46eff5f282c6b3e-603e7d4cf49dab101cb36398"
+        const articleID = this.state.userId + "-" + this.state.taskId
         var htmlString = this.state.data;
         var plainString = htmlString.replace(/<[^>]+>/g, '');
         var AIRating = grade1(plainString)%5+0.1;
@@ -221,7 +223,7 @@ class Editor extends Component {
             .then(res => {
                 console.log("res=", res);
                 //return window.location = "/";
-                this.props.history.push("/dashboard");
+                this.props.history.push(`/readreview/${this.state.taskId}`);
         })
             .catch(res => res.data);
     }
@@ -235,7 +237,7 @@ class Editor extends Component {
         const classes = this.props.classes;
 
         // console.log("classes is : ")
-        console.log("Editor Task ID: ", this.state.taskId)
+        console.log("Editor User id", this.state.userId)
 
         const config={
             placeholder: "Show your magic! (PS: Select the text to format it)",

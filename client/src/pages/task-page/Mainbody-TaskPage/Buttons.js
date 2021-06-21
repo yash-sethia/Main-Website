@@ -14,7 +14,12 @@ function Buttons(props) {
                 </button>
 
                 <button class="to-editor-button">
-                <Link to={`/editor/${props.taskId}`} style={{ textDecoration: 'none' }}>Proceed To Task</Link>
+                <Link to={{
+                        pathname: `/editor/${props.taskId}`,
+                        state: {
+                          userId: user.id,
+                        },
+                      }} style={{ textDecoration: 'none' }}>Proceed To Task</Link>
                 </button>
             </div>
         );

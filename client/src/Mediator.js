@@ -61,7 +61,6 @@ class Mediator extends React.Component {
       headercomponent = <Header/>
     }
 
-    //  IMPORTANT : ROUTE TO BE ADDED 
     const ReviewPageComponent = () => {
       return( < ReviewPage />)
     }
@@ -86,15 +85,18 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
             <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
             <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
-            <UserRoute location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
-            <UserRoute location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
-            <UserRoute location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
+            
+            <Route location={this.props.location}  path='/readreview/:taskId' exact component={ReviewPage} />
+            <Route location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
+            <Route location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
+            <Route location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
+            
             <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
             <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />
             <UserRoute location={this.props.location}  path='/task-page/:taskId' exact component={TaskPage} />  {/* Done */}
             <UserRoute location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
             <UserRoute location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
-            <UserRoute location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
+            <Route location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
           </Switch>
           <Footer />
       </div>

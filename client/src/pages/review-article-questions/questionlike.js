@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 
 
 class QuestionLike extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-          questionLike: ""
+          articleId: this.props.location.state.articleId,
+          questionLike: "",
+          rating: this.props.location.state.rating
         };
         this.handleChange = this.handleChange.bind(this)
     }
@@ -26,6 +28,7 @@ class QuestionLike extends Component {
   }
 
   render() {
+    console.log("From Question Like : ", this.state);
     return (
         <div className="question-like">
             <div className="question">
@@ -48,8 +51,12 @@ class QuestionLike extends Component {
             <div className="submit-button">
               <Link 
                 to={{
-                  pathname: '/RatingSlider',
-                  state: [{questionLike: this.state.questionLike}]
+                  pathname: '/question-dislike',
+                  state: {
+                    articleId: this.state.articleId,
+                    questionLike: this.state.questionLike,
+                    rating: this.state.rating
+                  }
                 }}
               >
                 <Button variant="info"> Next </Button>

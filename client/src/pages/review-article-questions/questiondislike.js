@@ -13,9 +13,11 @@ class QuestionDislike extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          questionLike: "This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.This is random text.",
+          articleId: this.props.location.state.articleId,
+          rating: this.props.location.state.rating,
+          questionLike: this.props.location.state.questionLike,
           questionDislike: "",
-          rating: 3.9
+          rating: this.props.location.state.rating
         };
         console.log("Props: ", props)
         this.handleChange = this.handleChange.bind(this);
@@ -35,15 +37,16 @@ class QuestionDislike extends Component {
 
   onSubmit(data) {
     // Need to send this article Id according to the logic we define !
-    const articleId = "5ff3638c0cbcb367208984e2"
+    const articleId = this.state.articleId;
     axios.post(`api/reviews/${articleId}`, data).then(res => {
       console.log("Inside on submit",res.data)
-      window.location = "/"
+      this.props.history.push("/");
     }
       )
   }
 
   render() {
+    console.log("From Question Dislike : ", this.state);
     return (
         <div className="question-like">
             <div className="question">

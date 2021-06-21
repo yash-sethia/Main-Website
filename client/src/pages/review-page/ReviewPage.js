@@ -3,25 +3,36 @@ import "../../font-awesome/css/font-awesome.min.css"
 import '../../Css/review-page/MainBody.css';
 import ArticleData from "../../data/ArticleData.js"
 import HeaderText from "./Mainbody-Review-Page/HeaderText.js"
-import LoadingAnimation from '../../shared/loading'
+import LoadingAnimation from '../../shared/loading';
+import { Link } from "react-router-dom";
+
+import axios from 'axios';
 
 class ReviewPage extends Component {
-    constructor(){
-        super();
-        this.enableMessage = this.enableMessage.bind(this);
+    constructor(props){
+        super(props);
         this.state = {
             id: 0,
+            taskId: this.props.match.params.taskId,
             articleHeading: "",
             articleThumbnail: "",
             articleContent: "",
             isLoading: true
         };
 
-        this.timer = setTimeout(this.enableMessage,1000);
 
       }
-      componentWillUnmount() {
-        clearTimeout(this.timer);
+      componentDidMount() {
+          axios.get(`/api/reviewarticle/${this.state.taskId}`).then(res => {
+              this.setState({
+                id: res.data.articleData._id,
+                articleHeading: res.data.articleData.articleTitle,
+                articleThumbnail: res.data.articleData.articleImages,
+                articleContent: res.data.articleData.articleContent,
+                isLoading: false
+              })
+          })
+          .catch(err => console.log("Error from read review : ", err))
       }
     
       enableMessage() {
@@ -35,6 +46,8 @@ class ReviewPage extends Component {
       }
 
     render() {
+
+        console.log("From Read Review ",this.state);
 
         const pageIsLoading = <LoadingAnimation />
         
@@ -53,7 +66,17 @@ class ReviewPage extends Component {
                             {this.state.articleContent}
                         </div>
 
-                        <a href="#" className="button-reviewpage">Review Now</a>
+                        <Link 
+                            to={{
+                            pathname: '/RatingSlider',
+                            state: {
+                                articleId: this.state.id,
+                            }
+                            }}
+                            className="button-reviewpage"
+                        >
+                            Review Now 
+                        </Link>
 
                     </div>
                 </div>

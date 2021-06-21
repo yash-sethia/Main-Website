@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 
 
 class RatingSlider extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+          articleId: this.props.location.state.articleId, 
           ratingNumericValue: 0
         };
 
@@ -39,7 +40,8 @@ class RatingSlider extends Component {
 
   render() {
 
-        
+        console.log("On Slider : ", this.state); 
+        console.log("On Slider2 : ", this.props.location);        
     
    
         return (
@@ -63,8 +65,11 @@ class RatingSlider extends Component {
                     <div className="submit-button">
                         <Link 
                             to={{
-                            pathname: '/question-dislike',
-                            state: [{questionLike: this.state.questionLike}]
+                            pathname: '/question-like',
+                            state: {
+                                articleId: this.state.articleId,
+                                rating: this.state.ratingNumericValue
+                                }
                             }}
                         >
                             <Button variant="info"> Next </Button>
