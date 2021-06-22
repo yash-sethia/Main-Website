@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
+import Alert from '@material-ui/lab/Alert';
 
 
 import axios from 'axios';
@@ -17,7 +18,8 @@ class QuestionDislike extends Component {
           rating: this.props.location.state.rating,
           questionLike: this.props.location.state.questionLike,
           questionDislike: "",
-          rating: this.props.location.state.rating
+          rating: this.props.location.state.rating,
+          error: false
         };
         console.log("Props: ", props)
         this.handleChange = this.handleChange.bind(this);
@@ -36,13 +38,17 @@ class QuestionDislike extends Component {
   }
 
   onSubmit(data) {
-    // Need to send this article Id according to the logic we define !
-    const articleId = this.state.articleId;
-    axios.post(`api/reviews/${articleId}`, data).then(res => {
-      console.log("Inside on submit",res.data)
-      this.props.history.push("/");
+    if(data.negativeReview.length <= 50) {
+      this.setState({error: true})
     }
-      )
+    else {
+      this.setState({error: false});
+      const articleId = this.state.articleId;
+      axios.post(`api/reviews/${articleId}`, data).then(res => {
+        console.log("Inside on submit",res.data)
+        this.props.history.push("/dashboard");
+      })
+    }
   }
 
   render() {
@@ -65,6 +71,9 @@ class QuestionDislike extends Component {
                     onChange={this.handleChange}
                 />
             </div>
+            {this.state.error && <div className="error-box-questiondislike">
+              <Alert severity="error">Sorry, the review must be atleast 50 characters long :( </Alert>
+            </div>}
 
             <div className="submit-button">
               <Button variant="info" onClick={() => {

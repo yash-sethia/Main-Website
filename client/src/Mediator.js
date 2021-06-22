@@ -86,10 +86,10 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
             <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
             
-            <Route location={this.props.location}  path='/readreview/:taskId' exact component={ReviewPage} />
-            <Route location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
-            <Route location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
-            <Route location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
+            <UserRoute location={this.props.location}  path='/review/:taskId' exact component={ReviewPage} />
+            <UserRoute location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
+            <UserRoute location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
+            <UserRoute location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}
             
             <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
             <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />

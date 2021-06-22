@@ -42,6 +42,11 @@ const articleSchema = new Schema({
         min: 0,
         max: 5
     },
+    reviews: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
     aiRating: {
         type: Number,
         default: 0,
