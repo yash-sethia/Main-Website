@@ -295,6 +295,11 @@ class Editor extends Component {
                             placeholder="Search for Image on Unsplash"
                             inputProps={{ 'aria-label': 'search google maps' }}
                             value={this.state.image_name}
+                            onKeyDown = {event => {
+                                if(event.key == 'Enter') {
+                                    return this.handleChangeText();
+                                }
+                            }}
                             onChange={event => this.handleImageName(event.target.value) }
                         />
                         <IconButton type="submit" className={classes.iconButton} aria-label="search" onClick={this.handleChangeText}>
