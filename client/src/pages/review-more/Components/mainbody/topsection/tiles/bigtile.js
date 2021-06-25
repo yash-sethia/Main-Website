@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class BigTile extends React.Component {
   constructor(props) {
@@ -9,30 +10,32 @@ class BigTile extends React.Component {
   render() {
     return (
         <div className="big-tile">
-            <div className="big-tile-article">
+            <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to = {`/review-article/${this.props.id}`}>
+                <div className="big-tile-article">
 
-                <img className="big-tile-article-image" src= {this.props.image} alt = "" />
+                    <img className="big-tile-article-image" src= {this.props.image} alt = "" />
 
-                <div className="big-tile-article-heading">
-                    {this.props.title}
-                </div>
-
-                <div className="big-tile-article-text">
-                    {this.props.metaText}
-                </div>
-
-                <div className="big-tile-article-details">
-                    
-                    <div className="big-tile-article-date">
-                        {this.props.date}
+                    <div className="big-tile-article-heading">
+                        {this.props.title}
                     </div>
 
-                    <div class="big-tile-article-length">
-                        {this.props.readTime}
+                    <div className="big-tile-article-text">
+                        {this.props.metaText}
                     </div>
 
+                    <div className="big-tile-article-details">
+                        
+                        <div className="big-tile-article-date">
+                            {this.props.date}
+                        </div>
+
+                        <div class="big-tile-article-length">
+                            {this.props.readTime}
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+                </Link>
         </div>
     );
   }

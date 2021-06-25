@@ -31,6 +31,7 @@ const taskAnalyticsRouter = require('./routes/taskAnalytics');
 const adduserdata = require('./routes/adduserdata');
 const reviewmore = require('./routes/reviewmore');
 const reviewarticle = require('./routes/reviewArticle');
+const reviewmorearticle = require('./routes/reviewMoreArticle');
 
 //Backend routes to begin with api
 app.use('/api/tasks', taskRouter);
@@ -43,6 +44,7 @@ app.use('/api/taskAnalytics', taskAnalyticsRouter);
 app.use('/api/adduserdata', adduserdata);
 app.use('/api/reviewmore', reviewmore);
 app.use('/api/reviewarticle', reviewarticle);
+app.use('/api/reviewMoreArticle', reviewmorearticle);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -1,41 +1,57 @@
-import React from "react"
+import React, {useContext} from "react"
 import "../font-awesome/css/font-awesome.min.css"
-import UserData from "../data/UserData.js"
+import UserData from "../data/UserData.js";
+import { UserContext } from '../pages/AuthContext';
+import Button from '@material-ui/core/Button';
 
 import "./Header.css"
 
 class Header extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       id: 0,
-      name: "",
-      profileImage: "",
+      name: props.name,
+      logout: props.logout
     };
   }
   render(){
-
-    this.state = UserData[0]
+    console.log("Header : ", this.props)
+    // this.state = UserData[0]
 
     return (
         <div id="topnav">
             <i className="fa fa-star fa-lg" aria-hidden="true" id="logo">  SKILLY</i>
             <div className="dropdown">
-              <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a>
+              {/* <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a> */}
               <a id="name">{this.state.name}</a>
+              <Button color="primary" onClick={() => {
+                      this.state.logout({username: "", id: "", isAuth: false});
+                      window.location.href = "/";
+                  }}>Logout</Button>
               <div className="dropdown-content">
-                <ul>
+                {/* <ul>
                   <li>option 1</li>
                   <li>option 1</li>
                   <li>option 1</li>
                   <li>option 1</li>
-                </ul>
+                </ul> */}
               </div>
             </div>
-            <a id="notifications"><i className="fa fa-bell fa-lg" aria-hidden="true"></i></a>
-            <a id="search"><i className="fa fa-search fa-lg" aria-hidden="true"></i></a>
+            {/* <a id="notifications"><i className="fa fa-bell fa-lg" aria-hidden="true"></i></a>
+            <a id="search"><i className="fa fa-search fa-lg" aria-hidden="true"></i></a> */}
         </div>
     )
   }
 }
-export default Header
+
+const HeaderFunc = (props) => {
+  const [user, setUser] = useContext(UserContext);
+
+  console.log("Hello There Genius : ", user);
+
+  return(<Header name={user.username} logout={setUser} />)
+
+}
+
+export default HeaderFunc;

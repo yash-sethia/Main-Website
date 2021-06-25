@@ -19,7 +19,8 @@ import Engagement from './pages/engagement/Engagement'
 import AiRating from './pages/ai-rating/airating'
 import OverallAnalytics from './pages/overallanalytics/OverallAnalytics.js';
 import EditorPage from './pages/editor/editor'
-import RatingSlider from './pages/review-article-questions/ratingSlider'
+import RatingSlider from './pages/review-article-questions/ratingSlider';
+import RMReviewPage from './pages/review-page/RMreviewpage';
 
 import UserRoute from './Routes/UserRoute';
 
@@ -87,6 +88,9 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
             
             <UserRoute location={this.props.location}  path='/review/:taskId' exact component={ReviewPage} />
+
+            <UserRoute location={this.props.location}  path='/review-article/:articleId' exact component={RMReviewPage} />
+            
             <UserRoute location={this.props.location}  path='/question-like' exact component={QuestionLike} /> {/* Done */}
             <UserRoute location={this.props.location}  path='/RatingSlider' exact component={RatingSlider} />
             <UserRoute location={this.props.location}  path='/question-dislike' exact component={QuestionDislike} /> {/* Problem in Sending the data from 1 page to another */}

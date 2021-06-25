@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import { Link } from "react-router-dom";
 
 class LeftGridTile extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class LeftGridTile extends React.Component {
     return (
         <div className="left-grid-tile">
             <Grid container xs={12} spacing={1}>
-
+            <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to = {`/review-article/${this.props.id}`}>
                 <div className="genre-articles">
                         <Grid item md={12} xs={4}>
                             <img className="genre-article-image" src={this.props.image} alt="" />
@@ -38,7 +39,7 @@ class LeftGridTile extends React.Component {
                             </div>
                         </Grid>
                 </div>
-
+                </Link>
             </Grid>
         </div>
     );

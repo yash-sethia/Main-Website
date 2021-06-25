@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class SmallTile extends React.Component {
   constructor(props) {
@@ -9,28 +10,30 @@ class SmallTile extends React.Component {
   render() {
     return (
         <div className="small-tile">
-            <div class="small-tile-articles">
-                <img class="small-tile-articles-image" src={this.props.image} alt="" />
+            <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to = {`/review-article/${this.props.id}`}>
+                <div class="small-tile-articles">
+                    <img class="small-tile-articles-image" src={this.props.image} alt="" />
 
-                <div class="small-tile-article-content">
-                    <div class="small-tile-article-content-heading">
-                        {this.props.title}
-                    </div>
-
-                    <span class="small-tile-article-content-text">
-                        {this.props.metaText}
-                    </span>
-
-                    <div class="small-tile-article-content-details">
-                        <div class="small-tile-article-content-date">
-                            {this.props.date}
+                    <div class="small-tile-article-content">
+                        <div class="small-tile-article-content-heading">
+                            {this.props.title}
                         </div>
-                        <div class="small-tile-article-content-length">
-                            {this.props.readTime}
+
+                        <span class="small-tile-article-content-text">
+                            {this.props.metaText}
+                        </span>
+
+                        <div class="small-tile-article-content-details">
+                            <div class="small-tile-article-content-date">
+                                {this.props.date}
+                            </div>
+                            <div class="small-tile-article-content-length">
+                                {this.props.readTime}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
   }
