@@ -42,9 +42,10 @@ function TaskRow(props) {
                                     {taskBrief}
                                 </p>
                                 <br />
+                                {/*
                                 <div className="progress-dashboard">Progress<span className="fright">{props.progress}%</span></div>
 
-                                {/* <div className="progressbar">
+                                 <div className="progressbar">
                                     <div></div>
                                 </div> */}
                                 <div className="engagement">

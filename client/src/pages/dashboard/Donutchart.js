@@ -9,6 +9,16 @@ class Donutchart extends Component {
     this.state = {
                     series: [44, 55, 41, 17, 15],
                     options: {
+                          dataLabels: {
+                                     enabled: false,
+                                     formatter: function (val) {
+                                                        return val + "%"
+                                        },
+                                      dropShadow: {
+      
+                                       }
+                                      },
+
                     plotOptions: {
                                     pie: {
                                             startAngle: -135,
