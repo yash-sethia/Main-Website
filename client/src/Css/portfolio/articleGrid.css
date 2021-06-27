@@ -10,7 +10,16 @@
     padding-top: 10vh;
   }
 
-
+  .zero-article-message {
+    width: 76vw;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    margin-bottom: 5vh;
+    border-top: 1px solid black;
+    padding-top: 7vh;
+    text-align: center;
+    font-size: 16px;
+  }
 
   .article-portfolio{
     display: flex;
@@ -61,6 +70,10 @@
   .article-text-portfolio{
     font-size: 0.9rem;
   }
+
+  .zero-article-message {
+    font-size: 0.8rem;
+  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -81,6 +94,10 @@
   .article-text-portfolio{
     font-size: 0.9rem;
   }
+
+  .zero-article-message {
+    font-size: 0.9rem;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -91,6 +108,10 @@
 
   .article-text-portfolio{
     font-size: 1rem;
+  }
+  
+  .zero-article-message {
+    font-size: 0.9rem;
   }
 }
 

@@ -16,16 +16,13 @@ class userArticleGrid extends React.Component {
     }
 
     render() {
-        // var allUserArticles = [];
-        // for(let i = 0; i < this.state.count; i++)
-        // {
-        //     allUserArticles.push(   {
-        //                                 image : this.state.images[i],
-        //                                 title : this.state.titles[i], 
-        //                                 description : this.state.desc[i]
-        //                             } 
-        //                         );
-        // }
+        if(this.state.count == 0) {
+            return(
+                <div className="zero-article-message">
+                    I am still working on my first article on SKiLLLY. Maybe revisit in a few days?
+                </div>
+            );
+        }
 
         var indArticles = this.state.articleData.map(item => <IndividualArticle image={item.articleImages} title={item.articleTitle} description={item.articleContent.slice(0, 120) + "..."} />);
         

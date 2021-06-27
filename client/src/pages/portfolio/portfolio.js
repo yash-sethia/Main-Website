@@ -62,8 +62,8 @@ class Portfolio extends Component {
         twitter: res.data.userData[0].twitterId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.userData[0].twitterId,
         linkedin: res.data.userData[0].linkedinId == undefined ? "https://www.linkedin.com/in/yash-sethia/": res.data.userData[0].linkedinId,
 
-        articleData: res.data.articleData,
-        articleCount: res.data.articleData.length,
+        articleData: res.data.articleData == undefined ? "" : res.data.articleData,
+        articleCount: res.data.articleData == undefined ? 0 : res.data.articleData.length
       })
     })
     .catch(err => console.log("Error from portfolio : ", err))

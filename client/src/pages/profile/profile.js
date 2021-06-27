@@ -37,7 +37,6 @@ class Profile extends React.Component {
 
     componentDidMount() {
       var username = this.state.username;
-      //console.log("From profile page : ", username);
       axios.get(`/api/profile/${username}`).then(res => {
         console.log("This is profile data read : ", res.data);
         this.setState({
