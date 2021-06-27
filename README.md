@@ -1,2 +1,2 @@
-# trial1-fs
-First file structure of backend
+# SKiLLLY Main Website
+This is the source code for the SKiLLLY.
