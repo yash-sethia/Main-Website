@@ -29,11 +29,13 @@ class ArticleBox extends React.Component {
                 {indarticleinfo.brief}
                 </p>
                 <br />
+                {/*
                 <div className="progress-dashboard">Progress<span className="fright">{indarticleinfo.Progress}%</span></div>
 
                   <div className="progressbar">
                     <div></div>
                   </div>
+                  */}
                   <div className="engagement">
                     <i className="fa fa-eye" aria-hidden="true">    {indarticleinfo.Views}</i>&nbsp;&nbsp;
                     <i className="fa fa-comments-o" aria-hidden="true"> {indarticleinfo.comments}</i>
