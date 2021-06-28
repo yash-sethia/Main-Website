@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
     
+    userId: {
+        type: String
+    },
     articleId: {
         type: String
     },

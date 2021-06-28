@@ -15,3 +15,25 @@
   padding: 10px 10px 30px 10px;
   opacity: 90%;
 }
+
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .About-Me-Heading{
+    font-size: 1.4rem;
+  }
+  .About-Me-Details{
+    font-size: 1.2rem;
+  }  
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .About-Me-Heading{
+    font-size: 1.8rem;
+  }
+  .About-Me-Details{
+    font-size: 1.4rem;
+  }
+}
+

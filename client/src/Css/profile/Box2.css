@@ -10,23 +10,75 @@
 .Skilllies-Earned{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px black solid;
 }
 .Skilllies-Heading{
-  font-size: 23px;
-  padding-bottom: 4vh;
+  font-size: 1.6rem;
+  padding-bottom: 2vh;
+  width: 60%;
 }
 #Skilllies-Earned{
-  font-size: 34px;
-  margin-left: 3.2vw;
+  font-size: 30px;
+  margin-left: 10%;
   margin-top: -1.1vh;
 }
 .Bagdes-Recieved{
-  font-size: 24px;
-  padding-top: 4vh;
+  /* padding-top: 2vh; */
 }
 .Badges-List{
   list-style-type: none;
   padding-left: 0;
   opacity: 90%;
+}
+
+.badge1, .badge2, .badge3 {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.Bagdes-Heading {
+  font-size: 1.2rem;
+  float: left;
+  width: 50%;
+}
+.Badge-data {
+  font-size: 1.8rem;
+  margin-left: 30%;
+}
+
+
+/* Media Queries */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .Skilllies-Heading{
+    font-size: 1.2rem;
+  }
+  #Skilllies-Earned{
+    font-size: 20px;
+  }
+  .Bagdes-Heading {
+    font-size: 1rem;
+  }
+  .Badge-data {
+    font-size: 1.2rem;
+  }  
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .Skilllies-Heading{
+    font-size: 1.3rem;
+  }
+  #Skilllies-Earned{
+    font-size: 24px;
+  }
+  .Bagdes-Heading {
+    font-size: 1.2rem;
+  }
+  .Badge-data {
+    font-size: 1.5rem;
+  }  
 }

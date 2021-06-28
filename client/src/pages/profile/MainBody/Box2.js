@@ -10,25 +10,20 @@ render() {
                     <div id="Skilllies-Earned">{this.props.data.SkillliesEarned}</div>
                 </div>
                 <div className="Bagdes-Recieved">
-                    <div className="Bagdes-Heading">Badges Received</div>
-                    <ul className="Badges-List">
-                        <li className="Bagde">
-                          <img className="Badge-Image" src={badge}/>
-                          {this.props.data.badgesReceived[0]}
-                        </li>
-                        <li className="Bagde">
-                          <img className="Badge-Image" src={badge}/>
-                          {this.props.data.badgesReceived[1]}
-                        </li>
-                        <li className="Bagde">
-                          <img className="Badge-Image" src={badge}/>
-                          {this.props.data.badgesReceived[2]}
-                        </li>
-                        <li className="Bagde">
-                          <img className="Badge-Image" src={badge}/>
-                          {this.props.data.badgesReceived[3]}
-                        </li>
-                    </ul>
+                  <div className="badge1">
+                    <div className="Bagdes-Heading">Articles Written</div>
+                    <div className="Badge-data"> {this.props.data.articleCount}</div>
+                  </div>
+
+                  <div className="badge2">
+                    <div className="Bagdes-Heading">Reviews Recieved</div>
+                    <div className="Badge-data"> {this.props.data.reviewsGot}</div>
+                  </div>
+
+                  <div className="badge3">
+                    <div className="Bagdes-Heading">Reviews Given</div>
+                    <div className="Badge-data"> {this.props.data.reviewsDone}</div>
+                  </div>
                 </div>
             </div>
         );

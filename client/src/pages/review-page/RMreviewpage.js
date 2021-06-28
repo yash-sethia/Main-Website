@@ -58,7 +58,7 @@ class ReviewPage extends Component {
                             to={{
                             pathname: '/RatingSlider',
                             state: {
-                                articleId: this.state.id,
+                                articleId: this.state.articleId,
                             }
                             }}
                             className="button-reviewpage"

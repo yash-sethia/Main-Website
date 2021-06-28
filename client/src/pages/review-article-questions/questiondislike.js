@@ -14,6 +14,7 @@ class QuestionDislike extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          userId: this.props.location.state.userId,
           articleId: this.props.location.state.articleId,
           rating: this.props.location.state.rating,
           questionLike: this.props.location.state.questionLike,
@@ -78,6 +79,7 @@ class QuestionDislike extends Component {
             <div className="submit-button">
               <Button variant="info" onClick={() => {
                                                       const data = {
+                                                        userId: this.state.userId,
                                                         positiveReview: this.state.questionLike,
                                                         negativeReview: this.state.questionDislike,
                                                         rating: this.state.rating

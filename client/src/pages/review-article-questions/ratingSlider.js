@@ -1,22 +1,26 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 
 import Button from 'react-bootstrap/Button';
 import '../../Css/review-article-questions/ratingSlider.css';
 import { Link } from "react-router-dom";
 
 
+import { UserContext } from '../AuthContext';
+
+
 class RatingSlider extends Component {
+    static contextType = UserContext;
     constructor(props) {
         super(props);
         this.state = {
+          userId: "",
           articleId: this.props.location.state.articleId, 
           ratingNumericValue: 0
         };
 
         this.handleChangeSlider = this.handleChangeSlider.bind(this)
-        
     }
-  
+    
     handleChangeSlider = () => {
         const range = document.querySelector('input');
         const div = document.querySelector('.emoji');
@@ -41,7 +45,8 @@ class RatingSlider extends Component {
   render() {
 
         console.log("On Slider : ", this.state); 
-        console.log("On Slider2 : ", this.props.location);        
+        console.log("On Slider2 : ", this.props.location);
+        console.log("On Slider 3: ", this.context)        
     
    
         return (
@@ -67,6 +72,7 @@ class RatingSlider extends Component {
                             to={{
                             pathname: '/question-like',
                             state: {
+                                userId: this.context[0].id,
                                 articleId: this.state.articleId,
                                 rating: this.state.ratingNumericValue
                                 }

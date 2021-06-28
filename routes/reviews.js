@@ -11,12 +11,14 @@ router.route('/:articleId').get((req, res) => {
 
 router.route('/:articleId').post((req, res) => {
 
+  const userId = req.body.userId;
   const articleId = req.params.articleId;
   const positiveReview = req.body.positiveReview;
   const negativeReview = req.body.negativeReview;
   const rating = 5 - req.body.rating;
 
   const newReview = new Review({
+      userId,
       articleId,
       positiveReview,
       negativeReview,

@@ -14,6 +14,7 @@ class QuestionLike extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          userId: this.props.location.state.userId,
           articleId: this.props.location.state.articleId,
           questionLike: "",
           rating: this.props.location.state.rating,
@@ -76,6 +77,7 @@ class QuestionLike extends Component {
             <ConditionalLink to={{
                   pathname: '/question-dislike',
                   state: {
+                    userId: this.state.userId,
                     articleId: this.state.articleId,
                     questionLike: this.state.questionLike,
                     rating: this.state.rating
