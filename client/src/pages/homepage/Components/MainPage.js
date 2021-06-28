@@ -153,7 +153,7 @@ class MainPage extends React.Component {
 
         })
         .catch(res => {
-            console.log(res);
+            console.log("Error from Login Backend: ", res);
         })
 
         // console.log("This is the final state :", this.state)
