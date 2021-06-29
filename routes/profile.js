@@ -22,10 +22,10 @@ router.route('/:username').get((req, res) => {
             ai += articles[i].aiRating;
             rr += articles[i].reviewRating
             cnt++;
+            if(articles[i].reviews != undefined) {
+              reviewsRecieved += articles[i].reviews;
+            }
             // console.log(articleCount);
-          }
-          if(articles[i].reviews != undefined) {
-            reviewsRecieved += articles[i].reviews;
           }
         }
         users.skilliesEarned = skilllies;
