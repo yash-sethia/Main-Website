@@ -6,7 +6,7 @@
 	height: 100vh;
 	width: 40px;
 	background-color: #D5EDFF;
-	transition: 0.5s;
+	transition: 0.2s;
 	overflow: hidden;
 	grid-row: 1/3;
 	z-index: 5;
@@ -70,7 +70,7 @@
 	height: 100vh;
 	width: 200px;
 	background-color: #D5EDFF;
-	transition: 0.5s;
+	transition: 0.2s;
 	overflow: hidden;
 	grid-row: 1/3;
 	z-index: 5;
@@ -93,7 +93,7 @@
 }
 
 .sidenav-item:hover{
-	background-color: #0092FF;
+	background-color: #ffffff;
 }
 
 .sidenavOpen ul li a {

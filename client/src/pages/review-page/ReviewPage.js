@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../../font-awesome/css/font-awesome.min.css"
 import '../../Css/review-page/MainBody.css';
 import ArticleData from "../../data/ArticleData.js"
 import HeaderText from "./Mainbody-Review-Page/HeaderText.js"

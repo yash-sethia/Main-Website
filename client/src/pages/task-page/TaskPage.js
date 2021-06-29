@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../../font-awesome/css/font-awesome.min.css";
 import "../../Css/task-page/MainBody.css";
 import Buttons from "./Mainbody-TaskPage/Buttons.js";
 import QuestionBox from "./Mainbody-TaskPage/QuestionBox.js";

@@ -1,5 +1,4 @@
 import React, {useContext} from "react"
-import "../../font-awesome/css/font-awesome.min.css"
 import '../../Css/dashboard/Dashboard.css'
 import LoadingAnimation from '../../shared/loading'
 import TaskTileGrid from './taskTilesGrid'

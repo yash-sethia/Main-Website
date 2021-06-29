@@ -1,5 +1,4 @@
 import React from "react"
-import "../../font-awesome/css/font-awesome.min.css"
 
 import Overview from "./Overview.js"
 import Content1 from "./Content1.js"

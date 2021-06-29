@@ -1,5 +1,4 @@
 import React from "react"
-import "../../font-awesome/css/font-awesome.min.css"
 import "../../Css/profile/MainBody.css"
 import UserData from "../../data/ProfileData"
 import CoverImage from "./MainBody/CoverImage"
