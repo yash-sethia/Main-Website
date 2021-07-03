@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import donutImg from '../../images/food.png';
 
 
 
@@ -11,7 +12,7 @@ class Content2 extends React.Component {
 				<h4>Recent Transactions</h4>
     				<div class="entry">
 
-    					<img src="Group 157.png" alt="Dunk of Dunkin" />
+    					<img src={donutImg} alt="Dunk of Dunkin" />
 
     					<div class="task-and-status">
     						<div class="task-status">
@@ -31,7 +32,7 @@ class Content2 extends React.Component {
 
     				<div class="entry">
 
-    					<img src="Group 157.png" alt="Dunk of Dunkin" />
+						<img src={donutImg} alt="Dunk of Dunkin" />
 
     					<div class="task-and-status">
     						<div class="task-status">
@@ -51,7 +52,7 @@ class Content2 extends React.Component {
 
     				<div class="entry">
 
-    					<img src="Group 157.png" alt="Dunk of Dunkin" />
+						<img src={donutImg} alt="Dunk of Dunkin" />
 
     					<div class="task-and-status">
     						<div class="task-status">
@@ -72,7 +73,7 @@ class Content2 extends React.Component {
 
     				<div class="entry">
 
-    					<img src="Group 157.png" alt="Dunk of Dunkin" />
+						<img src={donutImg} alt="Dunk of Dunkin" />
 
     					<div class="task-and-status">
     						<div class="task-status">
@@ -92,7 +93,7 @@ class Content2 extends React.Component {
 
     				<div class="entry">
 
-    					<img src="Group 157.png" alt="Dunk of Dunkin" />
+						<img src={donutImg} alt="Dunk of Dunkin" />
 
     					<div class="task-and-status">
     						<div class="task-status">

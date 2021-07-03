@@ -3,7 +3,7 @@ let User = require('../models/user.model');
 let Article = require('../models/article.model');
 
 
-router.route('/:id').get((req, res) => {
+router.route('/').post((req, res) => {
 //   User.find({_id : req.params.id})
 //     .then(users => {
 //       Article.find({articleID : {$regex : '^' + req.params.id}}).then(articles => {
@@ -13,17 +13,24 @@ router.route('/:id').get((req, res) => {
 //     )
 //     .catch(err => res.status(400).json('Error: ' + err));
 
-    Article.findById(req.params.id)
+
+    // User.findById(req.params.id).then(user => {
+    //     Article.find().then(articles => {
+
+    //     })
+    // })
+    Article.find({articleID : req.body.userId + "-" + req.body.taskId})
     .then(article => {
-        User.find({_id : article.articleID.substring(0, 24)}).then(user => {
-            const rrc = ((article.reviewRating - (user[0].reviewRating)) * 100) / (user[0].reviewRating);
-            const airc = (((article.aiRating) - (user[0].aiRating)) * 100) / (user[0].aiRating);
-            const ser = (((article.skilliesEarned) - (user[0].skilliesEarned / user[0].taskCount)) * 100) / (user[0].skilliesEarned / user[0].taskCount);
+        console.log(req.body)
+        User.findById(req.body.userId).then(user => {
+            const rrc = ((article[0].reviewRating - (user.reviewRating)) * 100) / (user.reviewRating);
+            const airc = (((article[0].aiRating) - (user.aiRating)) * 100) / (user.aiRating);
+            const ser = (((article[0].skilliesEarned) - (user.skilliesEarned / user.taskCount)) * 100) / (user.skilliesEarned / user.taskCount);
             res.status(200).json( {taskAnalytics : {
                 Aid: 1,
-                reviewRating: article.reviewRating,
-                aiRating: article.aiRating,
-                SkillliesEarned: article.skilliesEarned,
+                reviewRating: article[0].reviewRating.toFixed(2),
+                aiRating: article[0].aiRating.toFixed(2),
+                SkillliesEarned: article[0].skilliesEarned,
                 DaysTaken: "Soon :)",
                 reviewRatingChange: rrc.toFixed(2),
                 aiRatingChange: airc.toFixed(2),

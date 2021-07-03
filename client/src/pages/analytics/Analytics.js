@@ -12,23 +12,23 @@ class Analytics extends React.Component {
         super(props);
         
         this.state = {
-            analyticsdata: [],
+            analyticsdata: AnalyticsData,
             articleId: "5fff4eeb434cb74e48b7f968",
-            isLoading: true
+            isLoading: false
         }
         
     }
 
-    componentDidMount() {
-        const articleId = this.state.articleId;
-        axios.get(`api/taskAnalytics/${articleId}`).then(res => {
-            console.log("Hi there from enagements : ", res.data)
-            this.setState(prevState => ({
-                analyticsdata: [...prevState.analyticsdata, res.data.taskAnalytics],
-                isLoading: false
-            }))
-        })
-    }
+    // componentDidMount() {
+    //     const articleId = this.state.articleId;
+    //     axios.get(`api/taskAnalytics/${articleId}`).then(res => {
+    //         console.log("Hi there from enagements : ", res.data)
+    //         this.setState(prevState => ({
+    //             analyticsdata: [...prevState.analyticsdata, res.data.taskAnalytics],
+    //             isLoading: false
+    //         }))
+    //     })
+    // }
 
 
       
