@@ -1,2 +1,2 @@
 # SKiLLLY Main Website
-This is the source code for the SKiLLLY.
+This is the source code for the SKILLLY.
