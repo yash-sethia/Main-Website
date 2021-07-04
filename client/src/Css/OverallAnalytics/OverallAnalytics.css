@@ -31,6 +31,32 @@
 	grid-area: main-body;
 	padding: inherit;
 	color: black;
+	margin-bottom: 2%;
+}
+
+
+.sub-nav-overall {
+	padding-top: 1%;
+	margin-top: 2%;
+	padding-top: 0.5%;
+	display: flex;
+	width: 15%;
+	justify-content: space-between
+}
+
+#task-nav-overall a {
+	text-decoration: None;
+	margin-right: 0.5rem;
+	color: #BDBDBD;
+}
+
+#task-nav-overall a:hover, #task-nav-overall a:visited, #task-nav-overall a:active {
+	text-decoration: None;
+	color: inherit;
+}
+
+.active-overall-analytics{
+	color: #060606!important;
 }
 
 
@@ -67,18 +93,22 @@
 
 .stat{
 	width: 50%;
-	display: block;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
 }
 
 .stat-heading{
 	color: #a6a6a6;
 	font-weight: 200;
-	font-size: 1rem;
+	font-size: 1.2rem;
 }
 
 .stat-value {
 	font-weight: 480;
 	font-size: 170%;
+
 }
 
 .stat-value span {

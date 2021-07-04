@@ -53,7 +53,7 @@ class Sidebar extends React.Component {
               </NavLink>
             </li>
             <li className="sidenav-item">
-              <Link to = "/Analytics">
+              <Link to = "/overall-analytics">
                 <span className="icons"><i className="fas fa-chart-pie" aria-hidden="true"></i></span>
                 <span className="options">Analytics</span>
               </Link>

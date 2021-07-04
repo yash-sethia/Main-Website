@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink, Link } from "react-router-dom";
 
 import Overview from "./Overview.js"
 import Content1 from "./Content1.js"
@@ -47,33 +48,36 @@ class OverallAnalytics extends React.Component {
 
 
         return (
-          <div class="total-grid-oa">
+          <div className="total-grid-oa">
 
-		        <div class="page-title"> <h1>Analytics</h1></div>
-		          <div class="overview">
-					       {overview}
-		           </div>
+		        <div className="page-title"> 
+                    <h1>Analytics</h1>
+                    <div className="sub-nav-overall" id="task-nav-overall"> 
+                        <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
+                        <NavLink to="/analytics">TASKS</NavLink>
+                    </div>
+                </div>
+                
+		          <div className="overview">
+                    {overview}
+                </div>
 
-		<div class="content1">
+		<div className="content1">
 				{content1}
 		</div>
 
-		<div class="content2">
+		<div className="content2">
 			{content2}
 	</div>
 
 
 
-	<div class="content3">
+	<div className="content3">
 
 		{content3}
 	</div>
 
-
-
-
-
-	<div class="content4">
+	<div className="content4">
     {content4}
 	</div>
 </div>
