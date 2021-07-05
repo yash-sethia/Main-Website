@@ -4,6 +4,7 @@ import TaskRow from './taskrow'
 import Grid from '@material-ui/core/Grid';
 import axios from "axios";
 import Donutchart from './Donutchart'
+import Transactions from './Transactions'
 
 
 class TaskTileGrid extends React.Component {
@@ -236,6 +237,7 @@ class TaskTileGrid extends React.Component {
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">
+                                <Transactions />
                             </div>
                         </div>
                     </div>
