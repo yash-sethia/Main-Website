@@ -52,9 +52,12 @@ class OverallAnalytics extends React.Component {
 
 		        <div className="page-title"> 
                     <h1>Analytics</h1>
-                    <div className="sub-nav-overall" id="task-nav-overall"> 
+                    <div className="sub-nav-overall" id="sub-navlink-overall"> 
                         <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
                         <NavLink to="/analytics">TASKS</NavLink>
+                        <NavLink to="/readreview">REVIEW</NavLink>
+                        <NavLink to="/airating">AI REVIEW</NavLink>
+                        <NavLink to="/engagement">ENGAGEMENT</NavLink>
                     </div>
                 </div>
                 

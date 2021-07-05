@@ -21,6 +21,18 @@ router.route('/').post((req, res) => {
     // })
     Article.find({articleID : req.body.userId + "-" + req.body.taskId})
     .then(article => {
+        if(article.length == 0) {
+            res.status(200).json( {taskAnalytics : {
+                Aid: 1,
+                reviewRating: 0,
+                aiRating: 0.00,
+                SkillliesEarned: 0,
+                DaysTaken: "N/A",
+                reviewRatingChange: 0.00,
+                aiRatingChange: 0.00,
+                SkillliesEarnedChange: 0.00
+            }} )
+        }
         console.log(req.body)
         User.findById(req.body.userId).then(user => {
             const rrc = ((article[0].reviewRating - (user.reviewRating)) * 100) / (user.reviewRating);

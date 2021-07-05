@@ -2,13 +2,6 @@ const router = require('express').Router();
 const Review = require('../models/review.model');
 let Article = require('../models/article.model');
 
-router.route('/:articleId').get((req, res) => {
-  Review.find({articleId : req.params.articleId})
-    .then(reviews => res.json( {reviewData : reviews} ))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-
 router.route('/:articleId').post((req, res) => {
 
   const userId = req.body.userId;
@@ -47,5 +40,23 @@ router.route('/:articleId').post((req, res) => {
     })
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route('/').post((req, res) => {
+  console.log(req.boody.taskId)
+  Article.find({articleID : req.body.userId + "-" + req.body.taskId})
+  .then(article => {
+    console.log(article.length);
+    if(article[0] == undefined) {
+      return res.status(200).json( {reviewData : []} );
+    }
+    Review.find({articleId : article[0]._id})
+    .then(reviews => res.status(200).json( {reviewData : reviews} ))
+    .catch(err => res.status(400).json('Error in retrieving Reviews : ' + err));
+  })
+  .catch(err => console.log("Error in retriving Article for review : ", err));
+});
+
+
+
 
 module.exports = router;

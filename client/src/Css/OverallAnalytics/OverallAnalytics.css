@@ -40,17 +40,17 @@
 	margin-top: 2%;
 	padding-top: 0.5%;
 	display: flex;
-	width: 15%;
+	width: 33%;
 	justify-content: space-between
 }
 
-#task-nav-overall a {
+#sub-navlink-overall a {
 	text-decoration: None;
-	margin-right: 0.5rem;
+	margin-right: 0.6rem;
 	color: #BDBDBD;
 }
 
-#task-nav-overall a:hover, #task-nav-overall a:visited, #task-nav-overall a:active {
+#task-navlink-overall a:hover, #task-navlink-overall a:visited, #task-navlink-overall a:active {
 	text-decoration: None;
 	color: inherit;
 }

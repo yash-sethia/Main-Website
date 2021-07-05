@@ -98,8 +98,8 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
             <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />
             <UserRoute location={this.props.location}  path='/task-page/:taskId' exact component={TaskPage} />  {/* Done */}
-            <UserRoute location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
-            <Route location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
+            <Route location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
+            <UserRoute location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
             <Route location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
           </Switch>
           <Footer />

@@ -71,8 +71,8 @@ class AnalyticsStructure extends React.Component {
       this.setState({ value: value, heading: text })
       console.log("Hell Yeah!!", value)
       const data = {
-        // userId: this.context[0].id,
-        "userId": "60ba74fe58bb8d6268e11971",
+        userId: this.context[0].id,
+        //"userId": "60ba74fe58bb8d6268e11971",
         "taskId": tasks[value]
       }
       axios.post("api/taskAnalytics", data).then(res => {
