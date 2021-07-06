@@ -56,8 +56,8 @@ class OverallAnalytics extends React.Component {
                         <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
                         <NavLink to="/analytics">TASKS</NavLink>
                         <NavLink to="/readreview">REVIEW</NavLink>
-                        <NavLink to="/airating">AI REVIEW</NavLink>
-                        <NavLink to="/engagement">ENGAGEMENT</NavLink>
+                        {/* <NavLink to="/airating">AI REVIEW</NavLink>
+                        <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
                     </div>
                 </div>
                 

@@ -8,6 +8,32 @@ import { Dropdown, Grid, Segment } from 'semantic-ui-react'
 
 import axios from'axios';
 
+import { makeStyles } from '@material-ui/core/styles';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
+function ErrorMessage() {
+    const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Alert severity="info">
+        <AlertTitle>No Reviews Found!!</AlertTitle>
+        <strong>Sorry, you don't have any reviews for this task yet :(  </strong> <br/>
+        Tip: Review more articles using the 'Review More' page if you want your articles to be reviewed more.
+      </Alert>
+    </div>
+  );
+}
+
 class ReadReview extends React.Component {
     static contextType = UserContext;
     constructor(props) {
@@ -99,8 +125,8 @@ class ReadReview extends React.Component {
                                         <NavLink to="/overall-analytics">OVERVIEW</NavLink>
                                         <NavLink to="/analytics">TASKS</NavLink>
                                         <NavLink to="/readreview" className="active">REVIEW</NavLink>
-                                        <NavLink to="/airating">AI REVIEW</NavLink>
-                                        <NavLink to="/engagement">ENGAGEMENT</NavLink>
+                                        {/* <NavLink to="/airating">AI REVIEW</NavLink>
+                                        <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
                                     </div>
 
                                     
@@ -124,6 +150,7 @@ class ReadReview extends React.Component {
 
                         <div className="read-reviews">
                             <div className="content-box-review-box">
+                                {this.state.reviewData.length == 0 && <ErrorMessage />}
                                 {reviewBoxCallingArray}
                             </div>
                         </div>

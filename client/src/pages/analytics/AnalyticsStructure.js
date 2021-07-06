@@ -217,8 +217,8 @@ class AnalyticsStructure extends React.Component {
               <NavLink to="/overall-analytics">OVERVIEW</NavLink>
                 <NavLink to="/analytics" className="active-analytics">TASKS</NavLink>
                 <NavLink to="/readreview">REVIEW</NavLink>
-                <NavLink to="/airating">AI REVIEW</NavLink>
-                <NavLink to="/engagement">ENGAGEMENT</NavLink>
+                {/* <NavLink to="/airating">AI REVIEW</NavLink>
+                <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
             </div>
               <div className="nav-div">
             

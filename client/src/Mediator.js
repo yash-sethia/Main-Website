@@ -84,7 +84,7 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* BACKEND FRONTEND LEFT */}
             <UserRoute location={this.props.location} path="/dashboard" exact component={Dashboard}/>
             <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
-            <Route location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
+            <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
             <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
             
             <UserRoute location={this.props.location}  path='/review/:taskId' exact component={ReviewPage} />
@@ -98,7 +98,7 @@ class Mediator extends React.Component {
             <UserRoute location={this.props.location}  path='/engagement' exact component={Engagement} /> {/* Done + SCAM */}
             <UserRoute location={this.props.location}  path='/airating' exact component={AiRating} />
             <UserRoute location={this.props.location}  path='/task-page/:taskId' exact component={TaskPage} />  {/* Done */}
-            <Route location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
+            <UserRoute location={this.props.location}  path='/readreview' component={ReadReviewComponent} />  {/* Done except for IMAGE (image comes from slider whose logic is TBD) */}
             <UserRoute location={this.props.location}  path='/overall-analytics' exact component={OverallAnalytics} />
             <Route location={this.props.location}  path='/editor/:id' exact component={EditorPage} />
           </Switch>
