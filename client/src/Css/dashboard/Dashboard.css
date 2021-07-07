@@ -43,11 +43,21 @@
 }
 
 .quick-view{
-  width: 90%;
-  height: 100%;
+  width: 75%;
+  height: 97%;
   margin-top: 2%;
   margin-left: 4%;
   background-color: #FFFFFF;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  border-radius: 4px;
+}
+
+.transaction{
+	padding: 1% 2.5%;
+	margin: 5.7% 2%;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
 }
 
 .article-dashboard{

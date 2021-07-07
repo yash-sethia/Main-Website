@@ -237,7 +237,11 @@ class TaskTileGrid extends React.Component {
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">
+                                <h4>Recent Transactions</h4>
                                 <Transactions />
+                                <Transactions />
+                                <Transactions />
+                                <Transactions />                            
                             </div>
                         </div>
                     </div>
