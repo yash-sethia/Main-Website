@@ -26,24 +26,24 @@ router.route('/topgrid').get((req, res) => {
         i = parseInt(i);
         var limit = i == 0? n : i - 1;
         // console.log("i = ", i);
-        for(; t < 16 && i != limit; i = (i + 1) % n) {
+        for(; t < 9 && i != limit; i = (i + 1) % n) {
           // console.log("i = ", i);
-          if(biz < 4 && articles[i].articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
+          if(biz < 3 && articles[i].articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
             t++;
             biz++;
             only5.push(articles[i]);
           }
-          else if(tech < 4 && articles[i].articleID.substring(25, 49) == "603e7d74f49dab101cb3639a") {
+          else if(tech < 3 && articles[i].articleID.substring(25, 49) == "603e7d74f49dab101cb3639a") {
             t++;
             tech++;
             only5.push(articles[i]);
           }
-          else if(life < 4 && articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
+          else if(life < 3 && articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
             t++;
             life++;
             only5.push(articles[i]);
           }
-          else if(sci < 4 && articles[i].articleID.substring(25, 49) == "603e7d81f49dab101cb3639e") {
+          else if(sci < 3 && articles[i].articleID.substring(25, 49) == "603e7d81f49dab101cb3639e") {
             sci++;
             t++;
             only5.push(articles[i]);

@@ -78,7 +78,7 @@ class RatingSlider extends Component {
                                 }
                             }}
                         >
-                            <Button variant="info"> Next </Button>
+                            <button className="myButton"> Next </button>
                         </Link>
                     </div> 
                 </div>

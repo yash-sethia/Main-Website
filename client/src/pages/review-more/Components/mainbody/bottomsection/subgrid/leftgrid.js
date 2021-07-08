@@ -63,7 +63,7 @@ class Leftgrid extends React.Component {
     const leftGridTilesCallTechnology = data.map(item => {
       if(item.genre=="technology") {
         return(
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={4}>
               <LeftGridTile
                 id={item.id}
                 genre={item.genre}
@@ -83,7 +83,7 @@ class Leftgrid extends React.Component {
     const leftGridTilesCallBusiness = data.map(item => {
       if(item.genre=="business") {
         return(
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={4}>
               <LeftGridTile
                 id={item.id}
                 genre={item.genre}
@@ -102,7 +102,7 @@ class Leftgrid extends React.Component {
   const leftGridTilesCallLifestyle = data.map(item => {
     if(item.genre=="lifestyle") {
       return(
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={4}>
             <LeftGridTile
               id={item.id}
               genre={item.genre}
@@ -123,7 +123,7 @@ class Leftgrid extends React.Component {
   const leftGridTilesCallScience = data.map(item => {
     if(item.genre=="science") {
       return(
-        <Grid item xs={12} md={6} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <LeftGridTile
             id={item.id}
             genre={item.genre}
@@ -143,7 +143,7 @@ class Leftgrid extends React.Component {
           <Grid container spacing={2} className="genre-container">   
               <Grid item xs={12} className="genre">
                 <div class="genre-heading"> 
-                  / Tecnology / 
+                 Tecnology 
                 </div>
 
                 <Grid container spacing={2}>
@@ -154,7 +154,7 @@ class Leftgrid extends React.Component {
               <Grid item xs={12} className="genre">
 
                 <div class="genre-heading"> 
-                  / Business / 
+                 Business 
                 </div>
 
                 <Grid container spacing={2}>
@@ -167,7 +167,7 @@ class Leftgrid extends React.Component {
               <Grid item xs={12} className="genre">
 
                 <div class="genre-heading"> 
-                  / lifestyle / 
+                   lifestyle 
                 </div>
 
                 <Grid container spacing={2}>
@@ -178,7 +178,7 @@ class Leftgrid extends React.Component {
               <Grid item xs={12} className="genre">
 
                 <div class="genre-heading"> 
-                  / Science / 
+                   Science  
                 </div>
 
                 <Grid container spacing={2}>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import autosize from "autosize";
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
@@ -76,8 +75,8 @@ class QuestionDislike extends Component {
               <Alert severity="error">Sorry, the review must be atleast 50 characters long :( </Alert>
             </div>}
 
-            <div className="submit-button">
-              <Button variant="info" onClick={() => {
+            <div className="submitButton">
+              <button className="myButton" onClick={() => {
                                                       const data = {
                                                         userId: this.state.userId,
                                                         positiveReview: this.state.questionLike,
@@ -88,7 +87,7 @@ class QuestionDislike extends Component {
                                                     }
                 }> 
                 Submit 
-              </Button> {/* Do history.push for changing the page after sending data to backend */}
+              </button> {/* Do history.push for changing the page after sending data to backend */}
             </div>
       </div>
     );

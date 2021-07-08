@@ -9,7 +9,6 @@
   
   .right-grid {
     margin-top: 7vh;
-    border-left: 1px solid black;
   }
   
   .grid-head{
@@ -29,18 +28,22 @@
   .trending-articles {
     margin-top: 2%;
     display: flex;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
   }
 
   .rank {
     font-size: 2rem;
     align-self: center;
     margin: 0 4%;
+    display: none;
   }
   
   
   .trending-articles-image{
-    width: 24vh;
-    height: 18vh;
+    width: 22vh;
+    height: 22vh;
   }
   
   .trending-article-content {
@@ -83,11 +86,12 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
   }
   
-  .genre {
-    border-bottom: 1px solid black;
-  }
+
   
   .genre-articles {
     display: flex;
@@ -230,7 +234,6 @@
   .right-grid {
     padding-bottom: 2rem;
     border-left: 0px;
-    border-bottom: 1px black solid;
   }
 
   .rank {

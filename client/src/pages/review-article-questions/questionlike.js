@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import autosize from "autosize";
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
@@ -73,7 +72,7 @@ class QuestionLike extends Component {
               <Alert severity="error">Sorry, the review must be atleast 50 characters long :( </Alert>
             </div>}
 
-            <div className="submit-button">
+            <div className="submitButton">
             <ConditionalLink to={{
                   pathname: '/question-dislike',
                   state: {
@@ -83,20 +82,8 @@ class QuestionLike extends Component {
                     rating: this.state.rating
                   }
                 }} condition={this.state.link}>
-              <Button variant="info" onClick = {() => this.errorCheck()}> Next </Button>
+              <button className="myButton"  onClick = {() => this.errorCheck()}> Next </button>
             </ConditionalLink>
-              {/* <Link 
-                to={{
-                  pathname: '/question-dislike',
-                  state: {
-                    articleId: this.state.articleId,
-                    questionLike: this.state.questionLike,
-                    rating: this.state.rating
-                  }
-                }}
-              >
-                <Button variant="info"> Next </Button>
-              </Link> */}
             </div> 
       </div>
     );
