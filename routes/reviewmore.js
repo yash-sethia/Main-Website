@@ -26,7 +26,7 @@ router.route('/topgrid').get((req, res) => {
         i = parseInt(i);
         var limit = i == 0? n : i - 1;
         // console.log("i = ", i);
-        for(; t < 9 && i != limit; i = (i + 1) % n) {
+        for(; t < 12 && i != limit; i = (i + 1) % n) {
           // console.log("i = ", i);
           if(biz < 3 && articles[i].articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
             t++;
@@ -37,6 +37,7 @@ router.route('/topgrid').get((req, res) => {
             t++;
             tech++;
             only5.push(articles[i]);
+            console.log("Hi");
           }
           else if(life < 3 && articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
             t++;
@@ -49,7 +50,7 @@ router.route('/topgrid').get((req, res) => {
             only5.push(articles[i]);
           }
         }
-        // console.log(only5);
+        console.log(only5.length);
         return(res.status(200).json({articleData : only5}));
       })
       .catch(err => console.log(err));

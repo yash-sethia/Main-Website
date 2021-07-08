@@ -20,7 +20,7 @@ class Leftgrid extends React.Component {
         console.log("Hemlo sir left grid: ", res.data.articleData);
         var adata = res.data.articleData.map(item => {
             r++;
-            console.log("So : ", item);
+            //console.log("So : ", item);
             var d = new Date()
             const mon = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
             var ans = d.getDate() + " " + mon[d.getMonth()] + " " + d.getFullYear();
@@ -28,16 +28,19 @@ class Leftgrid extends React.Component {
             var str = item.articleContent.replace(/<[^>]+>/g, '');
             var gen;
             if(item.articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
+              console.log("biz");
               gen = "business";
             }
             else if(item.articleID.substring(25, 49) == "603e7d74f49dab101cb3639a") {
+              console.log("tech");
               gen = "technology";
             }
             else if(item.articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
+              console.log("life");
               gen = "lifestyle";
             }
             else if(item.articleID.substring(25, 49) == "603e7d81f49dab101cb3639e") {
-              console.log("Hello")
+              console.log("sci")
               gen = "science";
             }
             return({
