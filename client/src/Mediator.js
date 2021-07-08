@@ -83,7 +83,7 @@ class Mediator extends React.Component {
             <Route location={this.props.location} path='/portfolio/:id' exact component={Portfolio} /> {/* Done */}
             <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* BACKEND FRONTEND LEFT */}
             <UserRoute location={this.props.location} path="/dashboard" exact component={Dashboard}/>
-            <Route location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
+            <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 
             <UserRoute location={this.props.location}  path='/analytics' exact component={Analytics} /> {/* Done + SCAM (NOTE: Days Spent mei I have done "Coming Soon") */ }
             <UserRoute location={this.props.location}  path='/profile/:username' exact component={Profile} /> {/* Done */}
             
