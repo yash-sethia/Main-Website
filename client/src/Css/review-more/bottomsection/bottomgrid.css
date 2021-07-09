@@ -29,6 +29,7 @@
     margin-top: 2%;
     display: flex;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
     padding: 20px;
     border-radius: 5px;
   }
@@ -77,8 +78,7 @@
   
   
   .leftgrid{
-    display: flex;
-    flex-direction: column;
+    margin-top: 30px;
     padding-right: 4vw;
   }
   
@@ -87,8 +87,10 @@
     flex-direction: row;
     position: relative;
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+    padding: 25px;
     border-radius: 5px;
+    width: 100%;
   }
   
 
@@ -112,8 +114,7 @@
   }
   
   .genre-article-image{
-    width: 13vw;
-    height: 20vh;
+    width: 100%;
     margin-bottom: 1rem;
   }
   
