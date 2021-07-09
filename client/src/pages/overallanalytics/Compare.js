@@ -8,10 +8,10 @@ class Compare extends Component {
 
     this.state = {
           
-            series: [{
+            series: [{//array mein user ka saara tasks ka data ratings ka
               name: 'User',
               data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }, {
+            }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
               name: 'Avg. User',
               data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
             }],

@@ -6,7 +6,7 @@ class Donutchart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = {//Array mein jo bhi task se skilies mile wo
                     series: [44, 55, 41, 17, 15],
                     options: {
                           dataLabels: {
@@ -79,6 +79,7 @@ class Donutchart extends Component {
 legend: {
     show: false,
 },
+//Iss array mein task number ya name
 labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
 },
 }//This.state

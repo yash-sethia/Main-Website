@@ -6,7 +6,7 @@ class Donut extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = {//Same as dashboard
                     series: [44, 55, 41, 17, 15],
                     options: {
                     plotOptions: {
