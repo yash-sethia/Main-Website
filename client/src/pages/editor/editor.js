@@ -225,7 +225,7 @@ class Editor extends Component {
             .then(res => {
                 console.log("res=", res);
                 //return window.location = "/";
-                this.props.history.push(`/readreview/${this.state.taskId}`);
+                this.props.history.push(`/review/${this.state.taskId}`);
         })
             .catch(err => console.log("Editor error : ", err));
     }
