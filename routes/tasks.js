@@ -22,6 +22,7 @@ router.route('/add').post((req, res) => {
   const daysSpent = req.body.daysSpent;
   const noOfViews = req.body.noOfViews;
   const noOfReviews = req.body.noOfReviews;
+  const skillliesEarned = req.body.skillliesEarned;
 
   const newTask = new Task({
     taskId,
@@ -31,7 +32,8 @@ router.route('/add').post((req, res) => {
     progress,
     daysSpent,
     noOfViews,
-    noOfReviews
+    noOfReviews,
+    skillliesEarned
   });
 
   newTask.save()

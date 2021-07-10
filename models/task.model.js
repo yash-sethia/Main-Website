@@ -35,6 +35,10 @@ const taskSchema = new Schema({
         type: Number,
         default: 0
     },
+    skillliesEarned: {
+        type: Number,
+        default: 0
+    },
 
     }
 );

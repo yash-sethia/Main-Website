@@ -37,7 +37,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[0].progress,
                 views: res.data.taskData[0].noOfViews,
                 comments: res.data.taskData[0].noOfReviews,
-                daysTaken: res.data.taskData[0].daysSpent
+                daysTaken: res.data.taskData[0].daysSpent,
+                skilllies: res.data.taskData[0].skillliesEarned
             },
             task2: {
                 id: res.data.taskData[1]._id, 
@@ -48,7 +49,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[1].progress,
                 views: res.data.taskData[1].noOfViews,
                 comments: res.data.taskData[1].noOfReviews,
-                daysTaken: res.data.taskData[1].daysSpent
+                daysTaken: res.data.taskData[1].daysSpent,
+                skilllies: res.data.taskData[1].skillliesEarned
             },
             task3: {
                 id: res.data.taskData[2]._id, 
@@ -59,7 +61,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[2].progress,
                 views: res.data.taskData[2].noOfViews,
                 comments: res.data.taskData[2].noOfReviews,
-                daysTaken: res.data.taskData[2].daysSpent
+                daysTaken: res.data.taskData[2].daysSpent,
+                skilllies: res.data.taskData[2].skillliesEarned
             },
             task4: {
                 id: res.data.taskData[3]._id, 
@@ -70,7 +73,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[3].progress,
                 views: res.data.taskData[3].noOfViews,
                 comments: res.data.taskData[3].noOfReviews,
-                daysTaken: res.data.taskData[3].daysSpent
+                daysTaken: res.data.taskData[3].daysSpent,
+                skilllies: res.data.taskData[3].skillliesEarned
             },
             task5: {
                 id: res.data.taskData[4]._id, 
@@ -81,7 +85,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[4].progress,
                 views: res.data.taskData[4].noOfViews,
                 comments: res.data.taskData[4].noOfReviews,
-                daysTaken: res.data.taskData[4].daysSpent
+                daysTaken: res.data.taskData[4].daysSpent,
+                skilllies: res.data.taskData[4].skillliesEarned
             },
             task6: {
                 id: res.data.taskData[5]._id, 
@@ -92,7 +97,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[5].progress,
                 views: res.data.taskData[5].noOfViews,
                 comments: res.data.taskData[5].noOfReviews,
-                daysTaken: res.data.taskData[5].daysSpent
+                daysTaken: res.data.taskData[5].daysSpent,
+                skilllies: res.data.taskData[5].skillliesEarned
             },
             task7: {
                 id: res.data.taskData[6]._id, 
@@ -103,7 +109,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[6].progress,
                 views: res.data.taskData[6].noOfViews,
                 comments: res.data.taskData[6].noOfReviews,
-                daysTaken: res.data.taskData[6].daysSpent
+                daysTaken: res.data.taskData[6].daysSpent,
+                skilllies: res.data.taskData[6].skillliesEarned
             },
             task8: {
                 id: res.data.taskData[7]._id, 
@@ -114,7 +121,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[7].progress,
                 views: res.data.taskData[7].noOfViews,
                 comments: res.data.taskData[7].noOfReviews,
-                daysTaken: res.data.taskData[7].daysSpent
+                daysTaken: res.data.taskData[7].daysSpent,
+                skilllies: res.data.taskData[7].skillliesEarned
             },
             task9: {
                 id: res.data.taskData[8]._id, 
@@ -125,7 +133,8 @@ class TaskTileGrid extends React.Component {
                 progress: res.data.taskData[8].progress,
                 views: res.data.taskData[8].noOfViews,
                 comments: res.data.taskData[8].noOfReviews,
-                daysTaken: res.data.taskData[8].daysSpent
+                daysTaken: res.data.taskData[8].daysSpent,
+                skilllies: res.data.taskData[8].skillliesEarned
             }
           })
         })
@@ -233,7 +242,34 @@ class TaskTileGrid extends React.Component {
                     <div className="quick-view" id="">
                         <div className="quickv">
                             <div id="donut-chart">
-                                <Donutchart />
+                                <Donutchart 
+                                    skilllies1={this.state.task1.skilllies}
+                                    taskName1={this.state.task1.cssId}
+
+                                    skilllies2={this.state.task2.skilllies}
+                                    taskName2={this.state.task2.cssId}
+
+                                    skilllies3={this.state.task3.skilllies}
+                                    taskName3={this.state.task3.cssId}
+
+                                    skilllies4={this.state.task4.skilllies}
+                                    taskName4={this.state.task4.cssId}
+
+                                    skilllies5={this.state.task5.skilllies}
+                                    taskName5={this.state.task5.cssId}
+
+                                    skilllies6={this.state.task6.skilllies}
+                                    taskName6={this.state.task6.cssId}
+
+                                    skilllies7={this.state.task7.skilllies}
+                                    taskName7={this.state.task7.cssId}
+
+                                    skilllies8={this.state.task8.skilllies}
+                                    taskName8={this.state.task8.cssId}
+
+                                    skilllies9={this.state.task9.skilllies}
+                                    taskName9={this.state.task9.cssId}
+                                />
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">
