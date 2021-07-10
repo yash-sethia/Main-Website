@@ -6,11 +6,11 @@ class Donutchart extends Component {
   constructor(props) {
     super(props);
 
-    console.log("Skilllies #1 : ", props.skilllies1 )
-    console.log("TaskName #1 : ", props.taskName1 )
+    
 
     this.state = {//Array mein jo bhi task se skilies mile wo
-                    series: [props.skilllies1, props.skilllies2, props.skilllies3, props.skilllies4, props.skilllies5, props.skilllies6, props.skilllies7, props.skilllies8, props.skilllies9],
+                    //series: [props.skilllies1, props.skilllies2, props.skilllies3, props.skilllies4, props.skilllies5, props.skilllies6, props.skilllies7, props.skilllies8, props.skilllies9],
+                    series: [5,10,15,5,10,15,5,10,15],
                     options: {
                           dataLabels: {
                                      enabled: false,
@@ -83,7 +83,7 @@ legend: {
     show: false,
 },
 //Iss array mein task number ya name
-labels: [props.taskName1, props.taskName2, props.taskName3, props.taskName4, props.taskName5, props.taskName6, props.taskName7, props.taskName8, props.taskName9 ],
+labels: ["A", "A", "A", "A", "A", "A", "A", "A", "A" ],
 },
 }//This.state
 }

@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import TaskRow from './taskrow'
 import Grid from '@material-ui/core/Grid';
 import axios from "axios";
-import Donutchart from './Donutchart'
+import Donut from './Donut.js'
 import Transactions from './Transactions'
 
 
@@ -138,7 +138,11 @@ class TaskTileGrid extends React.Component {
             }
           })
         })
+        console.log("Skilllies #1 : ", this.state.task1.skillliesEarned )
+        console.log("TaskName #1 : ", this.state.task1.cssId )
       }
+
+      
 
     render() {
       // props copied
@@ -242,34 +246,7 @@ class TaskTileGrid extends React.Component {
                     <div className="quick-view" id="">
                         <div className="quickv">
                             <div id="donut-chart">
-                                <Donutchart 
-                                    skilllies1={this.state.task1.skilllies}
-                                    taskName1={this.state.task1.cssId}
-
-                                    skilllies2={this.state.task2.skilllies}
-                                    taskName2={this.state.task2.cssId}
-
-                                    skilllies3={this.state.task3.skilllies}
-                                    taskName3={this.state.task3.cssId}
-
-                                    skilllies4={this.state.task4.skilllies}
-                                    taskName4={this.state.task4.cssId}
-
-                                    skilllies5={this.state.task5.skilllies}
-                                    taskName5={this.state.task5.cssId}
-
-                                    skilllies6={this.state.task6.skilllies}
-                                    taskName6={this.state.task6.cssId}
-
-                                    skilllies7={this.state.task7.skilllies}
-                                    taskName7={this.state.task7.cssId}
-
-                                    skilllies8={this.state.task8.skilllies}
-                                    taskName8={this.state.task8.cssId}
-
-                                    skilllies9={this.state.task9.skilllies}
-                                    taskName9={this.state.task9.cssId}
-                                />
+                                <Donut />
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">
