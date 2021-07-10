@@ -26,6 +26,7 @@ router.route('/:articleId').post((req, res) => {
         let newRating = prevRating + rating;
         article.reviews = article.reviews + 1;
         article.reviewRating = newRating / article.reviews;
+        article.skilliesEarned = 20 * article.reviewRating;
         if(article.reviewRating < 3.5) {
           article.reviewRating = 3.7 + Math.random();
         }  

@@ -204,6 +204,8 @@ class Editor extends Component {
         var plainString = htmlString.replace(/<[^>]+>/g, '');
         var AIRating = grade1(plainString)%5+0.1;
         var Readability = rate1(plainString)%5;
+        AIRating = Math.max(AIRating, 0);
+        Readability = Math.max(Readability, 0);
         
         // this.setState({
         //     aiRating: AIRating,           //AI Rating
@@ -225,7 +227,7 @@ class Editor extends Component {
                 //return window.location = "/";
                 this.props.history.push(`/readreview/${this.state.taskId}`);
         })
-            .catch(res => res.data);
+            .catch(err => console.log("Editor error : ", err));
     }
       
  
@@ -352,8 +354,8 @@ class Editor extends Component {
 
                 <div className="editor-page">
                     <textarea
-                        className="text-box"
-                        // style={style}
+                        className="text-box-editor"
+                        //style={style}
                         minLength = "300" 
                         spellCheck="true"
                         ref={c => (this.textarea = c)}
