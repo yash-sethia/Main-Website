@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
+import axios from "axios";
+import { UserContext } from '../AuthContext';
 
 class Donutchart extends Component {
-
+  static contextType = UserContext;
   constructor(props) {
     super(props);
 
-    
-
     this.state = {//Array mein jo bhi task se skilies mile wo
-                    //series: [props.skilllies1, props.skilllies2, props.skilllies3, props.skilllies4, props.skilllies5, props.skilllies6, props.skilllies7, props.skilllies8, props.skilllies9],
-                    series: [5,10,15,5,10,15,5,10,15],
+                    series: [5,10,15,5,10,15,5,10],
                     options: {
                           dataLabels: {
                                      enabled: false,
@@ -83,12 +82,22 @@ legend: {
     show: false,
 },
 //Iss array mein task number ya name
-labels: ["A", "A", "A", "A", "A", "A", "A", "A", "A" ],
+labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9" ],
 },
 }//This.state
+
 }
 
-
+componentDidMount (){
+  var userId = this.context[0].id
+  console.log("user ID:", this.context[0].id)
+  axios.get('api/articles/charts/' + userId).then(res => {
+      console.log("Skillies Array : ", res.data.skillliesArray)
+    this.setState({
+        //series: res.data.skillliesArray
+    })
+  })
+}
 
   render() {
 

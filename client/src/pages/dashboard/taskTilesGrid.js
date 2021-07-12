@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import TaskRow from './taskrow'
 import Grid from '@material-ui/core/Grid';
 import axios from "axios";
-import Donut from './Donut.js'
+import Donutchart from './Donutchart'
 import Transactions from './Transactions'
 
 
@@ -138,8 +138,6 @@ class TaskTileGrid extends React.Component {
             }
           })
         })
-        console.log("Skilllies #1 : ", this.state.task1.skillliesEarned )
-        console.log("TaskName #1 : ", this.state.task1.cssId )
       }
 
       
@@ -246,7 +244,7 @@ class TaskTileGrid extends React.Component {
                     <div className="quick-view" id="">
                         <div className="quickv">
                             <div id="donut-chart">
-                                <Donut />
+                                <Donutchart />
                             </div>
                             <hr className="rule"/>
                             <div id="past-transactions">
