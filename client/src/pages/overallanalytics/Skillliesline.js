@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
+import axios from "axios";
+import { UserContext } from '../AuthContext';
 
 class Skillliesline extends Component {
-
+  
+  static contextType = UserContext;
   constructor(props) {
     super(props);
 
@@ -80,6 +83,28 @@ class Skillliesline extends Component {
             },
           };
           
+}
+
+componentDidMount() {
+  const id = this.context[0].id;
+  axios.get('/api/users/' + id).then(res => {
+    console.log("ARTICLE DATA : ", res.data.articleData);
+    var skilllies = [];
+    for(var i=0; i < res.data.articleData.length && i < 9;)
+    {
+      if(res.data.articleData[i])
+      {
+        skilllies[i] = res.data.articleData[i].skilliesEarned;
+        i++;
+      }
+    }
+    console.log("skillliesEarned : ", skilllies)
+    this.setState({
+      //series[0].data: skilllies
+    })
+  })
+  .catch(err => console.log("Error from portfolio : ", err))
+  console.log("series : ", this.state.series[0].data)
 }
 
   render() {
