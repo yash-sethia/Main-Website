@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
+import axios from "axios";
+import { UserContext } from '../AuthContext';
 
 class Donut extends Component {
 
+  static contextType = UserContext;
   constructor(props) {
     super(props);
-
-    this.state = {//Same as dashboard
-                    series: [44, 55, 41, 17, 15],
+    this.state = {
+                    series: [],
                     options: {
                     plotOptions: {
                                     pie: {
@@ -66,9 +68,31 @@ class Donut extends Component {
     },
   }
 },
-labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
+labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9" ], //abhi yaha par text default h, but future mein backend se ayega
 },
 }//This.state
+}
+
+componentDidMount() {
+  const id = this.context[0].id;
+  axios.get('/api/users/' + id).then(res => {
+    console.log("ARTICLE DATA : ", res.data.articleData);
+    var skilllies = [];
+    for(var i=0; i < res.data.articleData.length && i < 9;)
+    {
+      if(res.data.articleData[i])
+      {
+        skilllies[i] = res.data.articleData[i].skilliesEarned;
+        i++;
+      }
+    }
+    console.log("skillliesEarned : ", skilllies)
+    this.setState({
+      series: skilllies
+    })
+  })
+  .catch(err => console.log("Error from portfolio : ", err))
+  console.log("STATE Data : ",this.state.articleData);
 }
 
   render() {

@@ -47,6 +47,7 @@ class Portfolio extends Component {
     axios.get('/api/users/' + id).then(res => {
       console.log("Res from users is as follows : ", res.data.userData[0]);
       console.log("Res from users is as follows : ", res.data.userData[0].city);
+      console.log("ARTICLE DATA : ", res.data.articleData);
       this.setState({
         isLoading: false,
 

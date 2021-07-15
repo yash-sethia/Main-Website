@@ -5,11 +5,14 @@ import { UserContext } from '../AuthContext';
 
 class Donutchart extends Component {
   static contextType = UserContext;
+  //user_id = this.context[0].id;
   constructor(props) {
     super(props);
-
-    this.state = {//Array mein jo bhi task se skilies mile wo
-                    series: [5,10,15,5,10,15,5,10],
+    console.log("User id : ")
+    this.state = {
+                    //id: this.context[0].id,
+                    //id: "5fff3d9de46eff5f282c6b3e", //currently user id is defualt, needs to be updated for each user
+                    series: [],
                     options: {
                           dataLabels: {
                                      enabled: false,
@@ -81,22 +84,33 @@ class Donutchart extends Component {
 legend: {
     show: false,
 },
-//Iss array mein task number ya name
+//abhi yaha par text default h, but future mein backend se ayega
 labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9" ],
 },
 }//This.state
 
 }
 
-componentDidMount (){
-  var userId = this.context[0].id
-  console.log("user ID:", this.context[0].id)
-  axios.get('api/articles/charts/' + userId).then(res => {
-      console.log("Skillies Array : ", res.data.skillliesArray)
+componentDidMount() {
+  const id = this.context[0].id;
+  axios.get('/api/users/' + id).then(res => {
+    console.log("ARTICLE DATA : ", res.data.articleData);
+    var skilllies = [];
+    for(var i=0; i < res.data.articleData.length && i < 9;)
+    {
+      if(res.data.articleData[i])
+      {
+        skilllies[i] = res.data.articleData[i].skilliesEarned;
+        i++;
+      }
+    }
+    console.log("skillliesEarned : ", skilllies)
     this.setState({
-        //series: res.data.skillliesArray
+      series: skilllies
     })
   })
+  .catch(err => console.log("Error from portfolio : ", err))
+  console.log("STATE Data : ",this.state.articleData);
 }
 
   render() {
