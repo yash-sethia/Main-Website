@@ -100,7 +100,10 @@ componentDidMount() {
     }
     console.log("skillliesEarned : ", skilllies)
     this.setState({
-      //series[0].data: skilllies
+      series: [{
+        name: "High - 2013",
+        data: skilllies
+      }],
     })
   })
   .catch(err => console.log("Error from portfolio : ", err))

@@ -19,56 +19,31 @@ class Overview extends React.Component {
             skilliesArray: [],
         };
     }
-  // componentDidMount() {
-  //   const id = this.context[0].id;
-  //   axios.get('/api/users/' + id).then(res => {
-  //     console.log("ARTICLE DATA : ", res.data.articleData);
-  //     var skilllies = [], aiRatingArray = [], reviewRatingArray = [];
-  //     for(var i=0; i < res.data.articleData.length && i < 9;)
-  //     {
-  //       if(res.data.articleData[i].skilliesEarned)
-  //       {
-  //         skilllies[i] = res.data.articleData[i].skilliesEarned;
-  //         i++;
-  //       }
-  //     }
 
-  //     for(var i=0; i < res.data.articleData.length && i < 9;)
-  //     {
-  //       if(res.data.articleData[i].aiRating)
-  //       {
-  //         aiRatingArray[i] = res.data.articleData[i].aiRating;
-  //         i++;
-  //       }
-  //     }
-      
-  //     for(var i=0; i < res.data.articleData.length && i < 9;)
-  //     {
-  //       if(res.data.articleData[i].reviewRating)
-  //       {
-  //         reviewRatingArray[i] = res.data.articleData[i].reveiwRating;
-  //         i++;
-  //       }
-  //     }
-
-  //     console.log("skillliesArray : ", skilllies);
-  //     console.log("aiRatingArray : ", aiRatingArray);
-  //     console.log("reviewRatingArray : ", reviewRatingArray);
-  //     this.setState({
-  //       skilliesArray: skilllies,
-  //       ReviewRatingArray: reviewRatingArray,
-  //       AiRatingArray: aiRatingArray,
-  //       aiRating: res.data.userData[0].aiRating,
-  //       reviewRating: res.data.userData[0].reviewRating,
-  //       skillies: res.data.userData[0].skilliesEarned
-  //     })
-  //   })
-  //   .catch(err => console.log("Error from portfolio : ", err))
-
-  //   console.log("skillliesEarned : ", this.state.skillies);
-  //   console.log("aiRating : ", this.state.aiRating);
-  //   console.log("reviewRating : ", this.state.reviewRating);
-  // }
+    // componentDidMount() {
+    //   const id = this.context[0].id;
+    //   axios.get('/api/users/' + id).then(res => {
+    //     console.log("ARTICLE DATA : ", res.data.articleData);
+    //     var skilllies = [];
+    //     var i=0, sum=0;
+    //     for(i=0; i < res.data.articleData.length && i < 9;)
+    //     {
+    //       if(res.data.articleData[i].skilliesEarned)
+    //       {
+    //         skilllies[i] = res.data.articleData[i].skilliesEarned;
+    //         sum += skilllies[i];
+    //         i++;
+    //       }
+    //     }
+    //     console.log("skillliesEarned : ", skilllies)
+    //     this.setState({
+    //       skilliesArray: skilllies,
+    //       skillies: sum
+    //     })
+    //   })
+    //   .catch(err => console.log("Error from portfolio : ", err))
+    //   console.log("series : ", this.state.skilliesArray)
+    // }
 
     render() {
         const overallanalyticsdata = this.props.overallanalyticsdata

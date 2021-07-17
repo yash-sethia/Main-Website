@@ -19,12 +19,12 @@ class OverallAnalytics extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviewRating: 0,
-            aiRating: 0,
-            skillies: 0,
-            ReviewRatingArray: [],
-            AiRatingArray: [],
-            skilliesArray: [],
+            reviewRating: 0,                             //AvgReviewRating of the user
+            aiRating: 0,                                 //AvgAIRating of the user
+            skillies: 0,                                 //Total skillies earned by the user
+            ReviewRatingArray: [],                       //an array of ReviewRating of each article of the user
+            AiRatingArray: [],                           //an array of AIRating of each article of the user
+            skilliesArray: [],                           //an array of skillies earned in each article of the user
           overallanalyticsdata: OverallAnalyticsData,
         };
     }
@@ -34,49 +34,56 @@ class OverallAnalytics extends React.Component {
     //     axios.get('/api/users/' + id).then(res => {
     //       console.log("ARTICLE DATA : ", res.data.articleData);
     //       var skilllies = [], aiRatingArray = [], reviewRatingArray = [];
-    //       for(var i=0; i < res.data.articleData.length && i < 9;)
-    //       {
-    //         if(res.data.articleData[i].skilliesEarned)
-    //         {
-    //           skilllies[i] = res.data.articleData[i].skilliesEarned;
-    //           i++;
-    //         }
-    //       }
+        //   var i=0, sum=0;
+        //   for(i=0; i < res.data.articleData.length && i < 9;)
+        //   {
+        //     if(res.data.articleData[i].skilliesEarned)
+        //     {
+        //       skilllies[i] = res.data.articleData[i].skilliesEarned;
+        //       sum += skilllies[i];
+        //       i++;
+        //     }
+        //   }
+        //   var skilliesEarned = sum;
 
-    //       for(var i=0; i < res.data.articleData.length && i < 9;)
-    //       {
-    //         if(res.data.articleData[i].aiRating)
-    //         {
-    //           aiRatingArray[i] = res.data.articleData[i].aiRating;
-    //           i++;
-    //         }
-    //       }
+    //     //   for(i=0, sum=0; i < res.data.articleData.length && i < 9;)
+    //     //   {
+    //     //     if(res.data.articleData[i].aiRating)
+    //     //     {
+    //     //       aiRatingArray[i] = res.data.articleData[i].aiRating;
+    //     //       sum += aiRatingArray[i];
+    //     //       i++;
+    //     //     }
+    //     //   }
+    //     //   var avgAI = sum/(i-1);
           
-    //       for(var i=0; i < res.data.articleData.length && i < 9;)
-    //       {
-    //         if(res.data.articleData[i].reviewRating)
-    //         {
-    //           reviewRatingArray[i] = res.data.articleData[i].reveiwRating;
-    //           i++;
-    //         }
-    //       }
+    //     //   for(i=0; i < res.data.articleData.length && i < 9;)
+    //     //   {
+    //     //     if(res.data.articleData[i].reviewRating)
+    //     //     {
+    //     //       reviewRatingArray[i] = res.data.articleData[i].reveiwRating;
+    //     //       sum += reviewRatingArray[i];
+    //     //       i++;
+    //     //     }
+    //     //   }
+    //     //   var avgReview = sum/(i-1);
 
     //       console.log("skillliesArray : ", skilllies);
     //       console.log("aiRatingArray : ", aiRatingArray);
     //       console.log("reviewRatingArray : ", reviewRatingArray);
     //       this.setState({
     //         skilliesArray: skilllies,
-    //         ReviewRatingArray: reviewRatingArray,
-    //         AiRatingArray: aiRatingArray,
-    //         aiRating: res.data.userData[0].aiRating,
-    //         reviewRating: res.data.userData[0].reviewRating,
-    //         skillies: res.data.userData[0].skilliesEarned
+    //         // ReviewRatingArray: reviewRatingArray,
+    //         // AiRatingArray: aiRatingArray,
+    //         // aiRating: avgAI,
+    //         // reviewRating: avgReview,
+    //         skillies: skilliesEarned
     //       })
     //     })
     //     .catch(err => console.log("Error from portfolio : ", err))
 
     //     console.log("skillliesEarned : ", this.state.skillies);
-    //     console.log("aiRating : ", this.state.aiRating);
+    //     console.log("aiRating : ", this.state.skillies);
     //     console.log("reviewRating : ", this.state.reviewRating);
     //   }
     
