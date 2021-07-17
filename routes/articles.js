@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let Article = require('../models/article.model');
-
+let User = require('../models/user.model');
 
 // Need a route that returns all the articles of a user given that we pass user's Id
 
@@ -46,7 +46,14 @@ router.route('/add').post((req, res) => {
       skilliesEarned,
     });
 
-  newArticle.save()
+  newArticle.save();
+    User.findOne({_id: articleID.substring(0, 24)}).then(user => {
+      user.aiRating = ((user.aiRating * user.taskCount) + aiRating) / (user.taskCount + 1);
+      user.skilliesEarned = user.skilliesEarned + 20;
+      user.taskCount = user.taskCount + 1;
+      user.save().then(res => console.log("Updates User stats as well!"))
+      .catch(err => console.log("In Profile, error in updating User data ", err))
+    })
     .then(() => res.status(200).json({article: newArticle}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
