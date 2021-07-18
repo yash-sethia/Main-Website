@@ -93,24 +93,14 @@ labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8",
 
 componentDidMount() {
   const id = this.context[0].id;
-  axios.get('/api/users/' + id).then(res => {
-    console.log("ARTICLE DATA : ", res.data.articleData);
-    var skilllies = [];
-    for(var i=0; i < res.data.articleData.length && i < 9;)
-    {
-      if(res.data.articleData[i])
-      {
-        skilllies[i] = res.data.articleData[i].skilliesEarned;
-        i++;
-      }
-    }
-    console.log("skillliesEarned : ", skilllies)
-    this.setState({
-      series: skilllies
-    })
+  axios.get(`api/overallAnalytics/${id}`).then(res => {
+      console.log("Inside then");
+      this.setState({
+          series: res.data.skarr
+      })
+      console.log(this.state);
   })
-  .catch(err => console.log("Error from portfolio : ", err))
-  console.log("STATE Data : ",this.state.articleData);
+  .catch(err => console.log("Error on Overall Analytics : ", err))
 }
 
   render() {

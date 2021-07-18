@@ -29,6 +29,24 @@ class Content2 extends React.Component {
     					</div>
     				</div>
 
+    				<div class="entry">
+
+						<img src={donutImg} alt="Dunk of Dunkin" />
+
+    					<div class="task-and-status">
+    						<div class="task-status">
+    							Task Completed
+    						</div>
+
+    						<div class="task-title">
+    							Dunk of Dunkin
+    						</div>
+    					</div>
+
+    					<div class="transaction-stat">
+    						+$43
+    					</div>
+    				</div>
 
     				<div class="entry">
 
@@ -49,7 +67,6 @@ class Content2 extends React.Component {
     					</div>
     				</div>
 
-
     				<div class="entry">
 
 						<img src={donutImg} alt="Dunk of Dunkin" />
@@ -69,8 +86,6 @@ class Content2 extends React.Component {
     					</div>
     				</div>
 
-
-
     				<div class="entry">
 
 						<img src={donutImg} alt="Dunk of Dunkin" />
@@ -89,28 +104,6 @@ class Content2 extends React.Component {
     						+$43
     					</div>
     				</div>
-
-
-    				<div class="entry">
-
-						<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-    						+$43
-    					</div>
-    				</div>
-
-
 
     			</div>
         );

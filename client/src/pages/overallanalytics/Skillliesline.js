@@ -14,7 +14,7 @@ class Skillliesline extends Component {
             series: [
               {
                 name: "High - 2013",
-                data: [28, 29, 33, 36, 32, 32, 33]
+                data: this.props.skilliesArray
               },
               //{
               //  name: "Low - 2013",
@@ -85,33 +85,8 @@ class Skillliesline extends Component {
           
 }
 
-componentDidMount() {
-  const id = this.context[0].id;
-  axios.get('/api/users/' + id).then(res => {
-    console.log("ARTICLE DATA : ", res.data.articleData);
-    var skilllies = [];
-    for(var i=0; i < res.data.articleData.length && i < 9;)
-    {
-      if(res.data.articleData[i])
-      {
-        skilllies[i] = res.data.articleData[i].skilliesEarned;
-        i++;
-      }
-    }
-    console.log("skillliesEarned : ", skilllies)
-    this.setState({
-      series: [{
-        name: "High - 2013",
-        data: skilllies
-      }],
-    })
-  })
-  .catch(err => console.log("Error from portfolio : ", err))
-  console.log("series : ", this.state.series[0].data)
-}
-
   render() {
-
+    console.log(this.state.series[0].data)
     return (
       <div className="donut">
         <Chart options={this.state.options} series={this.state.series} type="line" />

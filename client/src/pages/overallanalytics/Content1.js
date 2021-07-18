@@ -3,13 +3,18 @@ import Compare from './Compare'
 
 
 class Content1 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ReviewRatingArray: this.props.ReviewRatingArray
+        };
+    }
     render() {
-        const overallanalyticsdata = this.props.overallanalyticsdata
-
+        
         return (
           <div class="content-box">
             <div>
-                <Compare />
+                <Compare ReviewRatingArray={this.state.ReviewRatingArray}/>
             </div>
         </div>
         );

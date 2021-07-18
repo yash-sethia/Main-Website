@@ -11,7 +11,7 @@ class Avgairating extends Component {
             series: [
               {
                 name: "High - 2013",
-                data: [28, 29, 33, 36, 32, 32, 33]
+                data: props.AiRatingArray
               },
               //{
               //  name: "Low - 2013",

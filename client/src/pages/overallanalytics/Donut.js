@@ -9,7 +9,7 @@ class Donut extends Component {
   constructor(props) {
     super(props);
     this.state = {
-                    series: [],
+                    series: this.props.skilliesArray,
                     options: {
                     plotOptions: {
                                     pie: {
@@ -71,28 +71,6 @@ class Donut extends Component {
 labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9" ], //abhi yaha par text default h, but future mein backend se ayega
 },
 }//This.state
-}
-
-componentDidMount() {
-  const id = this.context[0].id;
-  axios.get('/api/users/' + id).then(res => {
-    console.log("ARTICLE DATA : ", res.data.articleData);
-    var skilllies = [];
-    for(var i=0; i < res.data.articleData.length && i < 9;)
-    {
-      if(res.data.articleData[i])
-      {
-        skilllies[i] = res.data.articleData[i].skilliesEarned;
-        i++;
-      }
-    }
-    console.log("skillliesEarned : ", skilllies)
-    this.setState({
-      series: skilllies
-    })
-  })
-  .catch(err => console.log("Error from portfolio : ", err))
-  console.log("STATE Data : ",this.state.articleData);
 }
 
   render() {

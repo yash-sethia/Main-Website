@@ -41,7 +41,7 @@ class OverallAnalytics extends React.Component {
                 AiRatingArray: res.data.aiarr,
                 skilliesArray: res.data.skarr
             })
-            console.log(this.state);
+            
         })
         .catch(err => console.log("Error on Overall Analytics : ", err))
     }
@@ -49,12 +49,19 @@ class OverallAnalytics extends React.Component {
     render() {
         const overview = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
             return (
-            <Overview overallanalyticsdata={overallanalyticsdata}/>
+            <Overview
+                reviewRating= {this.state.reviewRating}
+                aiRating= {this.state.aiRating}
+                skillies= {this.state.skillies}
+                ReviewRatingArray= {this.state.ReviewRatingArray}
+                AiRatingArray= {this.state.AiRatingArray}
+                skilliesArray= {this.state.skilliesArray}
+            />
             );
         });
         const content1 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
             return (
-            <Content1 overallanalyticsdata={overallanalyticsdata}/>
+            <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
             );
         });
         const content2 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
@@ -69,7 +76,7 @@ class OverallAnalytics extends React.Component {
         });
         const content4 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
             return (
-            <Content4 overallanalyticsdata={overallanalyticsdata}/>
+            <Content4 skilliesArray= {this.state.skilliesArray}/>
             );
         });
 

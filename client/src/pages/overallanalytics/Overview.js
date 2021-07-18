@@ -11,43 +11,17 @@ class Overview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviewRating: 0,
-            aiRating: 0,
-            skillies: 0,
-            ReviewRatingArray: [],
-            AiRatingArray: [],
-            skilliesArray: [],
+            reviewRating: this.props.reviewRating,
+            aiRating: this.props.aiRating,
+            skillies: this.props.skillies,
+            ReviewRatingArray: this.props.ReviewRatingArray,
+            AiRatingArray: this.props.AiRatingArray,
+            skilliesArray: this.props.skilliesArray,
         };
     }
 
-    // componentDidMount() {
-    //   const id = this.context[0].id;
-    //   axios.get('/api/users/' + id).then(res => {
-    //     console.log("ARTICLE DATA : ", res.data.articleData);
-    //     var skilllies = [];
-    //     var i=0, sum=0;
-    //     for(i=0; i < res.data.articleData.length && i < 9;)
-    //     {
-    //       if(res.data.articleData[i].skilliesEarned)
-    //       {
-    //         skilllies[i] = res.data.articleData[i].skilliesEarned;
-    //         sum += skilllies[i];
-    //         i++;
-    //       }
-    //     }
-    //     console.log("skillliesEarned : ", skilllies)
-    //     this.setState({
-    //       skilliesArray: skilllies,
-    //       skillies: sum
-    //     })
-    //   })
-    //   .catch(err => console.log("Error from portfolio : ", err))
-    //   console.log("series : ", this.state.skilliesArray)
-    // }
-
     render() {
-        const overallanalyticsdata = this.props.overallanalyticsdata
-
+      console.log(this.state);
         return (
           <div className="overview-box">
 
@@ -58,13 +32,13 @@ class Overview extends React.Component {
                                            Skilllies Earned
                                    </div>
                                    <div className="stat-value">
-                                            {overallanalyticsdata.skilliesearned}
+                                            {this.state.skillies}
                                             <span>  +24.8%  </span>
                                    </div>
                            </div>
 
                            <div className="stat-graph">
-                                   <Skillliesline />
+                                   <Skillliesline skilliesArray={this.state.skilliesArray}/>
                            </div>
                 </div>
 
@@ -74,11 +48,11 @@ class Overview extends React.Component {
                                      Avg. Review Rating
                              </div>
                      <div className="stat-value">
-                          {overallanalyticsdata.avgreviewrating} <span>  +24.8%  </span>
+                          {this.state.reviewRating.toFixed(2)} <span>  +24.8%  </span>
        </div>
      </div>
      <div className="stat-graph">
-       <Avgreviewrating />
+       <Avgreviewrating ReviewRatingArray={this.state.ReviewRatingArray}/>
      </div>
 
 
@@ -90,11 +64,11 @@ class Overview extends React.Component {
        Avg. AI Rating
        </div>
        <div className="stat-value">
-       {overallanalyticsdata.avgairating} <span>  +24.8%</span>
+       {this.state.aiRating.toFixed(2)} <span>  +24.8%</span>
        </div>
      </div>
      <div className="stat-graph">
-       <Avgairating />
+       <Avgairating AiRatingArray={this.state.AiRatingArray}/>
      </div>
 
 

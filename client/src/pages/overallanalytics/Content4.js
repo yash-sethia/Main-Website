@@ -3,13 +3,17 @@ import Donut from './Donut'
 
 
 class Content4 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            skilliesArray: this.props.skilliesArray
+        };
+    }
     render() {
-        const overallanalyticsdata = this.props.overallanalyticsdata
-
         return (
           <div class="content-box">
       			<div class="donut-graph">
-      				<Donut />
+      				<Donut skilliesArray= {this.props.skilliesArray}/>
       			</div>
       		</div>
         );
