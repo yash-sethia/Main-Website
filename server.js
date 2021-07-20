@@ -34,6 +34,7 @@ const reviewarticle = require('./routes/reviewArticle');
 const reviewmorearticle = require('./routes/reviewMoreArticle');
 const getReviews = require('./routes/getReviews');
 const overallAnalytics = require('./routes/overallAnalytics');
+const recentTransactions = require('./routes/recentTransactions');
 
 //Backend routes to begin with api
 app.use('/api/tasks', taskRouter);
@@ -49,6 +50,7 @@ app.use('/api/reviewarticle', reviewarticle);
 app.use('/api/reviewMoreArticle', reviewmorearticle);
 app.use('/api/getreviews', getReviews);
 app.use('/api/overallAnalytics', overallAnalytics);
+app.use('/api/recentTransactions', recentTransactions);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
@@ -62,8 +64,4 @@ if(process.env.NODE_ENV == "production") {
   })
 }
 
-// Pages whose routing is done!
-// 1.Dashboar (Except Progress views comments etc.)
-// 2. Task Display Page
-// 3. Profile
 

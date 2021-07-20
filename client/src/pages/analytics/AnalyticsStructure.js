@@ -153,7 +153,7 @@ class AnalyticsStructure extends React.Component {
             <div className="content1">
                   <div className="content-box-analytics">
                 
-                         <Cloud />
+                         <Cloud task = {this.state.value}/>
          
                    </div>
             </div>

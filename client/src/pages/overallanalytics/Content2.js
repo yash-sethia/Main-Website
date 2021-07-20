@@ -19,8 +19,10 @@ class Content2 extends React.Component {
 	}
 
     render() {
-
+		const tasks = ["Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin"]
+		var idx = -1;
 		const transac = this.state.skilliesArray.map(item => {
+			idx++;
 			if(item != 0) {
 				return (<div class="entry">
 
@@ -32,7 +34,7 @@ class Content2 extends React.Component {
 					</div>
 
 					<div class="task-title">
-						Dunk of Dunkin
+						{tasks[idx]}
 					</div>
 				</div>
 

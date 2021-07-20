@@ -1,24 +1,10 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
 let Article = require('../models/article.model');
+const Review = require('../models/review.model');
 
 
 router.route('/').post((req, res) => {
-//   User.find({_id : req.params.id})
-//     .then(users => {
-//       Article.find({articleID : {$regex : '^' + req.params.id}}).then(articles => {
-//         res.status(200).json( {userData : users, articleData: articles} )
-//       })
-//     }
-//     )
-//     .catch(err => res.status(400).json('Error: ' + err));
-
-
-    // User.findById(req.params.id).then(user => {
-    //     Article.find().then(articles => {
-
-    //     })
-    // })
     Article.find({articleID : req.body.userId + "-" + req.body.taskId})
     .then(article => {
         if(article.length == 0) {
@@ -54,5 +40,23 @@ router.route('/').post((req, res) => {
 
 });
 
+
+router.route('/wordcloud').post((req, res) => {
+    Article.findOne({articleID : req.body.userId + "-" + req.body.taskId}).then(article => {
+        Review.find().then(reviews => {
+            var n = reviews.length;
+            var prev = "", nrev = "";
+            for(let i = 0; i < n; i++) {
+                if(reviews[i].articleId == article._id) {
+                    prev = prev + reviews[i].positiveReview;
+                    nrev = nrev + reviews[i].negativeReview;
+                }
+            }
+            res.status(200).json({pReview: prev, nReview: nrev});
+        })
+        .catch(err => console.log("Error from wordcloud per task backend in finding reviews: ", err));
+    })
+    .catch(err => console.log("Error from wordcloud per task backend: ", err));
+});
 
 module.exports = router;
