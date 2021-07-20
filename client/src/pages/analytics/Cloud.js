@@ -24,23 +24,32 @@ class Cloud extends Component {
     series.minWordLength = 3;
     series.excludeWords = ["the", "an", "to", "and"];
     this.chart = chart;
-
-    // axios.post('api/taskAnalytics/wordcloud', data).then(res => {
-    //   console.log(res.data);
-    //   this.setState({
-    //     positiveReview: res.data.pReview,
-    //     negativeReview: res.data.nReview
-    //   })
-      
-    // })
-    // .catch(err => console.log("From Wordcloud frontend : ", err));
-    
-    //string mein article pura
   }
-  componentDidUpdate(oldProps) {
+
+  componentWillReceiveProps(nextProps) {
+    if(this.chart) {
+      this.chart.dispose();
+    }
+    this.setState({data: nextProps.data})
     let chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud); 
     let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
-    //series.text = this.state.data;
+    //string mein article pura
+    series.text = this.state.data;
+    series.maxCount = 100;
+    series.minWordLength = 3;
+    series.excludeWords = ["the", "an", "to", "article", "bad", "good", "why"];
+    this.chart = chart;
+    console.log("Updated props")
+    this.chart = chart;
+  }
+
+  componentDidUpdate(oldProps) {
+    if(this.chart) {
+      this.chart.dispose();
+    }
+    let chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud); 
+    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+    series.text = this.state.data;
     series.maxCount = 100;
     series.minWordLength = 3;
     series.excludeWords = ["the", "an", "to", "article", "bad", "good", "why", "and"];
@@ -48,7 +57,14 @@ class Cloud extends Component {
     if (oldProps.data !== this.props.data) {
       series.text = this.props.data;
     }
+    this.chart = chart;
   }
+
+  componentWillUnmount() {
+    if(this.chart) {
+      this.chart.dispose();
+    }
+  } 
 
   render() {
     console.log("Wordcloud state: ", this.state);
