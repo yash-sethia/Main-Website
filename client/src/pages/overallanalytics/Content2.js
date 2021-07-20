@@ -4,8 +4,15 @@ import donutImg from '../../images/food.png';
 
 
 class Content2 extends React.Component {
+
+	constructor(props) {
+        super(props);
+        this.state = {
+            skilliesArray: this.props.skilliesArray,
+        };
+    }
+
     render() {
-        const overallanalyticsdata = this.props.overallanalyticsdata
 
         return (
           <div class="content-box">
@@ -25,7 +32,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						+$43
+    						{this.state.skilliesArray[0]}
     					</div>
     				</div>
 
@@ -44,7 +51,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						+$43
+							{this.state.skilliesArray[1]}
     					</div>
     				</div>
 
@@ -63,7 +70,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						+$43
+							{this.state.skilliesArray[2]}
     					</div>
     				</div>
 
@@ -82,7 +89,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						+$43
+							{this.state.skilliesArray[3]}
     					</div>
     				</div>
 
@@ -101,7 +108,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						+$43
+							{this.state.skilliesArray[4]}
     					</div>
     				</div>
 

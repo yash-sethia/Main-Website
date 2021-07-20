@@ -49,76 +49,78 @@ class OverallAnalytics extends React.Component {
     }
     
     render() {
-        const overview = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
-            return (
-            <Overview
-                reviewRating= {this.state.reviewRating}
-                aiRating= {this.state.aiRating}
-                skillies= {this.state.skillies}
-                ReviewRatingArray= {this.state.ReviewRatingArray}
-                AiRatingArray= {this.state.AiRatingArray}
-                skilliesArray= {this.state.skilliesArray}
-            />
-            );
-        });
-        const content1 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
-            return (
-            <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
-            );
-        });
-        const content2 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
-            return (
-            <Content2 overallanalyticsdata={overallanalyticsdata}/>
-            );
-        });
-        const content3 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
-            return (
-            <Content3 overallanalyticsdata={overallanalyticsdata}/>
-            );
-        });
-        const content4 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
-            return (
-            <Content4 skilliesArray= {this.state.skilliesArray}/>
-            );
-        });
-
+        // const overview = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
+        //     return (
+        //     <Overview
+        //         reviewRating= {this.state.reviewRating}
+        //         aiRating= {this.state.aiRating}
+        //         skillies= {this.state.skillies}
+        //         ReviewRatingArray= {this.state.ReviewRatingArray}
+        //         AiRatingArray= {this.state.AiRatingArray}
+        //         skilliesArray= {this.state.skilliesArray}
+        //     />
+        //     );
+        // });
+        // const content1 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
+        //     return (
+        //     <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
+        //     );
+        // });
+        // const content2 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
+        //     return (
+        //     <Content2 overallanalyticsdata={overallanalyticsdata}/>
+        //     );
+        // });
+        // const content3 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
+        //     return (
+        //     <Content3 overallanalyticsdata={overallanalyticsdata}/>
+        //     );
+        // });
+        // const content4 = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
+        //     return (
+        //     <Content4 skilliesArray= {this.state.skilliesArray}/>
+        //     );
+        // });
 
         return (
           <div className="total-grid-oa">
-
-		        <div className="page-title"> 
-                    <h1>Analytics</h1>
-                    <div className="sub-nav-overall" id="sub-navlink-overall"> 
-                        <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
-                        <NavLink to="/analytics">TASKS</NavLink>
-                        <NavLink to="/readreview">REVIEW</NavLink>
-                        {/* <NavLink to="/airating">AI REVIEW</NavLink>
-                        <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
-                    </div>
-                </div>
+		      <div className="page-title"> 
+                  <h1>Analytics</h1>
+                  <div className="sub-nav-overall" id="sub-navlink-overall"> 
+                      <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
+                      <NavLink to="/analytics">TASKS</NavLink>
+                      <NavLink to="/readreview">REVIEW</NavLink>
+                      {/* <NavLink to="/airating">AI REVIEW</NavLink>
+                      <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
+                  </div>
+              </div>
                 
-		          <div className="overview">
-                    {overview}
-                </div>
+		      <div className="overview">
+                <Overview
+                    reviewRating= {this.state.reviewRating}
+                    aiRating= {this.state.aiRating}
+                    skillies= {this.state.skillies}
+                    ReviewRatingArray= {this.state.ReviewRatingArray}
+                    AiRatingArray= {this.state.AiRatingArray}
+                    skilliesArray= {this.state.skilliesArray}
+                />
+              </div>
 
-		<div className="content1">
-				{content1}
-		</div>
+		      <div className="content1">
+                  <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
+		      </div>
 
-		<div className="content2">
-			{content2}
-	</div>
+		      <div className="content2">
+                  <Content2 skilliesArray={this.state.skilliesArray}/>
+	          </div>
 
+              <div className="content3">
+                  <Content3/>
+              </div>
 
-
-	<div className="content3">
-
-		{content3}
-	</div>
-
-	<div className="content4">
-    {content4}
-	</div>
+              <div className="content4">
+                  <Content4 skilliesArray= {this.state.skilliesArray}/>
+              </div>
 </div>
         );
     }
