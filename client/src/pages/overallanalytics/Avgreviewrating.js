@@ -82,12 +82,12 @@ class Avgreviewrating extends Component {
           
 }
 
-  componentDidMount() {
+componentWillReceiveProps(nextProps) {
     this.setState({
       series: [
         {
           name: "High - 2013",
-          data: this.props.ReviewRatingArray
+          data: nextProps.ReviewRatingArray
         },
       ],
     })

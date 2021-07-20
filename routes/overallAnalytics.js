@@ -56,6 +56,7 @@ router.route('/:id').get((req, res) => {
         },
       ]
       var aids = [];
+      console.log("Hi")
       Article.find().then(articles => {
         var n = articles.length;
         for(let i = 0; i < n; i++) {
@@ -75,6 +76,7 @@ router.route('/:id').get((req, res) => {
             }
           }
         }
+        //console.log(aids);
         let aiarray = [];
         let rrarray = [];
         let skarray = [];
@@ -90,11 +92,14 @@ router.route('/:id').get((req, res) => {
         Review.find().then(reviews => {
             var prev = "", nrev = "";
             var n = reviews.length;
+            console.log(n);
             for(let i = 0; i < n; i++) {
-                let idx = aids.indexOf(reviews[i].articleId);
-                if(idx != -1) {
-                    prev = prev + reviews[i].positiveReview;
-                    nrev = nrev + reviews[i].negativeReview;
+                for(let j = 0; j < aids.length; j++) {
+                    if(aids[j] == reviews[i].articleId) {
+                        console.log("hello");
+                        prev = prev + reviews[i].positiveReview;
+                        nrev = nrev + reviews[i].negativeReview;
+                    }
                 }
             }
             res.status(200).json({oai: aisum, orr: rrsum, oskillies: skilllies, aiarr: aiarray, rrarr: rrarray, skarr: skarray, tranarr: transactions, positiveReviews: prev, negativeReviews: nrev});

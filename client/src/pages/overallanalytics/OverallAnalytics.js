@@ -42,7 +42,9 @@ class OverallAnalytics extends React.Component {
                 ReviewRatingArray: res.data.rrarr,
                 AiRatingArray: res.data.aiarr,
                 skilliesArray: res.data.skarr,
-                tranarr: res.data.tranarr
+                tranarr: res.data.tranarr,
+                pReview: res.data.positiveReviews,
+                nReview: res.data.negativeReviews
             })
             
         })
@@ -117,7 +119,7 @@ class OverallAnalytics extends React.Component {
 	          </div>
 
               <div className="content3">
-                  <Content3/>
+                  <Content3 data={this.state.pReview + this.state.nReview}/>
               </div>
 
               <div className="content4">

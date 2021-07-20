@@ -16,12 +16,8 @@ class AiRating extends React.Component {
             isLoading: true
         }
 
-        this.timer = setTimeout(this.enableMessage,1000);
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.timer);
-      }
 
     enableMessage() {
         this.setState({displayMessage: true, isLoading: false});

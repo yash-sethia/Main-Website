@@ -10,9 +10,9 @@ class Content4 extends React.Component {
         };
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps) {
         this.setState({
-            skilliesArray: this.props.skilliesArray
+            skilliesArray: nextProps.skilliesArray
         })
     }
 

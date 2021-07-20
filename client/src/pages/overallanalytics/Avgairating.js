@@ -77,12 +77,12 @@ class Avgairating extends Component {
           };
           
 }
-  componentDidMount() {
+componentWillReceiveProps(nextProps) {
     this.setState({
       series: [
         {
           name: "High - 2013",
-          data: this.props.AiRatingArray
+          data: nextProps.AiRatingArray
         },
       ],
     })

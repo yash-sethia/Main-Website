@@ -10,9 +10,9 @@ class Content1 extends React.Component {
         };
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps) {
         this.setState({
-            ReviewRatingArray: this.props.ReviewRatingArray
+            ReviewRatingArray: nextProps.ReviewRatingArray
         })
     }
 

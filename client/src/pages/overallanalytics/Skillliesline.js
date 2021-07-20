@@ -85,6 +85,21 @@ class Skillliesline extends Component {
           
 }
 
+componentWillReceiveProps(nextProps) {
+    this.setState({
+      series: [
+        {
+          name: "High - 2013",
+          data: nextProps.skilliesArray
+        },
+        //{
+        //  name: "Low - 2013",
+        //  data: [12, 11, 14, 18, 17, 13, 13]
+        //}
+      ],
+    })
+  }
+
   render() {
     console.log(this.state.series[0].data)
     return (

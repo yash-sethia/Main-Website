@@ -4,12 +4,23 @@ import WordCloud from "./WordCloud.js"
 
 
 class Content3 extends React.Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: this.props.data
+        };
+    }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({data: nextProps.data});
+    }
+    
+    render() {
+        console.log("From content 3", this.state)
         return (
           <div class="content-box">
       			<div>
-      				<WordCloud />
+      				<WordCloud data={this.state.data}/>
       			</div>
       		</div>
         );

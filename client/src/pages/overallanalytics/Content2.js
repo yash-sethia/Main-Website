@@ -12,9 +12,9 @@ class Content2 extends React.Component {
         };
     }
 
-	componentDidMount() {
+	componentWillReceiveProps(nextProps) {
 		this.setState({
-			skilliesArray: this.props.skilliesArray
+			skilliesArray: nextProps.skilliesArray
 		})
 	}
 
@@ -38,7 +38,7 @@ class Content2 extends React.Component {
     					</div>
 
     					<div class="transaction-stat">
-    						{this.state.skilliesArray[0]}
+    						+${this.state.skilliesArray[0]}
     					</div>
     				</div>
 
