@@ -20,104 +20,34 @@ class Content2 extends React.Component {
 
     render() {
 
+		const transac = this.state.skilliesArray.map(item => {
+			if(item != 0) {
+				return (<div class="entry">
+
+				<img src={donutImg} alt="Dunk of Dunkin" />
+
+				<div class="task-and-status">
+					<div class="task-status">
+						Task Completed
+					</div>
+
+					<div class="task-title">
+						Dunk of Dunkin
+					</div>
+				</div>
+
+				<div class="transaction-stat">
+					+${item}
+				</div>
+			</div>);
+			}
+			
+		})
+
         return (
           <div class="content-box">
 				<h4>Recent Transactions</h4>
-    				<div class="entry">
-
-    					<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-    						+${this.state.skilliesArray[0]}
-    					</div>
-    				</div>
-
-    				<div class="entry">
-
-						<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-							{this.state.skilliesArray[1]}
-    					</div>
-    				</div>
-
-    				<div class="entry">
-
-						<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-							{this.state.skilliesArray[2]}
-    					</div>
-    				</div>
-
-    				<div class="entry">
-
-						<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-							{this.state.skilliesArray[3]}
-    					</div>
-    				</div>
-
-    				<div class="entry">
-
-						<img src={donutImg} alt="Dunk of Dunkin" />
-
-    					<div class="task-and-status">
-    						<div class="task-status">
-    							Task Completed
-    						</div>
-
-    						<div class="task-title">
-    							Dunk of Dunkin
-    						</div>
-    					</div>
-
-    					<div class="transaction-stat">
-							{this.state.skilliesArray[4]}
-    					</div>
-    				</div>
-
+					{transac}
     			</div>
         );
     }
