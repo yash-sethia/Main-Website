@@ -23,6 +23,11 @@ class Cloud extends Component {
     series.excludeWords = ["the", "an", "to"];
     this.chart = chart;
   }
+  componentDidUpdate(oldProps) {
+    if (oldProps.data !== this.props.data) {
+      this.series.text = this.props.data;
+    }
+  }
 
   render() {
     return (

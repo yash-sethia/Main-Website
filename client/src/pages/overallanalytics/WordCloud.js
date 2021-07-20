@@ -36,11 +36,16 @@ class WordCloud extends Component {
     this.chart = chart;
     console.log("Updated props")
   }
+  componentDidUpdate(oldProps) {
+    if (oldProps.data !== this.props.data) {
+      this.series.text = this.props.data;
+    }
+  }
 
   render() {
     console.log(this.state)
     return (
-      <div className="cloud" id = "WordCloud">
+      <div className="cloud" id = "WordCloud" style={{ width: "100%", height: "100%" }}>
        
       </div>
     );
