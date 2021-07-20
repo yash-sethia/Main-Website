@@ -40,16 +40,19 @@ class AnalyticsStructure extends React.Component {
           aiRatingChange: 0.0,
           DaysTaken: "Comin Soon :)",
           value: 1,
-          heading: ""
+          heading: "",
+          positiveReview: "",
+          negativeReview: ""
         }
         this.handleChange = this.handleChange.bind(this);
     }
 
 
     componentDidMount() {
+      const tasks = ["", "603e7d4cf49dab101cb36398", "603e7d4cf49dab101cb36399", "603e7d4cf49dab101cb3639a", "603e7d4cf49dab101cb3639b", "603e7d4cf49dab101cb3639c", "603e7d4cf49dab101cb3639d", "603e7d4cf49dab101cb3639e", "603e7d4cf49dab101cb3639f", "603e7d87f49dab101cb363a0"];
       const data = {
-        // userId: this.context[0].id,
-        "userId": "60ba74fe58bb8d6268e11971",
+        userId: this.context[0].id,
+        // "userId": "60ba74fe58bb8d6268e11971",
         "taskId": "603e7d4cf49dab101cb36398"
       }
       axios.post("api/taskAnalytics", data).then(res => {
@@ -64,6 +67,16 @@ class AnalyticsStructure extends React.Component {
         })
       })
       .catch(err => console.log("Error from Task Analytics Frontend : ", err))
+
+      // Backend for Word Cloud
+      axios.post('api/taskAnalytics/wordcloud', data).then(res => {
+        console.log(res.data);
+        this.setState({
+          positiveReview: res.data.pReview,
+          negativeReview: res.data.nReview
+        })
+      })
+      .catch(err => console.log("From Wordcloud frontend : ", err));
     }
 
     handleChange = (e, { value, text }) => {
@@ -87,14 +100,20 @@ class AnalyticsStructure extends React.Component {
         })
       })
       .catch(err => console.log("Error from Task Analytics Frontend : ", err))  
+
+      // Backend for Word Cloud
+      axios.post('api/taskAnalytics/wordcloud', data).then(res => {
+        console.log(res.data);
+        this.setState({
+          positiveReview: res.data.pReview,
+          negativeReview: res.data.nReview
+        })
+      })
+      .catch(err => console.log("From Wordcloud frontend : ", err));
     }
 
-    // ********************ERROR********************
-    ///////////////////////////////////////
-    // Average User data is hardcoded //
-    //////////////////////////////////////
     render() {
-
+      console.log("Data being sent to word cloud: ", this.state.positiveReview);
       const options = [
         { key: '2', value: '1', text: 'Dunk of Dunkin' },
         { key: '3', value: '2', text: 'Dunk of Dunkin' },
@@ -153,7 +172,7 @@ class AnalyticsStructure extends React.Component {
             <div className="content1">
                   <div className="content-box-analytics">
                 
-                         <Cloud task = {this.state.value}/>
+                         <Cloud data = {this.state.positiveReview + this.state.negativeReview}/>
          
                    </div>
             </div>

@@ -11,54 +11,47 @@ class Cloud extends Component {
   constructor(props) {
     super(props);
    this.state = {
-     task: this.props.task,
-     positiveReview: "",
-     negativeReview: ""
+     data: this.props.data
     };
           
 }
   componentDidMount() {
-    const tasks = ["", "603e7d4cf49dab101cb36398", "603e7d4cf49dab101cb36399", "603e7d4cf49dab101cb3639a", "603e7d4cf49dab101cb3639b", "603e7d4cf49dab101cb3639c", "603e7d4cf49dab101cb3639d", "603e7d4cf49dab101cb3639e", "603e7d4cf49dab101cb3639f", "603e7d87f49dab101cb363a0"];
-    const data = {
-      userId: this.context[0].id,
-      // "userId": "60ba74fe58bb8d6268e11971",
-      "taskId": tasks[this.state.task]
-    }
-
     console.log("From wordcloud per task : ", this.state);
     let chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud); 
     let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+    series.text = this.state.data;
+    series.maxCount = 100;
+    series.minWordLength = 3;
+    series.excludeWords = ["the", "an", "to", "and"];
+    this.chart = chart;
 
-
-    axios.post('api/taskAnalytics/wordcloud', data).then(res => {
-      console.log(res.data);
-      this.setState({
-        positiveReview: res.data.pReview,
-        negativeReview: res.data.nReview
-      })
-      series.text = this.state.positiveReview + this.state.negativeReview;
-    })
-    .catch(err => console.log("From Wordcloud frontend : ", err));
+    // axios.post('api/taskAnalytics/wordcloud', data).then(res => {
+    //   console.log(res.data);
+    //   this.setState({
+    //     positiveReview: res.data.pReview,
+    //     negativeReview: res.data.nReview
+    //   })
+      
+    // })
+    // .catch(err => console.log("From Wordcloud frontend : ", err));
     
     //string mein article pura
-    series.maxCount = 100;
-    series.minWordLength = 3;
-    series.excludeWords = ["the", "an", "to"];
-    this.chart = chart;
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(oldProps) {
     let chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud); 
-    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries())
+    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+    //series.text = this.state.data;
     series.maxCount = 100;
     series.minWordLength = 3;
-    series.excludeWords = ["the", "an", "to"];
+    series.excludeWords = ["the", "an", "to", "article", "bad", "good", "why", "and"];
     this.chart = chart;
-    if (prevState.positiveReview !== this.state.positiveReview && prevState.negativeReview !== this.state.negativeReview) {
-      series.text = this.state.positiveReview + this.state.negativeReview;
+    if (oldProps.data !== this.props.data) {
+      series.text = this.props.data;
     }
   }
 
   render() {
+    console.log("Wordcloud state: ", this.state);
     return (
       <div className="donut" id = "chartdiv">
        
