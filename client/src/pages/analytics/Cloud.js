@@ -47,8 +47,14 @@ class Cloud extends Component {
     this.chart = chart;
   }
   componentDidUpdate(prevProps, prevState) {
+    let chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud); 
+    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries())
+    series.maxCount = 100;
+    series.minWordLength = 3;
+    series.excludeWords = ["the", "an", "to"];
+    this.chart = chart;
     if (prevState.positiveReview !== this.state.positiveReview && prevState.negativeReview !== this.state.negativeReview) {
-      this.series.text = this.state.positiveReview + this.state.negativeReview;
+      series.text = this.state.positiveReview + this.state.negativeReview;
     }
   }
 

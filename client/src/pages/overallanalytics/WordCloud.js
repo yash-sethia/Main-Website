@@ -37,8 +37,15 @@ class WordCloud extends Component {
     console.log("Updated props")
   }
   componentDidUpdate(oldProps) {
+    let chart = am4core.create("WordCloud", am4plugins_wordCloud.WordCloud); 
+    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+    //series.text = this.state.data;
+    series.maxCount = 100;
+    series.minWordLength = 3;
+    series.excludeWords = ["the", "an", "to", "article", "bad", "good", "why"];
+    this.chart = chart;
     if (oldProps.data !== this.props.data) {
-      this.series.text = this.props.data;
+      series.text = this.props.data;
     }
   }
 
