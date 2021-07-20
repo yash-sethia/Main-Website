@@ -19,7 +19,7 @@ class Content3 extends React.Component {
         console.log("From content 3", this.state)
         return (
           <div class="content-box">
-      			<div>
+      			<div style={{ height: "100%" }}>
       				<WordCloud data={this.state.data}/>
       			</div>
       		</div>
