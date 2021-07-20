@@ -9,6 +9,13 @@ class Content1 extends React.Component {
             ReviewRatingArray: this.props.ReviewRatingArray
         };
     }
+
+    componentDidMount() {
+        this.setState({
+            ReviewRatingArray: this.props.ReviewRatingArray
+        })
+    }
+
     render() {
         
         return (

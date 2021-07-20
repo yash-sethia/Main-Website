@@ -10,7 +10,7 @@ class Compare extends Component {
           
             series: [{//array mein user ka saara tasks ka data ratings ka
               name: 'User',
-              data: props.ReviewRatingArray
+              data: this.props.ReviewRatingArray
             }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
               name: 'Avg. User',
               data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
@@ -56,6 +56,18 @@ class Compare extends Component {
             },
 };
 }
+
+  componentDidMount() {
+    this.setState({
+      series: [{//array mein user ka saara tasks ka data ratings ka
+        name: 'User',
+        data: this.props.ReviewRatingArray
+      }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
+        name: 'Avg. User',
+        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+      }]
+    })
+  }
 
   render() {
 

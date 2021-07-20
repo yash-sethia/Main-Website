@@ -11,7 +11,7 @@ class Avgreviewrating extends Component {
             series: [
               {
                 name: "High - 2013",
-                data: props.ReviewRatingArray
+                data: this.props.ReviewRatingArray
               },
               //{
               //  name: "Low - 2013",
@@ -82,6 +82,16 @@ class Avgreviewrating extends Component {
           
 }
 
+  componentDidMount() {
+    this.setState({
+      series: [
+        {
+          name: "High - 2013",
+          data: this.props.ReviewRatingArray
+        },
+      ],
+    })
+  }
   render() {
 
     return (

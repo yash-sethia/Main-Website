@@ -20,8 +20,19 @@ class Overview extends React.Component {
         };
     }
 
+    componentDidMount() {
+      this.setState({
+        reviewRating: this.props.reviewRating,
+        aiRating: this.props.aiRating,
+        skillies: this.props.skillies,
+        ReviewRatingArray: this.props.ReviewRatingArray,
+        AiRatingArray: this.props.AiRatingArray,
+        skilliesArray: this.props.skilliesArray,
+      })
+    }
+
     render() {
-      console.log(this.state);
+      console.log("From overview.js",this.state);
         return (
           <div className="overview-box">
 

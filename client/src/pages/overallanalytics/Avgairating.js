@@ -11,12 +11,8 @@ class Avgairating extends Component {
             series: [
               {
                 name: "High - 2013",
-                data: props.AiRatingArray
+                data: this.props.AiRatingArray
               },
-              //{
-              //  name: "Low - 2013",
-              //  data: [12, 11, 14, 18, 17, 13, 13]
-              //}
             ],
             options: {
               chart: {
@@ -81,7 +77,16 @@ class Avgairating extends Component {
           };
           
 }
-
+  componentDidMount() {
+    this.setState({
+      series: [
+        {
+          name: "High - 2013",
+          data: this.props.AiRatingArray
+        },
+      ],
+    })
+  }
   render() {
 
     return (

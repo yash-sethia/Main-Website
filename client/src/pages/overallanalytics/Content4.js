@@ -9,6 +9,13 @@ class Content4 extends React.Component {
             skilliesArray: this.props.skilliesArray
         };
     }
+
+    componentDidMount() {
+        this.setState({
+            skilliesArray: this.props.skilliesArray
+        })
+    }
+
     render() {
         return (
           <div class="content-box">

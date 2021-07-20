@@ -12,6 +12,12 @@ class Content2 extends React.Component {
         };
     }
 
+	componentDidMount() {
+		this.setState({
+			skilliesArray: this.props.skilliesArray
+		})
+	}
+
     render() {
 
         return (

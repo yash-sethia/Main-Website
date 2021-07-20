@@ -55,10 +55,12 @@ router.route('/:id').get((req, res) => {
             skilllies: 0
         },
       ]
+      var aids = [];
       Article.find().then(articles => {
         var n = articles.length;
         for(let i = 0; i < n; i++) {
           if(articles[i].articleID.substring(0, 24) == user._id) {
+            aids.push(articles[i]._id);
             let idx = tasks.indexOf(articles[i].articleID.substring(25, 49));
             console.log(articles[i].articleID.substring(25, 49));
             if(idx != -1) {
@@ -85,7 +87,20 @@ router.route('/:id').get((req, res) => {
             skarray.push(data[i].skilllies);
             transactions.unshift(data[i].skilllies);
         }
-        res.status(200).json({oai: aisum, orr: rrsum, oskillies: skilllies, aiarr: aiarray, rrarr: rrarray, skarr: skarray, tranarr: transactions});
+        Review.find().then(reviews => {
+            var prev = "", nrev = "";
+            var n = reviews.length;
+            for(let i = 0; i < n; i++) {
+                let idx = aids.indexOf(reviews[i].articleId);
+                if(idx != -1) {
+                    prev = prev + reviews[i].positiveReview;
+                    nrev = nrev + reviews[i].negativeReview;
+                }
+            }
+            res.status(200).json({oai: aisum, orr: rrsum, oskillies: skilllies, aiarr: aiarray, rrarr: rrarray, skarr: skarray, tranarr: transactions, positiveReviews: prev, negativeReviews: nrev});
+        })
+        // Unavle to read Reviews
+        .catch(err => console.log("Backend Overall Analytics Reviews Reading error : ", err));
     })
     // Can't find articles
     .catch(err => console.log(err))

@@ -31,9 +31,10 @@ class OverallAnalytics extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.context[0].id;
+        // const id = this.context[0].id;
+        const id = "60ba74fe58bb8d6268e11971";
         axios.get(`api/overallAnalytics/${id}`).then(res => {
-            console.log("Inside then");
+            console.log("Inside then", res);
             this.setState({
                 reviewRating: res.data.orr,
                 aiRating: res.data.oai,
@@ -49,6 +50,7 @@ class OverallAnalytics extends React.Component {
     }
     
     render() {
+        console.log("From overall analytics Render", this.state);
         // const overview = this.state.overallanalyticsdata.map((overallanalyticsdata) => {
         //     return (
         //     <Overview
