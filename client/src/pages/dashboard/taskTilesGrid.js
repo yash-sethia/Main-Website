@@ -247,13 +247,7 @@ class TaskTileGrid extends React.Component {
                                 <Donutchart />
                             </div>
                             <hr className="rule"/>
-                            {/* <div id="past-transactions">
-                                <h4>Recent Transactions</h4> */}
-                                <Transactions />
-                                {/* <Transactions />
-                                <Transactions />
-                                <Transactions />                             */}
-                            {/* </div> */}
+                            <Transactions />
                         </div>
                     </div>
                 </Grid>
