@@ -76,14 +76,16 @@ router.route('/:id').get((req, res) => {
         let aiarray = [];
         let rrarray = [];
         let skarray = [];
+        let transactions = [];
         aisum = aisum / cnt;
         rrsum = rrsum / cnt;
         for(let i = 0; i < 9; i++) {
             aiarray.push(data[i].ai);
             rrarray.push(data[i].rr);
             skarray.push(data[i].skilllies);
+            transactions.unshift(data[i].skilllies);
         }
-        res.status(200).json({oai: aisum, orr: rrsum, oskillies: skilllies, aiarr: aiarray, rrarr: rrarray, skarr: skarray});
+        res.status(200).json({oai: aisum, orr: rrsum, oskillies: skilllies, aiarr: aiarray, rrarr: rrarray, skarr: skarray, tranarr: transactions});
     })
     // Can't find articles
     .catch(err => console.log(err))

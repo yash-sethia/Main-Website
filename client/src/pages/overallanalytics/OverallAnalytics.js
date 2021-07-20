@@ -25,6 +25,7 @@ class OverallAnalytics extends React.Component {
             ReviewRatingArray: [],                       //an array of ReviewRating of each article of the user
             AiRatingArray: [],                           //an array of AIRating of each article of the user
             skilliesArray: [],                           //an array of skillies earned in each article of the user
+            tranarr: [],                                 // An arrayof size 9 containing skillies. Print only those in "Recent Transactions" whose skillies != 0. WARNING: This array is reversed i.e. element at index 0 is Task 9, element at index 1 is Task 8, element at index 2 is Task 7 and so on
           overallanalyticsdata: OverallAnalyticsData,
         };
     }
@@ -39,7 +40,8 @@ class OverallAnalytics extends React.Component {
                 skillies: res.data.oskillies,
                 ReviewRatingArray: res.data.rrarr,
                 AiRatingArray: res.data.aiarr,
-                skilliesArray: res.data.skarr
+                skilliesArray: res.data.skarr,
+                tranarr: res.data.tranarr
             })
             
         })
