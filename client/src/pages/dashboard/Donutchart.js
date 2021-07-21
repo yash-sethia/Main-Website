@@ -94,7 +94,7 @@ labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8",
 componentDidMount() {
   const id = this.context[0].id;
   axios.get(`api/overallAnalytics/${id}`).then(res => {
-      console.log("Inside then");
+      console.log(res.data.skarr);
       this.setState({
           series: res.data.skarr
       })

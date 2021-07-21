@@ -31,8 +31,8 @@ class OverallAnalytics extends React.Component {
     }
 
     componentDidMount() {
-        // const id = this.context[0].id;
-        const id = "60ba74fe58bb8d6268e11971";
+        const id = this.context[0].id;
+        // const id = "60ba74fe58bb8d6268e11971";
         axios.get(`api/overallAnalytics/${id}`).then(res => {
             console.log("Inside then", res);
             this.setState({
