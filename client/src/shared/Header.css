@@ -1,63 +1,40 @@
 #topnav{
-  background-color: #FFFFFF;
+  
   top: 0px;
   display: inline-block;
   width: 97.4vw;
   margin-left: 40px;
-  height: 5vh;
+  height: 54px;
+  padding: 1vh 0;
   box-sizing: border-box;
   color: #707070;
   position: fixed;
   z-index: 4;
+  background-color: #FFFFFF;
 }
 
 #logo{
   padding: 12px 0px;
 }
 
-
-/* Icons that are to be moved to the right */
-#notifications, #search{
-  float: right;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-left: 30px;
+.mainLogo{
+  height: 100%;
+  padding-left: 10px;
 }
+
 .dropdown{
   float: right;
-  justify-content: center;
-}
-/* small profile image */
-#profile-image{
-  height: 30px;
-  border-radius: 50%;
-  display: inline-block;
+  padding-right: 30px;
 }
 
-.dropdown-content{
-  display: none;
-  position:relative ;
-  background-color: #f9f9f9;
-  width: inherit;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  margin-left: 10px;
-  margin-right: 0px;
-  align-items: center;
-}
-
-.dropdown:hover .dropdown-content{
-  display: block;
-}
-
-/* id for the a tag of profile image */
-#profile{
-  padding: 5px 0px;
-  margin-left: 50px;
-}
 /* Name of the user  */
 #name{
-  padding: 8px 0px;
+  height: 100%;
   font-size: 20px;
-  padding-right: 40px;
-  margin-left: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+}
+
+.Logout {
+  font-size: 19px !important;
 }
