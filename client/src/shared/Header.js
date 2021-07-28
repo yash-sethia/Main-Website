@@ -2,6 +2,7 @@ import React, {useContext} from "react"
 import UserData from "../data/UserData.js";
 import { UserContext } from '../pages/AuthContext';
 import Button from '@material-ui/core/Button';
+import logo from '../images/logo.svg';
 
 import "./Header.css"
 
@@ -20,11 +21,11 @@ class Header extends React.Component {
 
     return (
         <div id="topnav">
-            <i className="fa fa-star fa-lg" aria-hidden="true" id="logo">  SKILLY</i>
+            <img className="mainLogo" src={logo}/>
             <div className="dropdown">
               {/* <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a> */}
               <a id="name">{this.state.name}</a>
-              <Button color="primary" onClick={() => {
+              <Button className="Logout" color="primary" onClick={() => {
                       this.state.logout({username: "", id: "", isAuth: false});
                       window.location.href = "/";
                   }}>Logout</Button>
