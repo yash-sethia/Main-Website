@@ -24,7 +24,7 @@ class userArticleGrid extends React.Component {
             );
         }
 
-        var indArticles = this.state.articleData.map(item => <IndividualArticle image={item.articleImages} title={item.articleTitle} description={item.articleContent.slice(0, 120) + "..."} />);
+        var indArticles = this.state.articleData.map(item => <IndividualArticle image={item.articleImages} title={item.articleTitle} description={(item.articleContent.replace(/<[^>]+>/g, '')).slice(0, 120) + "..."} />);
         
         
         return (
