@@ -68,7 +68,7 @@ class Donut extends Component {
     },
   }
 },
-labels: ["task1", "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9" ], //abhi yaha par text default h, but future mein backend se ayega
+labels: ["Dunk of Dunkin 1", "Dunk of Dunkin 2", "Dunk of Dunkin 3", "Dunk of Dunkin 4", "Dunk of Dunkin 5", "Dunk of Dunkin 6", "Dunk of Dunkin 7", "Dunk of Dunkin 8", "Dunk of Dunkin 9" ], //abhi yaha par text default h, but future mein backend se ayega
 },
 }//This.state
 }

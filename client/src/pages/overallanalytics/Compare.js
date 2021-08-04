@@ -13,7 +13,7 @@ class Compare extends Component {
               data: this.props.ReviewRatingArray
             }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
               name: 'Avg. User',
-              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+              data: [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9]
             }],
             options: {
               chart: {
@@ -36,7 +36,7 @@ class Compare extends Component {
                 colors: ['transparent']
               },
               xaxis: {
-                categories: ['Task1', 'Task2', 'Task3', 'Task4', 'Task5', 'Task6', 'Task7', 'Task8', 'Task9'],
+                categories: ["Dunk of Dunkin 1", "Dunk of Dunkin 2", "Dunk of Dunkin 3", "Dunk of Dunkin 4", "Dunk of Dunkin 5", "Dunk of Dunkin 6", "Dunk of Dunkin 7", "Dunk of Dunkin 8", "Dunk of Dunkin 9" ],
               },
               yaxis: {
                 title: {
@@ -64,7 +64,7 @@ componentWillReceiveProps(nextProps) {
         data: nextProps.ReviewRatingArray
       }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
         name: 'Avg. User',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+        data: [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9]
       }]
     })
   }
