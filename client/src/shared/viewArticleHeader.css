@@ -1,0 +1,40 @@
+#topnav2{
+    top: 0px;
+    left: 0;
+    display: inline-block;
+    width: 100vw;
+    height: 54px;
+    padding: 1vh 0;
+    box-sizing: border-box;
+    color: #707070;
+    position: fixed;
+    z-index: 4;
+    background-color: #FFFFFF;
+  }
+  
+  #logo{
+    padding: 12px 0px;
+  }
+  
+  .mainLogo2{
+    height: 100%;
+    padding-left: 50px;
+  }
+  
+  .dropdown{
+    float: right;
+    padding-right: 30px;
+  }
+  
+  /* Name of the user  */
+  #name{
+    height: 100%;
+    font-size: 20px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+  }
+  
+  .Logout {
+    font-size: 19px !important;
+  }
+  

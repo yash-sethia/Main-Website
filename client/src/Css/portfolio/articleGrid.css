@@ -49,6 +49,10 @@
   }
 
 
+.Individual-Article-Link:hover, .Individual-Article-Link:focus {
+    text-decoration: none;
+    color: inherit;
+  }
 
 /* Media Queries */
 /* Small devices (portrait tablets and large phones, 600px and up) */

@@ -10,6 +10,8 @@ import SetProfile from './pages/homepage/Components/setProfile';
 import Analytics from './pages/analytics/Analytics.js';
 import Dashboard from './pages/dashboard/Dashboard.js';
 import Portfolio from './pages/portfolio/portfolio';
+import PortfolioArticle from './pages/portfolio/Components/PortfolioArticle'
+
 import QuestionLike from './pages/review-article-questions/questionlike';
 import QuestionDislike from './pages/review-article-questions/questiondislike';
 import Profile from './pages/profile/profile'
@@ -47,7 +49,8 @@ class Mediator extends React.Component {
     /* SideNav */
     let sidebarcomponent;
 
-    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
+    
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
       sidebarcomponent = <div></div>
     } else {
       sidebarcomponent = <Sidebar/>
@@ -56,7 +59,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname.includes("/portfolio") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -81,6 +84,9 @@ class Mediator extends React.Component {
             <Route exact path="/" exact component={HomePage} />    
             {/* <GuestRoute location={this.props.location} path="/" component={HomePageComponent} /> */}
             <Route location={this.props.location} path='/portfolio/:id' exact component={Portfolio} /> {/* Done */}
+            {/* /portfolio/${this.state.userId}/${item._id} */}
+            <Route location={this.props.location} path='/viewArticle/:articleId' exact component={PortfolioArticle} />
+
             <UserRoute location={this.props.location} path="/setprofile"  exact component={SetProfile} />   {/* BACKEND FRONTEND LEFT */}
             <UserRoute location={this.props.location} path="/dashboard" exact component={Dashboard}/>
             <UserRoute location={this.props.location}  path="/Review-more" exact component={ReviewMore} /> 

@@ -93,6 +93,7 @@ class Portfolio extends Component {
 
 
             <ArticleGrid
+                id = {this.state.id}
                 count = {this.state.articleCount}
                 articles = {this.state.articleData}
             />
