@@ -33,24 +33,6 @@ class Dashboard extends React.Component {
 
 
     render() {
-
-
-        // const pageIsLoading = <LoadingAnimation />
-
-
-        // const pageIsNotLoading =
-
-        //   ;
-
-        // let pageContent;
-
-        // if(this.state.isLoading) {
-        //   pageContent = pageIsLoading;
-        // }
-        // else {
-        //   pageContent = pageIsNotLoading;
-        // }
-
         console.log("GOD : ", this.state.id)
         console.log("GOD : ", this.props.match.params)
 
@@ -59,15 +41,6 @@ class Dashboard extends React.Component {
 
             <div className="headings">
               <h1>Your Tasks</h1>
-{/*
-              <div className="sub-nav" id="task-nav">
-                <a href="#all" className="active">ALL</a>
-                <a href="#Started">STARTED</a>
-                <a href="#Completed">COMPLETED</a>
-                <a href="#ondisplay">ON DISPLAY</a>
-
-              </div>
-*/}
             </div>
 
             <TaskTileGrid articleinfo={this.state.articleinfo} />

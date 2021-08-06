@@ -3,6 +3,7 @@ import UserData from "../data/UserData.js";
 import { UserContext } from '../pages/AuthContext';
 import Button from '@material-ui/core/Button';
 import logo from '../images/logo.svg';
+import { Link } from "react-router-dom";
 
 import "./Header.css"
 
@@ -21,7 +22,9 @@ class Header extends React.Component {
 
     return (
         <div id="topnav">
-            <img className="mainLogo" src={logo}/>
+            <Link to="/dashboard">
+              <img className="mainLogo" src={logo}/>
+            </Link>
             <div className="dropdown">
               {/* <a id="profile"><img id="profile-image" src={this.state.profileImage} alt="your-image" /></a> */}
               <a id="name">{this.state.name}</a>

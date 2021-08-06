@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import axios from "axios";
 import Donutchart from './Donutchart'
 import Transactions from './Transactions'
+import LoadingAnimation from '../../shared/loading'
 
 
 class TaskTileGrid extends React.Component {
@@ -19,7 +20,8 @@ class TaskTileGrid extends React.Component {
             task6: this.props.articleinfo[5],
             task7: this.props.articleinfo[6],
             task8: this.props.articleinfo[7],
-            task9: this.props.articleinfo[8]
+            task9: this.props.articleinfo[8],
+            isLoading: true
         };
     }
 
@@ -135,7 +137,8 @@ class TaskTileGrid extends React.Component {
                 comments: res.data.taskData[8].noOfReviews,
                 daysTaken: res.data.taskData[8].daysSpent,
                 skilllies: res.data.taskData[8].skillliesEarned
-            }
+            },
+            isLoading: false
           })
         })
       }
@@ -144,6 +147,10 @@ class TaskTileGrid extends React.Component {
 
     render() {
       // props copied
+      if(this.state.isLoading) {
+          return (<LoadingAnimation />)
+      }
+      else {
         return (
             <Grid container spacing={1}>
                 <Grid container item xs={9} spacing={1}>
@@ -253,6 +260,8 @@ class TaskTileGrid extends React.Component {
                 </Grid>
             </Grid>
         );
+      }
+        
     }
 }
 
