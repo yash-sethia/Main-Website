@@ -104,10 +104,15 @@
       padding-bottom: 0.4em;
   }
 
-  .review-image-given img {
-      height: 10rem;
-      width: 10rem;
-      float: right;
+  .review-image-given {
+    float: right;
+    text-align: center;
+  }
+
+  .review-image {
+      /* height: 10rem;
+      width: 10rem; */
+      font-size: 7rem;
       margin: 1.5rem 1rem 0.5rem 1.5rem;
   }
 
@@ -143,9 +148,8 @@
         font-size: 0.8rem;
     }
 
-    .review-image-given img {
-        height: 8rem;
-        width: 8rem;
+    .review-image {
+        font-size: 4rem;
     }
 
   }
@@ -168,9 +172,8 @@
         font-size: 0.9rem;
     }
 
-    .review-image-given img {
-        height: 9rem;
-        width: 9rem;
+    .review-image {
+        font-size: 5.5rem;
     }
   }
   /* Large devices (laptops/desktops, 992px and up) */

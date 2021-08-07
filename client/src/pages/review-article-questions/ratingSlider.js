@@ -26,7 +26,7 @@ class RatingSlider extends Component {
         const div = document.querySelector('.emoji');
         const texty = document.querySelector('.sliderText')
         const emojis = ['😄','🙂','😐','😑','☹️'];
-        const sliderPhrases = ['awesome work','good job','not bad','could be better','disgusting bro']
+        const sliderPhrases = ['Awesome Work!!','Good Job!!','Not Bad :)','Could be better...', "Didn't like it :/"];
 
         range.addEventListener('input', (e) => {
         var rangeValue = e.target.value;

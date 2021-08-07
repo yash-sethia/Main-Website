@@ -10,8 +10,20 @@ class ReviewBox extends React.Component {
             reviewNumber: props.reviewNumber,
             positiveAnswer: props.positiveAnswer,
             negativeAnswer: props.negativeAnswer,
-            image: props.image
+            rating: props.rating,
+            phrase: "Couldn't load the image :(",
+            image: "https://previews.123rf.com/images/pavlostv/pavlostv1805/pavlostv180500401/101741080-oops-404-error-page-not-found-futuristic-robot-concept-%C3%A2%E2%82%AC%E2%80%9C-vector.jpg"
         }
+    }
+
+    componentDidMount() {
+        const emojis = ['😄','🙂','😐','😑','☹️'];
+        const sliderPhrases = ['Awesome Work!!','Good Job!!','Not Bad :)','Could be better...', "Didn't like it :/"];
+        const rating = this.state.rating;
+        this.setState({
+            image: emojis[5 - Math.round(rating)],
+            phrase: sliderPhrases[5 - Math.round(rating)]
+        })
     }
 
 
@@ -33,7 +45,11 @@ class ReviewBox extends React.Component {
 
                         <p className="review-text">
                             <div className="review-image-given">
-                                <img src={this.state.image} alt="review given" className="review-image" />
+                                {/* <img src={this.state.image} alt="review given" className="review-image" /> */}
+                                <h1 className="review-image">
+                                    {this.state.image}
+                                </h1>
+                                <h3> {this.state.phrase} </h3>
                             </div>
                             
                             {this.state.positiveAnswer}

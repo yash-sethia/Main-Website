@@ -81,6 +81,7 @@ class ReadReview extends React.Component {
           this.setState({
             reviewData: res.data.reviewData
           })
+          console.log("THis is it!!!!! :", this.state);
         })
         .catch(err => console.log("Error from Task Analytics Frontend : ", err));  
       }
@@ -107,7 +108,7 @@ class ReadReview extends React.Component {
         var ctr = 0;
         const reviewBoxCallingArray = this.state.reviewData.map((item) =>{
             ctr++;
-            return(<ReviewBox key = {item._id} reviewNumber = {ctr} positiveAnswer = {item.positiveReview} negativeAnswer={item.negativeReview} image = "https://media.istockphoto.com/vectors/cute-tiger-face-emoticon-emoji-showing-sad-face-expression-vector-id903164224" />);
+            return(<ReviewBox key = {item._id} reviewNumber = {ctr} positiveAnswer = {item.positiveReview} negativeAnswer={item.negativeReview} rating = {item.rating} />);
         })
 
 
