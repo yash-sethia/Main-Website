@@ -26,15 +26,18 @@
     margin-top: 5vh;
     margin-left: 10vw;
     outline: none;
+    border: none;
     font: 'Poppins', 'sans-serif';
     font-size: 2rem;
     font-weight: 400;
     color: #333333;
     overflow: auto;
+    background-color: inherit;
+    min-width: 60vw;
   }
 
-  textarea:focus {
-    border-bottom: 1.5px solid black;
+  .text-box-editor:focus {
+    border-bottom: 1.5px solid black !important;
   }
 
   textarea::placeholder {

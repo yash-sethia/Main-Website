@@ -101,8 +101,8 @@ class Editor extends Component {
 
 
     componentDidMount() {
-        // this.textarea.focus();
-        // autosize(this.textarea);
+        this.textarea.focus();
+        autosize(this.textarea);
         axios.get('/api/tasks/' + this.state.taskId).then(res => {
             this.setState({
               questionTitle: res.data.taskData.taskName,
