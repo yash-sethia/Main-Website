@@ -5,7 +5,16 @@ class Compare extends Component {
 
   constructor(props) {
     super(props);
-
+    var avgUser = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+    const hardData = [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9];
+    for(let i = 0; i < 9; i++) {
+      // if(this.props.ReviewRatingArray[i] == 0) {
+      //   avgUser[i] = hardData[i];
+      // }
+      // else {
+        avgUser[i] = (0.9 * this.props.ReviewRatingArray[i]).toFixed(1);
+      // }
+    }
     this.state = {
           
             series: [{//array mein user ka saara tasks ka data ratings ka
@@ -13,7 +22,8 @@ class Compare extends Component {
               data: this.props.ReviewRatingArray
             }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
               name: 'Avg. User',
-              data: [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9]
+              data: avgUser,
+              // [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9] 
             }],
             options: {
               chart: {
@@ -58,13 +68,23 @@ class Compare extends Component {
 }
 
 componentWillReceiveProps(nextProps) {
+  var avgUser = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+  const hardData = [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9];
+  for(let i = 0; i < 9; i++) {
+    // if(this.props.ReviewRatingArray[i] == 0) {
+    //   avgUser[i] = hardData[i];
+    // }
+    // else {
+      avgUser[i] = (0.9 * nextProps.ReviewRatingArray[i]).toFixed(1);
+    // }
+  }
     this.setState({
       series: [{//array mein user ka saara tasks ka data ratings ka
         name: 'User',
         data: nextProps.ReviewRatingArray
       }, {// array mein average in users ka (abhi ke liye pichle array wali values ko thoda randomly kam karke likh do)
         name: 'Avg. User',
-        data: [4.2, 4.3, 4.4, 4.1, 4.7, 3.8, 4.4, 4.8, 4.9]
+        data: avgUser
       }]
     })
   }
