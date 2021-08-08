@@ -1,9 +1,9 @@
+.coverContainer {
+  height: 420px;
+  overflow: hidden;
+  padding-left: 40px;
+}
+
 .coverImage{
-  position: absolute;
-  z-index: 1;
-  left: 40px;
-  background-color: black;
-  width: 98.86%;
-  border: 1px black solid;
-  color: black;
+  width: 100%;
 }
