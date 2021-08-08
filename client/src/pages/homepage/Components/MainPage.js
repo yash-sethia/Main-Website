@@ -317,44 +317,24 @@ class MainPage extends React.Component {
 
 
                 <div className="homepageFooter">
-                    <div className="footerMenu">
-                    <div className="col_1">
-                        <div className="title">
-                            Company  
-                        </div>  
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="#">Home Page</a></li>
-                            <li><a href="#">Out Of Words</a></li>
-                        </ul>
-                    </div>
-                    <div className="col_2">
-                        <div className="title">
-                            Help & Support 
-                        </div>  
-                        <ul>
-                            <li><a href="#">Support Center</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Call Center</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div className="col_3">
-                        <div className="title">
-                            Services  
-                        </div>  
-                        <ul>
-                            <li><a href="#">Fashion Magazine</a></li>
-                            <li><a href="#">Web Store</a></li>
-                            <li><a href="#">Deliveries</a></li>
-                            <li><a href="#">Shoes Related Term</a></li>
-                        </ul>
-                    </div>
-                    </div>
-
-                    <div className="socialMedia">
-                        <p>Copyright February 2021 © EDGE.</p>
+                    <div className="FooterContainer">
+                        <h1 className="FooterLogo">
+                            SKILLLY.
+                        </h1>
+                        <h4 className="FooterQuote">
+                            Made with ❤ in New Delhi - India
+                        </h4>
+                        <div className="socials">
+                            <a className="SocialLinks" href="http://www.google.com">
+                                    Facebook
+                            </a >
+                            <a className="SocialLinks" href="http://www.google.com">
+                                    Instagram
+                            </a >
+                            <a className="SocialLinks" href="http://www.google.com">
+                                    LinkedIN
+                            </a >
+                        </div>
                     </div>
                 </div>
             
