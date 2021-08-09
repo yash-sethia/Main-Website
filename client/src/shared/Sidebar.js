@@ -12,6 +12,7 @@ import { UserContext } from '../pages/AuthContext';
 
 
 class Sidebar extends React.Component {
+  static contextType = UserContext;
   constructor(props){
     super(props);
     this.state = {
@@ -84,7 +85,7 @@ class Sidebar extends React.Component {
               </NavLink>
             </li>
             <li className="sidenav-item">
-              <NavLink to={`/profile/${this.state.username}`}>
+              <NavLink to={`/profile/${this.context[0].username}`}>
                 <span className="icons">
                   {/* <i className="fas fa-user" aria-hidden="true"></i> */}
                   <PersonIcon />
@@ -93,7 +94,7 @@ class Sidebar extends React.Component {
               </NavLink>
             </li>
             <li className="sidenav-item">
-              <NavLink to = {`/portfolio/${this.state.userId}`} target ="_blank" >
+              <NavLink to = {`/portfolio/${this.context[0].id}`} target ="_blank" >
                 <span className="icons">
                   {/* <i className="fas fa-address-book" aria-hidden="true"></i> */}
                   <Icon name='address book' />
@@ -108,13 +109,4 @@ class Sidebar extends React.Component {
   }
 }
 
-function SidebarFunc() {
-  const [user, setUser] = useContext(UserContext);
-  return (
-    <Sidebar username = {user.username} userId = {user.id} />
-  );
-
-}
-
-
-export default SidebarFunc;
+export default Sidebar;
