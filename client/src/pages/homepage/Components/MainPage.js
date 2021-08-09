@@ -209,7 +209,8 @@ class MainPage extends React.Component {
                     {/* <!-- hero section --> */}
                     <div className="homepageContainer">
                         <div ref={(div) => (this.herotext = div)} className="hero-text">
-                            <h2>Easiest way to start a <br/>career in Content Writing</h2>
+                         
+                            <h2>The easiest way to start a<br/>career in Content Writing</h2>
                             <div className="subtext">Learn as a community, Give back to the community, Grow as a community</div>
                                             <GoogleLogin
                                                 clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
@@ -229,27 +230,27 @@ class MainPage extends React.Component {
 
                 {/* <!-- how we work --> */}
                 <div className="threeBoxLayout">
-                    <div className="mainHeading">How We Work</div>
+                    <div className="mainHeading">How We Work ?</div>
                     <div ref={(div) => (this.boxes = div)} className="boxes">
                         <div className="individualBoxes">
                             <div className="individualBoxesImage"><img src={undraw_typewriter_i8xd}/></div>  
-                            <p>Practice writing on the platform through articles on real life issues</p>
+                            <p>Practise through writing prompts on real-world issues</p>
                         </div>
                         <div className="individualBoxes">
                             <div className="individualBoxesImage"><img src={undraw_respond_8wjt}/></div>
-                            <p>Get feedback on your work from the community and upskill your content writing</p>                    
+                            <p>The community helps you improve your craft</p>                    
                         </div>
                         <div className="individualBoxes">
                             <div className="individualBoxesImage"><img src={undraw_stepping_up_g6oo}/></div>
-                            <p>Create your portfolio and grow as a content writer with the community</p>
+                            <p>Create your portfolio and grow with the community</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="midwayContainer">
                     <div className="midwayTextContainer">
-                        <h2 ref={(div) => (this.midwayTextContainerh2 = div)} >Everyone needs talent, and we have the talent network</h2>
-                        <h4 ref={(div) => (this.midwayTextContainerh4 = div)} >Content operations platform for all kinds of customers. Save on time, quality and cost with Pepper Content.</h4>
+                        <h2 ref={(div) => (this.midwayTextContainerh2 = div)} >Everyone has talent, and we have the network to refine it!</h2>
+                        <h4 ref={(div) => (this.midwayTextContainerh4 = div)} >Skillly molds you as a writer and gives you the opportunity to assist, learn and grow with fellow artists.</h4>
                     </div>
                 </div>
 
@@ -258,7 +259,7 @@ class MainPage extends React.Component {
                         <div className="meritsText">
                             <div className="meritsTextContainer">
                                 <h3>Real World issues</h3>
-                                <p>Skillly offers you acces to real world issues to write to help buil your portfolio</p>
+                                <p>The writing prompts are based on real-world issues which helps you in building your portfolio.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -272,8 +273,8 @@ class MainPage extends React.Component {
                 <div className="meritsSection">
                     <div ref={(div) => (this.even = div)} className="meritsContainer even">
                         <div className="meritsText">
-                            <div className="meritsTextContainer"><h3>learn from the community</h3>
-                                <p>Skilly acts as a medium to generate real and constructive feedback on your work to help you identify mistakes and improve as a writer</p>
+                            <div className="meritsTextContainer"><h3>Learn From The Community</h3>
+                                <p>The constructive feedback that the community offers helps you in identifying your mistakes and improve as a writer.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -288,8 +289,8 @@ class MainPage extends React.Component {
                     <div ref={(div) => (this.odd = div)} className="meritsContainer odd">
                         <div className="meritsText">
                             <div className="meritsTextContainer">
-                                <h3>read fellow writers work</h3>
-                                <p>Skilly allows you to be inspired by the content written by others in the community</p>
+                                <h3>Read Fellow Writer's Work</h3>
+                                <p>Read the work of people who are better than you to get inspired and learn.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -303,8 +304,8 @@ class MainPage extends React.Component {
                 <div className="meritsSection">
                     <div ref={(div) => (this.even = div)} className="meritsContainer even">
                         <div className="meritsText">
-                            <div className="meritsTextContainer"><h3>Give back to the community</h3>
-                                <p>Skillly allows you to help fellow artists learn and grow and hence give back to the community</p>
+                            <div className="meritsTextContainer"><h3>Grow With The Community</h3>
+                                <p>Help others through your valuable feedback and grow with the community.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
