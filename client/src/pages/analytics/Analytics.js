@@ -18,18 +18,6 @@ class Analytics extends React.Component {
         
     }
 
-    // componentDidMount() {
-    //     const articleId = this.state.articleId;
-    //     axios.get(`api/taskAnalytics/${articleId}`).then(res => {
-    //         console.log("Hi there from enagements : ", res.data)
-    //         this.setState(prevState => ({
-    //             analyticsdata: [...prevState.analyticsdata, res.data.taskAnalytics],
-    //             isLoading: false
-    //         }))
-    //     })
-    // }
-
-
       
     render() {
         const analyticsoverview = this.state.analyticsdata.map((article) => {
