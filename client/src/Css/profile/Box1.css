@@ -46,8 +46,8 @@
 
 .User-Nickname{
   font-size: 1.2em;
-  opacity: 60%;
   padding-top: 0.2em;
+  color: gray;
 }
 
 .reviewRating{
@@ -62,9 +62,9 @@
   font-size: 1.6em;
 }
 .User-Info{
-  opacity: 60%;
   font-size: 1em;
   padding-top: 0.2vh;
+  color: gray;
 }
 
 #User-Mail{
@@ -87,51 +87,3 @@
   flex-direction: row;
 }
 
-
-
-/* #User-Data{
-  margin-right: 8.4vw;
-}
-.User-Data-1{
-  display: flex;
-  flex-direction: column;
-}
-.User-Name{
-  font-size: 30px;
-}
-.User-Nickname{
-  font-size: 18px;
-  opacity: 60%;
-  padding-top: 1vh;
-}
-.Social-Media-Links{
-  display: flex;
-  flex-direction: row;
-  margin-top: 8vh;
-}
-#Icons{
-  height: 4.5vh;
-  opacity: 60%;
-  margin-right: 3vh;
-}
-.User-Data-2{
-  display: flex;
-  flex-direction: column;
-  padding-top: 0.6vh;
-}
-#User-Review-Rating{
-  font-size: 26px;
-}
-.User-Info{
-  opacity: 60%;
-  font-size: 14px;
-  padding-top: 0.2vh;
-}
-#User-Mail{
-  margin-top: 8.9vh;
-  font-size: 20px;
-}
-.User-Data-3{
-  display: flex;
-  flex-direction: column;
-} */
