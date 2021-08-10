@@ -40,7 +40,7 @@
 
 .sidenav ul li a .icons  {
   color: black;
-  opacity: 75%;
+  /* opacity: 75%; */
 	position: relative;
 	min-width: 40px;
 	height: 40px;
