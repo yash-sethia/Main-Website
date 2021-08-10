@@ -250,7 +250,7 @@ class MainPage extends React.Component {
                 <div className="midwayContainer">
                     <div className="midwayTextContainer">
                         <h2 ref={(div) => (this.midwayTextContainerh2 = div)} >Everyone has talent, and we have the network to refine it!</h2>
-                        <h4 ref={(div) => (this.midwayTextContainerh4 = div)} >Skillly molds you as a writer and gives you the opportunity to assist, learn and grow with fellow artists.</h4>
+                        <h4 ref={(div) => (this.midwayTextContainerh4 = div)} >Skillly molds you as a writer and gives you the opportunity to assist, learn and grow with the fellow artists.</h4>
                     </div>
                 </div>
 
@@ -259,7 +259,7 @@ class MainPage extends React.Component {
                         <div className="meritsText">
                             <div className="meritsTextContainer">
                                 <h3>Real World issues</h3>
-                                <p>The writing prompts are based on real-world issues which helps you in building your portfolio.</p>
+                                <p>The writing prompts offered are based on prevalent themes which in turn will assist you in curating an contemporary portfolio.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -274,7 +274,7 @@ class MainPage extends React.Component {
                     <div ref={(div) => (this.even = div)} className="meritsContainer even">
                         <div className="meritsText">
                             <div className="meritsTextContainer"><h3>Learn From The Community</h3>
-                                <p>The constructive feedback that the community offers helps you in identifying your mistakes and improve as a writer.</p>
+                                <p>The community helps you in identifying your weaknesses and improve as a writer.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -289,8 +289,8 @@ class MainPage extends React.Component {
                     <div ref={(div) => (this.odd = div)} className="meritsContainer odd">
                         <div className="meritsText">
                             <div className="meritsTextContainer">
-                                <h3>Read Fellow Writer's Work</h3>
-                                <p>Read the work of people who are better than you to get inspired and learn.</p>
+                                <h3>Get inspired by the community</h3>
+                                <p>Take inspiration from the work of people from a diverse background and learn from them.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
@@ -323,7 +323,7 @@ class MainPage extends React.Component {
                             SKILLLY.
                         </h1>
                         <h4 className="FooterQuote">
-                            Made with ❤ in New Delhi - India
+                            {/* Made with ❤ in New Delhi - India */}
                         </h4>
                         <div className="socials">
                             <a className="SocialLinks" href="http://www.google.com">
@@ -353,16 +353,5 @@ class MainPage extends React.Component {
         )
     }
 }
-
-
-// const MainPageFunc = () => {
-//     const [user, setUser ] = useContext(UserContext);
-//     const handleLogIn = user => {
-//         setUser(user);
-//     }
-//     return(<MainPage setUserContext= {handleLogIn} />);
-// }
-
-
 
 export default MainPage;
