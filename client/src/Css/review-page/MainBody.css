@@ -41,12 +41,12 @@
   .article-text-reviewpage {
       height: auto;
       font-size: 20px;
-      opacity: 90%;
+      color: gray;
       margin-top: 50px;
       margin-bottom: 40px;
   }
 
   .article-text{
       font-size: 20px;
-      opacity: 90%;
+      color: gray;
     }
