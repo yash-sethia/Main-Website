@@ -1,6 +1,5 @@
 import React from "react"
 import "../../Css/profile/MainBody.css"
-import UserData from "../../data/ProfileData"
 import CoverImage from "./MainBody/CoverImage"
 import Box1 from "./MainBody/Box1"
 import Box2 from "./MainBody/Box2"
