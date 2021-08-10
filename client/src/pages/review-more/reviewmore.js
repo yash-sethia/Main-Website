@@ -2,6 +2,8 @@ import React from 'react';
 import Mainody from './Components/mainbody/mainbody';
 import '../../Css/review-more/review-more.css';
 import LoadingAnimation from '../../shared/loading'
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 class ReviewMore extends React.Component {
     constructor() {
@@ -27,6 +29,8 @@ class ReviewMore extends React.Component {
 
         const pageIsNotLoading =  
                 <div>
+                    <Header/>
+                    <Sidebar/>
                     <Mainody />
                 </div>
         let pageContent;

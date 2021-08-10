@@ -1,8 +1,11 @@
 import React from 'react';
-import { Switch ,BrowserRouter as Router, Route } from 'react-router-dom'
-import QuestionLike from './questionlike'
-import QuestionDislike from './questiondislike'
-import LoadingAnimation from '../../shared/loading'
+import { Switch ,BrowserRouter as Router, Route } from 'react-router-dom';
+import QuestionLike from './questionlike';
+import QuestionDislike from './questiondislike';
+import LoadingAnimation from '../../shared/loading';
+
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 class ReviewArticleQuestion extends React.Component {
   constructor() {
@@ -40,6 +43,7 @@ class ReviewArticleQuestion extends React.Component {
     const pageIsNotLoading = 
         <Router>
           <div>
+          
             <Switch>
               <Route exact path='/' exact component= {QuestionLikeComponent} />
               <Route path='/second' exact component= {QuestionDislikeComponent} />

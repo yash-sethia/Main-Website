@@ -5,6 +5,8 @@ import '../../Css/read-review/readreview.css'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from '../AuthContext';
 import { Dropdown, Grid, Segment } from 'semantic-ui-react'
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 import axios from'axios';
 
@@ -112,8 +114,10 @@ class ReadReview extends React.Component {
         })
 
 
-        const pageIsNotLoading =
+        const pageIsNotLoading =(
                     <div>
+                      <Header/>
+                      <Sidebar/>
                         <div className="total-grid-read-review">
                             <div className="read-review-title">
                                 <div className="headings">
@@ -155,7 +159,7 @@ class ReadReview extends React.Component {
                                 {reviewBoxCallingArray}
                             </div>
                         </div>
-                    </div>
+                    </div> );
 
 
         let pageContent;

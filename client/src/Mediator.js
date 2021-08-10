@@ -51,8 +51,10 @@ class Mediator extends React.Component {
 
     
     if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
+      console.log("I am inside empty Sidebar");
       sidebarcomponent = <div></div>
     } else {
+      console.log("I am inside full Sidebar");
       sidebarcomponent = <Sidebar/>
     }
 

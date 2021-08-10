@@ -1,10 +1,9 @@
-import React from "react"
-import AnalyticsStructure from "./AnalyticsStructure.js"
-import LoadingAnimation from '../../shared/loading'
-import AnalyticsData from '../../data/AnalyticsData'
-
-
-import axios from 'axios'
+import React from "react";
+import AnalyticsStructure from "./AnalyticsStructure.js";
+import LoadingAnimation from '../../shared/loading';
+import AnalyticsData from '../../data/AnalyticsData';
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 class Analytics extends React.Component {
 
@@ -45,6 +44,8 @@ class Analytics extends React.Component {
 
         const pageIsNotLoading = 
                 <div>
+                    <Header/>
+                    <Sidebar/>
                     {analyticsoverview}
                 </div>
 

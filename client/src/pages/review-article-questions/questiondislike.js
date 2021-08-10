@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
-
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 import axios from 'axios';
 
@@ -54,6 +55,10 @@ class QuestionDislike extends Component {
   render() {
     console.log("From Question Dislike : ", this.state);
     return (
+      <div>
+        <Header/>
+        <Sidebar/>
+          
         <div className="question-like">
             <div className="question">
                 2. What did you think the writer can improve in his article ?
@@ -89,6 +94,7 @@ class QuestionDislike extends Component {
                 Submit 
               </button> {/* Do history.push for changing the page after sending data to backend */}
             </div>
+      </div>
       </div>
     );
   }

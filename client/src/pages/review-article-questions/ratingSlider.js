@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import '../../Css/review-article-questions/ratingSlider.css';
 import { Link } from "react-router-dom";
 
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 import { UserContext } from '../AuthContext';
 
@@ -50,6 +52,10 @@ class RatingSlider extends Component {
     
    
         return (
+            <div>
+            <Header/>
+            <Sidebar/>
+          
             <div className="parentSlider">
                 <div className="container">
                     <div className="emoji">😄</div>
@@ -85,7 +91,7 @@ class RatingSlider extends Component {
 
                 
             </div>
-            
+            </div>
         );
     
 

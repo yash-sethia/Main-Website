@@ -6,8 +6,10 @@ import Box1 from "./MainBody/Box1"
 import Box2 from "./MainBody/Box2"
 import Box3 from "./MainBody/Box3"
 import LoadingAnimation from '../../shared/loading'
-import axios from "axios"
+import axios from "axios";
 
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
 
 class Profile extends React.Component {
     constructor(props){
@@ -72,13 +74,17 @@ class Profile extends React.Component {
         
 
       const pageIsNotLoading = 
-          <div className="profilePageOfUser">
-              <CoverImage coverImage={this.state.coverImage} />
-              <div className="grid-container" >
-                  <Box1 data = {this.state} />
-                  <Box2 data = {this.state} />
-                  <Box3 data = {this.state} />
-              </div>
+          <div>
+            <Header/>
+            <Sidebar/>
+            <div className="profilePageOfUser">
+                <CoverImage coverImage={this.state.coverImage} />
+                <div className="grid-container" >
+                    <Box1 data = {this.state} />
+                    <Box2 data = {this.state} />
+                    <Box3 data = {this.state} />
+                </div>
+            </div>
           </div>;
 
       let pageContent;

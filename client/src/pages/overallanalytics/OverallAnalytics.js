@@ -6,6 +6,10 @@ import Content1 from "./Content1.js"
 import Content2 from "./Content2.js"
 import Content3 from "./Content3.js"
 import Content4 from "./Content4.js"
+
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
+
 import axios from "axios";
 import { UserContext } from '../AuthContext';
 import LoadingAnimation from '../../shared/loading'
@@ -62,45 +66,49 @@ class OverallAnalytics extends React.Component {
         }
         else {
             return (
-                <div className="total-grid-oa">
-                    <div className="page-title"> 
-                        <h1>Analytics</h1>
-                        <div className="sub-nav-overall" id="sub-navlink-overall"> 
-                            <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
-                            <NavLink to="/analytics">TASKS</NavLink>
-                            <NavLink to="/readreview">REVIEW</NavLink>
-                            {/* <NavLink to="/airating">AI REVIEW</NavLink>
-                            <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
+                <div>
+                    <Header/>
+                    <Sidebar/>
+                    <div className="total-grid-oa">
+                        <div className="page-title"> 
+                            <h1>Analytics</h1>
+                            <div className="sub-nav-overall" id="sub-navlink-overall"> 
+                                <NavLink to="/overall-analytics" className="active-overall-analytics">OVERVIEW</NavLink>
+                                <NavLink to="/analytics">TASKS</NavLink>
+                                <NavLink to="/readreview">REVIEW</NavLink>
+                                {/* <NavLink to="/airating">AI REVIEW</NavLink>
+                                <NavLink to="/engagement">ENGAGEMENT</NavLink> */}
+                            </div>
+                        </div>
+                        
+                        <div className="overview">
+                        <Overview
+                            reviewRating= {this.state.reviewRating}
+                            aiRating= {this.state.aiRating}
+                            skillies= {this.state.skillies}
+                            ReviewRatingArray= {this.state.ReviewRatingArray}
+                            AiRatingArray= {this.state.AiRatingArray}
+                            skilliesArray= {this.state.skilliesArray}
+                        />
+                        </div>
+        
+                        <div className="content1">
+                            <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
+                        </div>
+        
+                        <div className="content2">
+                            <Content2 skilliesArray={this.state.skilliesArray}/>
+                        </div>
+        
+                        <div className="content3">
+                            <Content3 data={this.state.pReview + this.state.nReview}/>
+                        </div>
+        
+                        <div className="content4">
+                            <Content4 skilliesArray= {this.state.skilliesArray}/>
                         </div>
                     </div>
-                      
-                    <div className="overview">
-                      <Overview
-                          reviewRating= {this.state.reviewRating}
-                          aiRating= {this.state.aiRating}
-                          skillies= {this.state.skillies}
-                          ReviewRatingArray= {this.state.ReviewRatingArray}
-                          AiRatingArray= {this.state.AiRatingArray}
-                          skilliesArray= {this.state.skilliesArray}
-                      />
-                    </div>
-      
-                    <div className="content1">
-                        <Content1 ReviewRatingArray={this.state.ReviewRatingArray}/>
-                    </div>
-      
-                    <div className="content2">
-                        <Content2 skilliesArray={this.state.skilliesArray}/>
-                    </div>
-      
-                    <div className="content3">
-                        <Content3 data={this.state.pReview + this.state.nReview}/>
-                    </div>
-      
-                    <div className="content4">
-                        <Content4 skilliesArray= {this.state.skilliesArray}/>
-                    </div>
-      </div>
+                </div>
               );
         }
     }

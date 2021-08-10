@@ -5,6 +5,9 @@ import '../../Css/review-article-questions/reviewquestion.css';
 import { Link } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
 
+import Header from '../../shared/Header';
+import Sidebar from '../../shared/Sidebar';
+
 const ConditionalLink = ({ children, to, condition }) => (!!condition && to)
       ? <Link to={to}>{children}</Link>
       : <>{children}</>;
@@ -51,6 +54,10 @@ class QuestionLike extends Component {
   render() {
     console.log("From Question Like : ", this.state);
     return (
+      <div>
+          <Header/>
+          <Sidebar/>
+          
         <div className="question-like">
             <div className="question">
                 1. What did you like in this article ?
@@ -85,6 +92,7 @@ class QuestionLike extends Component {
               <button className="myButton"  onClick = {() => this.errorCheck()}> Next </button>
             </ConditionalLink>
             </div> 
+      </div>
       </div>
     );
   }
