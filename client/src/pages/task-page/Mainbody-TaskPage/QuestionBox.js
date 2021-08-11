@@ -11,6 +11,9 @@ function QuestionBox(props) {
 
                                 <div className="question-text">
                                     {props.QuestionText}
+                                    <br/>
+                                    <br/>
+                                    Think Read, Learn and Write!!
                                 </div>
                                 
                             </div>

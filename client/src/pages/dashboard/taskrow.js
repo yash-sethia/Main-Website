@@ -1,5 +1,8 @@
 import React from 'react';
-import taskImage from '../../images/food.png'
+import donutImg from '../../images/food.png';
+import linkedImg from '../../images/linkedin.png';
+import moneyImg from '../../images/money.png';
+import cryptoImg from '../../images/crypto.png';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -21,6 +24,18 @@ function TaskRow(props) {
     const desc = props.brief;
     // console.log("Task tile : ", props)
 
+    const taskImage = {
+        "603e7d4cf49dab101cb36398": donutImg,
+        "603e7d4df49dab101cb36399": donutImg,
+        "603e7d74f49dab101cb3639a": cryptoImg,
+        "603e7d78f49dab101cb3639b": linkedImg,
+        "603e7d7bf49dab101cb3639c": donutImg,
+        "603e7d7ef49dab101cb3639d": donutImg,
+        "603e7d81f49dab101cb3639e": donutImg,
+        "603e7d84f49dab101cb3639f": donutImg,
+        "603e7d87f49dab101cb363a0": moneyImg
+    }
+
     const taskBrief = desc.slice(0, 120) + "..."
 
     console.log("Task Tile ID : ", props.id )
@@ -32,7 +47,7 @@ function TaskRow(props) {
                     <Paper className={classes.paper}>
                         <div className="article-dashboard" id="article-1">
                             <div className="task-tile-header">
-                                <img src={taskImage} alt="task image" className="tasklogo" />
+                                <img src={taskImage[props.id]} alt="task image" className="tasklogo" />
                                 <div className="article-topic">
                                     <h3>{props.heading}</h3>
                                 </div>
