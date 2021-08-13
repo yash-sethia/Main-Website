@@ -19,7 +19,7 @@ function Buttons(props) {
                         state: {
                           userId: user.id,
                         },
-                      }} style={{ textDecoration: 'none' }}>Proceed To Task</Link>
+                      }} style={{ color: 'black', textDecoration: 'none' }}>Proceed To Task</Link>
                 </button>
             </div>
         );

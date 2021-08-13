@@ -5,7 +5,7 @@
 	padding: 0px;
 	height: 100vh;
 	width: 40px;
-	background-color: #86d9ff;
+	background-color: #2555e4;
 	transition: 0.2s;
 	overflow: hidden;
 	grid-row: 1/3;
@@ -39,7 +39,7 @@
 }
 
 .sidenav ul li a .icons  {
-  color: black;
+  color: #e9e9e9;
 	position: relative;
 	min-width: 40px;
 	height: 40px;
@@ -50,7 +50,7 @@
 }
 
 .sidenav ul li a .options  {
-  color: black;
+  color: #e9e9e9;
 	position: relative;
 	min-width: 40px;
 	height: 40px;
@@ -68,7 +68,7 @@
 	padding: 0px;
 	height: 100vh;
 	width: 200px;
-	background-color: #86d9ff;
+	background-color: #2555e4;
 	transition: 0.2s;
 	overflow: hidden;
 	grid-row: 1/3;
@@ -92,7 +92,18 @@
 }
 
 .sidenav-item:hover{
-	background-color: #ffffff;
+	background-color: #86d9ff;
+
+}
+
+.sidenav-item:hover .icons{
+	color: black;
+
+}
+
+.sidenav-item:hover .options{
+	color: black;
+
 }
 
 .sidenavOpen ul li a {
@@ -104,7 +115,7 @@
 }
 
 .icons  {
-  color: black;
+  color: #e9e9e9;
 	position: relative;
 	min-width: 40px;
 	height: 40px;
@@ -115,7 +126,7 @@
 }
 
 .options  {
-  color: black;
+  color: #e9e9e9;
 	position: relative;
 	min-width: 40px;
 	height: 40px;

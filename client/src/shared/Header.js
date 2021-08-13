@@ -2,7 +2,7 @@ import React, {useContext} from "react"
 import UserData from "../data/UserData.js";
 import { UserContext } from '../pages/AuthContext';
 import Button from '@material-ui/core/Button';
-import logo from '../images/logo.svg';
+import logo from '../images/logo.png';
 import { Link } from "react-router-dom";
 
 import "./Header.css"

@@ -24,9 +24,14 @@
 	margin-left: 3%;
 	border-radius: 2em;
 	border: 1px solid black;
-	background: #3d91ff;
+	background: #2555e4;
 	font-size: 120%;
 	padding: 0.3rem;
+}
+
+
+.to-editor-button:hover {
+	background-color: #86d9ff;
 }
 
 /* Media Queries */
