@@ -21,21 +21,13 @@ class TaskPage extends Component {
 
 
       componentDidMount() {
-        console.log("Task Page : ", this.state.taskId) 
-
-        //******************************************************************/
-        // ********************** Need to Fix this Errot *******************/
-        // *************** Here We have passed the id of the task in URL****/
-        // *** (Check taskrow.js Line 26) and to fetch data we need the ID */
-        // ****** But I am unable to read this from the URL itself *********/
-        //******************************************************************/
-        // *****************************************************************/
+        console.log("Task Page : ", this.state.taskId)
 
         axios.get('/api/tasks/' + this.state.taskId).then(res => {
           this.setState({
             isLoading: false,
             QuestionHeading: res.data.taskData.taskName,
-            QuestionText: res.data.taskData.taskDesc             // Check the name of this field
+            QuestionText: res.data.taskData.taskDesc             
           })
         })
         .catch(err => console.log("Taskpage ", err));

@@ -28,16 +28,16 @@ router.route('/topgrid').get((req, res) => {
         // console.log("i = ", i);
         for(; t < 12 && i != limit; i = (i + 1) % n) {
           // console.log("i = ", i);
-          if(biz < 3 && articles[i].articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
+          if(biz < 3 && articles[i].articleID.substring(25, 49) === "603e7d4cf49dab101cb36398" || articles[i].articleID.substring(25, 49) === "603e7d87f49dab101cb363a0") {
             t++;
             biz++;
             only5.push(articles[i]);
           }
-          else if(tech < 3 && articles[i].articleID.substring(25, 49) == "603e7d74f49dab101cb3639a") {
+          else if(tech < 3 && articles[i].articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || articles[i].articleID.substring(25, 49) === "603e7d78f49dab101cb3639b") {
             t++;
             tech++;
             only5.push(articles[i]);
-            console.log("Hi");
+            // console.log("Hi");
           }
           else if(life < 3 && articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
             t++;
@@ -57,8 +57,8 @@ router.route('/topgrid').get((req, res) => {
   });
 
 // Task id and category match up
-// Business : "603e7d4cf49dab101cb36398"
-// Technology : "603e7d74f49dab101cb3639a"
+// Business : "603e7d4cf49dab101cb36398" or "603e7d87f49dab101cb363a0"
+// Technology : "603e7d74f49dab101cb3639a" or "603e7d78f49dab101cb3639b"
 // Lifestyle : 603e7d7bf49dab101cb3639c
 // Science : 603e7d81f49dab101cb3639e 24
 

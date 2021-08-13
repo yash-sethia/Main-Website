@@ -96,7 +96,7 @@ router.route('/:id').get((req, res) => {
             for(let i = 0; i < n; i++) {
                 for(let j = 0; j < aids.length; j++) {
                     if(aids[j] == reviews[i].articleId) {
-                        console.log("hello");
+                        // console.log("hello");
                         prev = prev + reviews[i].positiveReview;
                         nrev = nrev + reviews[i].negativeReview;
                     }

@@ -27,11 +27,11 @@ class Leftgrid extends React.Component {
             const { text } = useReadingTime(item.articleContent);
             var str = item.articleContent.replace(/<[^>]+>/g, '');
             var gen;
-            if(item.articleID.substring(25, 49) == "603e7d4cf49dab101cb36398") {
+            if(item.articleID.substring(25, 49) === "603e7d4cf49dab101cb36398" || item.articleID.substring(25, 49) === "603e7d87f49dab101cb363a0") {
               console.log("biz");
               gen = "business";
             }
-            else if(item.articleID.substring(25, 49) == "603e7d74f49dab101cb3639a") {
+            else if(item.articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || item.articleID.substring(25, 49) === "603e7d78f49dab101cb3639b") {
               console.log("tech");
               gen = "technology";
             }
