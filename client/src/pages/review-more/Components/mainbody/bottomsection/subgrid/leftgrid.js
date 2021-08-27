@@ -31,15 +31,15 @@ class Leftgrid extends React.Component {
               console.log("biz");
               gen = "business";
             }
-            else if(item.articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || item.articleID.substring(25, 49) === "603e7d78f49dab101cb3639b") {
+            else if(item.articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || item.articleID.substring(25, 49) === "603e7d78f49dab101cb3639b" || item.articleID.substring(25, 49) === "603e7d7ef49dab101cb3639d") {
               console.log("tech");
               gen = "technology";
             }
-            else if(item.articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c") {
+            else if(item.articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c" || item.articleID.substring(25, 49) == "603e7d84f49dab101cb3639f") {
               console.log("life");
               gen = "lifestyle";
             }
-            else if(item.articleID.substring(25, 49) == "603e7d81f49dab101cb3639e") {
+            else if(item.articleID.substring(25, 49) == "603e7d81f49dab101cb3639e" || item.articleID.substring(25, 49) == "603e7d4df49dab101cb36399") {
               console.log("sci")
               gen = "science";
             }
