@@ -4,6 +4,7 @@ import ArticleData from "../../data/ArticleData.js"
 import HeaderText from "./Mainbody-Review-Page/HeaderText.js"
 import LoadingAnimation from '../../shared/loading';
 import { Link } from "react-router-dom";
+import parse from 'html-react-parser';
 
 import axios from 'axios';
 
@@ -49,8 +50,8 @@ class ReviewPage extends Component {
                             articleThumbnail={this.state.articleThumbnail}
                         />
 
-                        <div className="article-text-reviewpage">
-                            {this.state.articleContent}
+                        <div className="article-text-reviewpage" style={{color: 'black'}}>
+                            {parse(this.state.articleContent)}
                         </div>
 
                         <Link 
