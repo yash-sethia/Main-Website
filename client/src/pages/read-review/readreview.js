@@ -70,7 +70,7 @@ class ReadReview extends React.Component {
 
 
     handleChange = (e, { value, text }) => {
-        const tasks = ["", "603e7d4cf49dab101cb36398", "603e7d4cf49dab101cb36399", "603e7d4cf49dab101cb3639a", "603e7d4cf49dab101cb3639b", "603e7d4cf49dab101cb3639c", "603e7d4cf49dab101cb3639d", "603e7d4cf49dab101cb3639e", "603e7d4cf49dab101cb3639f", "603e7d87f49dab101cb363a0"]
+      const tasks = ["", "603e7d4cf49dab101cb36398", "603e7d4df49dab101cb36399", "603e7d74f49dab101cb3639a", "603e7d78f49dab101cb3639b", "603e7d7bf49dab101cb3639c", "603e7d7ef49dab101cb3639d", "603e7d81f49dab101cb3639e", "603e7d84f49dab101cb3639f", "603e7d87f49dab101cb363a0"]
         this.setState({ value: value })
         console.log("Hell Yeah!!", value)
         const data = {
@@ -78,6 +78,7 @@ class ReadReview extends React.Component {
           // "userId": "60ba74fe58bb8d6268e11971",
           "taskId": tasks[value]
         }
+        console.log("This is data: ", data)
         axios.post("api/getreviews", data).then(res => {
             console.log("Inside then")
           this.setState({

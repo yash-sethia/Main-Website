@@ -3,7 +3,7 @@ const Article = require('../models/article.model');
 
 router.route('/:id').get((req, res) => {
     Article.find().then(articles => {
-        const tasks = ["603e7d4cf49dab101cb36398", "603e7d4cf49dab101cb36399", "603e7d4cf49dab101cb3639a", "603e7d4cf49dab101cb3639b", "603e7d4cf49dab101cb3639c", "603e7d4cf49dab101cb3639d", "603e7d4cf49dab101cb3639e", "603e7d4cf49dab101cb3639f", "603e7d87f49dab101cb363a0"];
+        const tasks = ["603e7d4cf49dab101cb36398", "603e7d4df49dab101cb36399", "603e7d74f49dab101cb3639a", "603e7d78f49dab101cb3639b", "603e7d7bf49dab101cb3639c", "603e7d7ef49dab101cb3639d", "603e7d81f49dab101cb3639e", "603e7d84f49dab101cb3639f", "603e7d87f49dab101cb363a0"];
         let n = articles.length;
         var skillies = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         for(let i = 0; i < n; i++) {
