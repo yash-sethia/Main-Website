@@ -15,7 +15,7 @@ router.route('/:id').get((req, res) => {
                 }
             }
             if(idx != -1) {
-                skillies[idx] = articles[i].skilliesEarned
+                skillies[idx] = articles[i].skilliesEarned.toFixed(2);
             }
         }
         skillies.reverse();

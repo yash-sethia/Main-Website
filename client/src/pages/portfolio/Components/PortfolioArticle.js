@@ -4,6 +4,7 @@ import HeaderText from "../../review-page/Mainbody-Review-Page/HeaderText.js"
 import LoadingAnimation from '../../../shared/loading';
 import axios from 'axios';
 import Header from '../../../shared/viewArticleHeader'
+import parse from 'html-react-parser';
 
 class PortfolioArticle extends Component {
     constructor(props){
@@ -50,7 +51,7 @@ class PortfolioArticle extends Component {
                         />
 
                         <div className="article-text-reviewpage">
-                            {this.state.articleContent}
+                            {parse(this.state.articleContent)}
                         </div>
                     </div>
                 </div>

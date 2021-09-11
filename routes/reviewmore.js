@@ -27,24 +27,24 @@ router.route('/topgrid').get((req, res) => {
         var limit = i == 0? n : i - 1;
         // console.log("i = ", i);
         for(; t < 12 && i != limit; i = (i + 1) % n) {
-          // console.log("i = ", i);
-          if(biz < 3 && articles[i].articleID.substring(25, 49) === "603e7d4cf49dab101cb36398" || articles[i].articleID.substring(25, 49) === "603e7d87f49dab101cb363a0") {
+          console.log("i = ", i);
+          if(biz < 3 && (articles[i].articleID.substring(25, 49) === "603e7d4cf49dab101cb36398" || articles[i].articleID.substring(25, 49) === "603e7d87f49dab101cb363a0")) {
             t++;
             biz++;
             only5.push(articles[i]);
           }
-          else if(tech < 3 && articles[i].articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || articles[i].articleID.substring(25, 49) === "603e7d78f49dab101cb3639b" || articles[i].articleID.substring(25, 49) === "603e7d7ef49dab101cb3639d") {
+          else if(tech < 3 && (articles[i].articleID.substring(25, 49) === "603e7d74f49dab101cb3639a" || articles[i].articleID.substring(25, 49) === "603e7d78f49dab101cb3639b" || articles[i].articleID.substring(25, 49) === "603e7d7ef49dab101cb3639d")) {
             t++;
             tech++;
             only5.push(articles[i]);
-            // console.log("Hi");
+            console.log("Tech = ", tech);
           }
-          else if(life < 3 && articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c" || articles[i].articleID.substring(25, 49) == "603e7d84f49dab101cb3639f") {
+          else if(life < 3 && (articles[i].articleID.substring(25, 49) == "603e7d7bf49dab101cb3639c" || articles[i].articleID.substring(25, 49) == "603e7d84f49dab101cb3639f")) {
             t++;
             life++;
             only5.push(articles[i]);
           }
-          else if(sci < 3 && articles[i].articleID.substring(25, 49) == "603e7d81f49dab101cb3639e" || articles[i].articleID.substring(25, 49) == "603e7d4df49dab101cb36399") {
+          else if(sci < 3 && (articles[i].articleID.substring(25, 49) == "603e7d81f49dab101cb3639e" || articles[i].articleID.substring(25, 49) == "603e7d4df49dab101cb36399")) {
             sci++;
             t++;
             only5.push(articles[i]);

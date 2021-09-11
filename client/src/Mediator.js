@@ -50,7 +50,7 @@ class Mediator extends React.Component {
     let sidebarcomponent;
 
     
-    if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
+    if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/editor") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" ||  window.location.pathname=="/setprofile") { 
       console.log("I am inside empty Sidebar");
       sidebarcomponent = <div></div>
     } else {
@@ -61,7 +61,7 @@ class Mediator extends React.Component {
     /* Header */
     let headercomponent;
 
-    if (window.location.pathname.includes("/portfolio") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
+    if (window.location.pathname.includes("/portfolio")  || window.location.pathname.includes("/editor") || window.location.pathname.includes("/viewArticle") || window.location.pathname=="/" || window.location.pathname=="/setprofile") {
       headercomponent = <div></div>
     } else {
       headercomponent = <Header/>
@@ -80,8 +80,8 @@ class Mediator extends React.Component {
         <UserProvider>
       <Router>
       <div className="Mediator">
-          {headercomponent}
-          {sidebarcomponent}
+          {/* {headercomponent}
+          {sidebarcomponent} */}
           <Switch>
             <Route exact path="/" exact component={HomePage} />    
             {/* <GuestRoute location={this.props.location} path="/" component={HomePageComponent} /> */}

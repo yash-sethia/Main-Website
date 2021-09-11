@@ -26,7 +26,8 @@ router.route('/add').post((req, res) => {
   const aiRating_2 = req.body.aiRating_2;
   const aiRating_3 = req.body.aiRating_3;
   const aiRating_4 = req.body.aiRating_4;
-  const skilliesEarned = req.body.skilliesEarned;
+  const skilliesEarned = 20;
+
 
   const newArticle = new Article({
       articleID,

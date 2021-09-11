@@ -27,6 +27,9 @@ class OverallAnalytics extends React.Component {
             reviewRating: 0,                             //AvgReviewRating of the user
             aiRating: 0,                                 //AvgAIRating of the user
             skillies: 0,                                 //Total skillies earned by the user
+            aiRatingChange: 0,
+            reviewRatingChange: 0,
+            skilllyChange: 0,
             ReviewRatingArray: [],                       //an array of ReviewRating of each article of the user
             AiRatingArray: [],                           //an array of AIRating of each article of the user
             skilliesArray: [],                           //an array of skillies earned in each article of the user
@@ -56,7 +59,7 @@ class OverallAnalytics extends React.Component {
             })
             
         })
-        .catch(err => console.log("Error on Overall Analytics : ", err))
+        .catch(err => console.log("Error on Overall Analytics : ", err));
     }
     
     render() {
