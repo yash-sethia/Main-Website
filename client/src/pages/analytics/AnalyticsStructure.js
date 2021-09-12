@@ -116,14 +116,14 @@ class AnalyticsStructure extends React.Component {
       console.log("Data being sent to word cloud: ", this.state.positiveReview);
       const options = [
         { key: '2', value: '1', text: 'Dunk of Dunkin' },
-        { key: '3', value: '2', text: 'Dunk of Dunkin' },
-        { key: '4', value: '3', text: 'Dunk of Dunkin' },
-        { key: '5', value: '4', text: 'Dunk of Dunkin' },
-        { key: '6', value: '5', text: 'Dunk of Dunkin' },
-        { key: '7', value: '6', text: 'Dunk of Dunkin' },
-        { key: '8', value: '7', text: 'Dunk of Dunkin' },
-        { key: '9', value: '8', text: 'Dunk of Dunkin' },
-        { key: '10', value: '9', text: 'Dunk of Dunkin' },
+        { key: '3', value: '2', text: 'Space Tourism' },
+        { key: '4', value: '3', text: 'Chain of Blocks' },
+        { key: '5', value: '4', text: 'Linked via LinkedIn' },
+        { key: '6', value: '5', text: 'Mental Health' },
+        { key: '7', value: '6', text: 'AI-The Future' },
+        { key: '8', value: '7', text: 'Time Travel' },
+        { key: '9', value: '8', text: 'Effect of COVID' },
+        { key: '10', value: '9', text: 'What about Money' },
     ]
 
     const TaskOverviewAnalytics = (
