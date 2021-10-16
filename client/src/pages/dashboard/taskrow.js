@@ -3,10 +3,16 @@ import donutImg from '../../images/food.png';
 import linkedImg from '../../images/linkedin.png';
 import moneyImg from '../../images/money.png';
 import cryptoImg from '../../images/crypto.png';
+import spaceImg from '../../images/space.jpg';
+import mentalImg from '../../images/images.png';
+import aiImg from '../../images/robot.jpg';
+import timeImg from '../../images/time.svg';
+import covidImg from '../../images/covid.jpg';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { NavLink, Link } from "react-router-dom";
+import parse from 'html-react-parser';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,13 +32,13 @@ function TaskRow(props) {
 
     const taskImage = {
         "603e7d4cf49dab101cb36398": donutImg,
-        "603e7d4df49dab101cb36399": donutImg,
+        "603e7d4df49dab101cb36399": spaceImg,
         "603e7d74f49dab101cb3639a": cryptoImg,
         "603e7d78f49dab101cb3639b": linkedImg,
-        "603e7d7bf49dab101cb3639c": donutImg,
-        "603e7d7ef49dab101cb3639d": donutImg,
-        "603e7d81f49dab101cb3639e": donutImg,
-        "603e7d84f49dab101cb3639f": donutImg,
+        "603e7d7bf49dab101cb3639c": mentalImg,
+        "603e7d7ef49dab101cb3639d": aiImg,
+        "603e7d81f49dab101cb3639e": timeImg,
+        "603e7d84f49dab101cb3639f": covidImg,
         "603e7d87f49dab101cb363a0": moneyImg
     }
 
@@ -54,7 +60,7 @@ function TaskRow(props) {
                             </div>
                             <div className="article-details">
                                 <p>
-                                    {taskBrief}
+                                    {parse(taskBrief)}
                                 </p>
                                 <br />
                                 {/*

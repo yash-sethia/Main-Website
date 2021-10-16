@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "../../../Css/task-page/QuestionBox.css"
+import parse from 'html-react-parser';
 
 function QuestionBox(props) {
         return (
@@ -10,7 +11,7 @@ function QuestionBox(props) {
                                 </div>
 
                                 <div className="question-text">
-                                    {props.QuestionText}
+                                    {parse(props.QuestionText)}
                                     <br/>
                                     <br/>
                                     Think Read, Learn and Write!!

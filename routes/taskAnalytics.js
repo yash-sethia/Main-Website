@@ -28,7 +28,7 @@ router.route('/').post((req, res) => {
                 Aid: 1,
                 reviewRating: article[0].reviewRating.toFixed(2),
                 aiRating: article[0].aiRating.toFixed(2),
-                SkillliesEarned: article[0].skilliesEarned,
+                SkillliesEarned: article[0].skilliesEarned.toFixed(2),
                 DaysTaken: "Soon :)",
                 reviewRatingChange: rrc.toFixed(2),
                 aiRatingChange: airc.toFixed(2),
