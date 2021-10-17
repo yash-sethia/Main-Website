@@ -25,7 +25,7 @@ class Transactions extends React.Component {
 		.catch(err => console.log("Recent Transactions frontend errror: ", err));
 	}
     render() {
-		const tasks = ["Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin","Dunk of Dunkin"]
+		const tasks = ["Dunk of Dunkin ", "Space Tourism", "Chain of Blocks", "Linked via LinkedIn", "Mental Health", "AI-The Future", "Time Travel", "Effect of COVID", "What about Money"]
 		var idx = -1;
 		const transactions = this.state.transact.map(item => {
 			idx++;
