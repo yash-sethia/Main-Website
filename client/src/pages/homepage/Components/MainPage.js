@@ -259,7 +259,7 @@ class MainPage extends React.Component {
                         <div className="meritsText">
                             <div className="meritsTextContainer">
                                 <h3>Real World issues</h3>
-                                <p>The writing prompts offered are based on prevalent themes which in turn will assist you in curating an contemporary portfolio.</p>
+                                <p>The writing prompts offered are based on prevalent themes which in turn will assist you in curating a contemporary portfolio.</p>
                             </div>
                         </div>
                         <div className="meritsSvgs">
