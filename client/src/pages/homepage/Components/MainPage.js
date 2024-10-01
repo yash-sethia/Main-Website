@@ -190,7 +190,7 @@ class MainPage extends React.Component {
                                     <li>
                                         {/* <Link to={'/login'} target='_blank' > */}
                                             <GoogleLogin
-                                                clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+                                                clientId="949452281203-h3h17hsmph72a6u2b2f98oh48u9i12su.apps.googleusercontent.com"
                                                 buttonText="Login"
                                                 onSuccess={this.responseGoogle}
                                                 onFailure={this.responseGoogle}
@@ -213,7 +213,7 @@ class MainPage extends React.Component {
                             <h2>The easiest way to start a<br/>career in Content Writing</h2>
                             <div className="subtext">Learn as a community, Give back to the community, Grow as a community</div>
                                             <GoogleLogin
-                                                clientId="949452281203-a5upq6fj02kl2t11gbrpa476n2vu3e04.apps.googleusercontent.com"
+                                                clientId="949452281203-h3h17hsmph72a6u2b2f98oh48u9i12su.apps.googleusercontent.com"
                                                 buttonText="Login"
                                                 onSuccess={this.responseGoogle}
                                                 onFailure={this.responseGoogle}
